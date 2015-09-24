@@ -1,0 +1,35 @@
+// variables-custom.less - to change primary colour, rounded corners, etc.
+@import "modules/variables-custom.less";
+// bootstrap mixins
+@import "modules/mixins.less";
+// custom mixins
+@import "modules/mixins-custom.less";
+// navbar
+@import "modules/navbar.less";
+// general styles - body, .ribbon, .box
+@import "modules/general.less";
+// homepage elements - advantages, slider, full screen homepage
+@import "modules/homepage.less";
+
+// specific page elements, I leave #content to avoid compatibility issues with the previous versions
+#content {
+
+    // homepage elements - advantages, slider, full screen homepage
+    @import "modules/products.less";
+    // pages - 404, contact, text page
+    @import "modules/pages.less";
+    // blog
+    @import "modules/blog.less";
+    // basket, checkout, customer pages
+    @import "modules/checkout-customer.less";
+
+}
+// footer
+@import "modules/footer.less";
+// demo styling
+@import "modules/demo.less";
+
+// bootstrap base stylesheet overrides
+@import "theme.less";
+// megamenu
+@import "modules/yamm.less";

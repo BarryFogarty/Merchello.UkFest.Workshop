@@ -1,0 +1,86 @@
+.navbar {
+
+    .yamm-content {
+	h3 {font-size: @font-size-h4; font-weight: 400; text-transform: uppercase; padding-bottom: 10px; margin-top: 5px;  border-bottom: dotted 1px @gray;
+	    @media (max-width: @grid-float-breakpoint-max) {
+		font-size: @font-size-h5;
+	    }
+	}
+	h5 {text-transform: uppercase; padding-bottom: 10px;  border-bottom: dotted 1px @gray;}
+	ul {margin: 0; padding: 0;
+	    li {list-style-type: none; border-bottom: solid 1px @gray-lighter; text-transform: uppercase; padding: 4px 0; 
+		a {color: @gray-light; font-size: @font-size-small; display: block;
+		   &:hover {color: @brand-primary; text-decoration: none; }
+		}
+	    }
+	}
+	.banner {margin-bottom: 10px;}
+    }
+
+    ul.nav > li > a {text-transform: uppercase; text-decoration: underline;}
+    li.active a {text-decoration: none !important;}
+
+    .yamm-fw .dropdown-menu {padding: 0; }
+    .normal-dropdown .dropdown-menu {
+	li {text-transform: uppercase; padding: 4px 0; font-weight: 400; }
+
+    }
+
+    .navbar-buttons {float: right;
+		     button, a.btn, .btn-default.navbar-toggle {.navbar-vertical-align(40px); margin-left: 0; margin-right: 5px;}
+
+    }
+
+    .btn-default, .btn-default.navbar-toggle {color: @gray-light; background-color: #fff; margin-left: 7px; margin-right: 0;
+					      &:hover,
+						  &:focus {
+						  background-color: #fff; border-color: @brand-primary; color: @brand-primary;
+					      } 
+
+    }
+
+    #search {clear: both; border-top: solid 1px @brand-primary; text-align: right;
+	     .navbar-form {float: right; width: 500px;
+			   .input-group {display: table;
+					 .input-group-btn {white-space: nowrap; width: 1%;}
+					 .form-control {width: 100%;}	     
+
+			   }
+			   @media (max-width: @grid-float-breakpoint) {
+			       float: none; width: auto;
+			   }
+	     }
+
+    }
+
+
+    #basket-overview {
+	a {margin-left: 7px;}
+    }
+
+
+
+    .footer {background: @brand-primary; padding: 20px 30px;
+	     h4 {font-size: @font-size-h3; text-transform: uppercase; color: #fff; margin: 5px 0 0 0;}
+
+	     .buttons {
+		 .btn, .btn.btn-default {font-family: @font-family-sans-serif; text-transform: uppercase !important; color: @gray;}
+	     }
+
+    }
+}
+
+#login-modal {overflow: hidden;
+	      .modal-header {
+		  h4 {text-transform: uppercase;}
+	      }
+	      form {margin-bottom: @line-height-computed;}
+	      a {color: @brand-primary;}
+	      p {font-weight: 300; margin-bottom: @line-height-computed; font-size: @font-size-base - 1;}
+
+
+}
+
+.modal-backdrop {
+    z-index: 1035;
+}

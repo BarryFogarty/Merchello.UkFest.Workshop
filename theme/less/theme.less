@@ -1,0 +1,747 @@
+/* Original Boostrap template overwrite */
+
+/* nav */
+
+.nav {
+    margin-bottom: 0;
+    padding-left: 0; // Override default ul/ol
+    list-style: none;
+    &:extend(.clearfix all);
+    > li {
+	> a {
+	    padding: @nav-link-padding;
+	    &:hover,
+		&:focus {
+		background-color: @nav-link-hover-bg;
+	    }
+	}
+	&.disabled > a {
+	    color: @nav-disabled-link-color;
+
+	    &:hover,
+		&:focus {
+		color: @nav-disabled-link-hover-color;
+	    }
+	}
+    }
+    .open > a {
+	&,
+	&:hover,
+	    &:focus {
+	    background-color: @nav-link-hover-bg;
+	    border-color: @link-color;
+	}
+    }
+}
+
+.nav-tabs {
+    border-bottom: 1px solid @nav-tabs-border-color;
+    > li {
+	> a {
+	    line-height: @line-height-base;
+	    border-radius: @border-radius-base @border-radius-base 0 0;
+	    &:hover {
+		border-color: @nav-tabs-link-hover-border-color @nav-tabs-link-hover-border-color @nav-tabs-border-color;
+	    }
+	}
+
+	&.active > a {
+	    &,
+	    &:hover,
+		&:focus {
+		color: @nav-tabs-active-link-hover-color;
+		background-color: @nav-tabs-active-link-hover-bg;
+		border: 1px solid @nav-tabs-active-link-hover-border-color;
+	    }
+	}
+    }
+}
+
+.nav-pills {
+    > li {
+	> a {
+	    border-radius: @nav-pills-border-radius;
+	}
+	&.active > a {
+	    &,
+	    &:hover,
+		&:focus {
+		color: @nav-pills-active-link-hover-color;
+		background-color: @nav-pills-active-link-hover-bg;
+	    }
+	}
+    }
+}
+
+.nav-tabs-justified {
+
+    > li > a {
+	border-radius: @border-radius-base;
+    }
+
+    > .active > a,
+    > .active > a:hover,
+	> .active > a:focus {
+	border: 1px solid @nav-tabs-justified-link-border-color;
+    }
+
+    @media (min-width: @screen-sm-min) {
+	> li > a {
+	    border-bottom: 1px solid @nav-tabs-justified-link-border-color;
+	    border-radius: @border-radius-base @border-radius-base 0 0;
+	}
+	> .active > a,
+	> .active > a:hover,
+	    > .active > a:focus {
+	    border-bottom-color: @nav-tabs-justified-active-link-border-color;
+	}
+    }
+}
+
+/* navbar */
+
+.navbar {
+    font-family: @font-family-sans-serif;
+    min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
+    margin-bottom: @navbar-margin-bottom;
+    border-bottom: 1px solid transparent;
+    &:extend(.clearfix all);
+
+    @media (min-width: @grid-float-breakpoint) {
+	border-radius: @navbar-border-radius;
+    }
+}
+
+
+.navbar-collapse {
+    max-height: @navbar-collapse-max-height;
+    overflow-x: visible;
+    padding-right: @navbar-padding-horizontal;
+    padding-left:  @navbar-padding-horizontal;
+
+    &.in {
+	overflow-y: auto;
+    }
+
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+	font-size: @font-size-base - 2px;
+    }
+    @media (min-width: @grid-float-breakpoint) {
+	float: left;
+	width: auto;
+	border-top: 0;
+	box-shadow: none;
+
+	&.collapse {
+	    display: block !important;
+	    height: auto !important;
+	    padding-bottom: 0; // Override default setting
+	    overflow: visible !important;
+	}
+
+	&.in {
+	    overflow-y: visible;
+	}
+
+	&.right {
+	    float: right;
+	}    
+
+	.navbar-fixed-top &,
+	.navbar-static-top &,
+	.navbar-fixed-bottom & {
+	    padding-left: 0;
+	    padding-right: 0;
+	}
+    }
+
+}
+
+.container,
+.container-fluid {
+    > .navbar-header,
+    > .navbar-collapse {
+	margin-right: -@navbar-padding-horizontal;
+	margin-left:  -@navbar-padding-horizontal;
+
+	@media (min-width: @grid-float-breakpoint) {
+	    margin-right: 0;
+	    margin-left:  0;
+	}
+    }
+}
+
+
+.navbar-brand {
+    float: left;
+    padding: 10px @navbar-padding-horizontal;
+    font-size: @font-size-large;
+    line-height: @line-height-computed;
+    height: @navbar-height;
+
+    &:hover,
+	&:focus {
+	text-decoration: none;
+    }
+
+    @media (min-width: @grid-float-breakpoint) {
+	.navbar > .container &,
+	.navbar > .container-fluid & {
+	    margin-left: -@navbar-padding-horizontal;
+	}
+    }
+
+}
+
+.navbar-toggle {
+    padding: 9px 10px !important;
+    margin-right: @navbar-padding-horizontal;
+    border-radius: @border-radius-base;
+}
+
+
+.navbar-nav {
+    margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+
+    > li > a {
+	padding-top:    10px;
+	padding-bottom: 10px;
+	line-height: @line-height-computed;
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+	// Dropdowns get custom display when collapsed
+	.open .dropdown-menu {
+	    > li > a,
+	    .dropdown-header {
+		padding: 5px 15px 5px 25px;
+	    }
+	    > li > a {
+		line-height: @line-height-computed;
+		&:hover,
+		    &:focus {
+		    background-image: none;
+		}
+	    }
+	}
+    }
+
+    // Uncollapse the nav
+    @media (min-width: @grid-float-breakpoint) {
+	float: left;
+	margin: 0;
+
+	> li {
+	    float: left;
+	    > a {
+		padding-top:    @navbar-padding-vertical;
+		padding-bottom: @navbar-padding-vertical;
+	    }
+	}
+
+	&.navbar-right:last-child {
+	    margin-right: -@navbar-padding-horizontal;
+	}
+    }
+}
+
+
+.navbar-form {
+    margin-left: -@navbar-padding-horizontal;
+    margin-right: -@navbar-padding-horizontal;
+    padding: 10px @navbar-padding-horizontal;
+    border: none;
+    .form-group {
+	@media (max-width: @grid-float-breakpoint-max) {
+	    margin-bottom: 5px;
+	}
+    }
+
+    .navbar-vertical-align(@input-height-base);
+
+}
+
+.navbar-btn {
+    .navbar-vertical-align(@input-height-base);
+
+    &.btn-sm {
+	.navbar-vertical-align(@input-height-small);
+    }
+    &.btn-xs {
+	.navbar-vertical-align(22);
+    }
+}
+
+.navbar-text {
+    .navbar-vertical-align(@line-height-computed);
+
+    @media (min-width: @grid-float-breakpoint) {
+	float: left;
+	margin-left: @navbar-padding-horizontal;
+	margin-right: @navbar-padding-horizontal;
+
+	// Outdent the form if last child to line up with content down the page
+	&.navbar-right:last-child {
+	    margin-right: 0;
+	}
+    }
+}
+
+.navbar-default {
+    background-color: @navbar-default-bg;
+    border-bottom-color: @navbar-default-border;
+
+    .navbar-brand {
+	color: @navbar-default-brand-color;
+	&:hover,
+	    &:focus {
+	    color: @navbar-default-brand-hover-color;
+	    background-color: @navbar-default-brand-hover-bg;
+	}
+    }
+
+    .navbar-text {
+	color: @navbar-default-color;
+    }
+
+    .navbar-nav {
+	> li > a {
+	    color: @navbar-default-link-color;
+
+	    &:hover,
+		&:focus {
+		color: @navbar-default-link-hover-color;
+		background-color: @navbar-default-link-hover-bg;
+	    }
+	}
+	> .active > a {
+	    &,
+	    &:hover,
+		&:focus {
+		color: @navbar-default-link-active-color;
+		background-color: @navbar-default-link-active-bg;
+	    }
+	}
+	> .disabled > a {
+	    &,
+	    &:hover,
+		&:focus {
+		color: @navbar-default-link-disabled-color;
+		background-color: @navbar-default-link-disabled-bg;
+	    }
+	}
+    }
+
+    .navbar-toggle {
+	border-color: @navbar-default-toggle-border-color;
+	&:hover,
+	    &:focus {
+	    background-color: @navbar-default-toggle-hover-bg;
+	}
+	.icon-bar {
+	    background-color: @navbar-default-toggle-icon-bar-bg;
+	}
+    }
+
+    .navbar-collapse {
+	border-color: @navbar-default-border;
+    }
+
+    // Dropdown menu items
+    .navbar-nav {
+	// Remove background color from open dropdown
+	> .open > a {
+	    &,
+	    &:hover,
+		&:focus {
+		background-color: @navbar-default-link-active-bg;
+		color: @navbar-default-link-active-color;
+	    }
+	}
+
+	@media (max-width: @grid-float-breakpoint-max) {
+	    // Dropdowns get custom display when collapsed
+	    .open .dropdown-menu {
+		> li > a {
+		    color: @navbar-default-link-color;
+		    &:hover,
+			&:focus {
+			color: @navbar-default-link-hover-color;
+			background-color: @navbar-default-link-hover-bg;
+		    }
+		}
+		> .active > a {
+		    &,
+		    &:hover,
+			&:focus {
+			color: @navbar-default-link-active-color;
+			background-color: @navbar-default-link-active-bg;
+		    }
+		}
+		> .disabled > a {
+		    &,
+		    &:hover,
+			&:focus {
+			color: @navbar-default-link-disabled-color;
+			background-color: @navbar-default-link-disabled-bg;
+		    }
+		}
+	    }
+	}
+    }
+
+    .navbar-link {
+	color: @navbar-default-link-color;
+	&:hover {
+	    color: @navbar-default-link-hover-color;
+	}
+    }
+
+}
+
+/* scaffolding */
+
+body {
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @text-color;
+    background-color: @body-bg;
+}
+
+a {
+    color: @link-color;
+    text-decoration: none;
+
+    &:hover,
+	&:focus {
+	color: @link-hover-color;
+	text-decoration: underline;
+    }
+
+    &:focus {
+	.tab-focus();
+    }
+}
+
+.img-rounded {
+    border-radius: @border-radius-large;
+}
+
+hr {
+    margin-top:    @line-height-computed;
+    margin-bottom: @line-height-computed;
+    border: 0;
+    border-top: 1px solid @hr-border;
+}
+
+/* breadcrumbs */
+
+.breadcrumb {
+    padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+    margin-bottom: @line-height-computed;
+    background-color: @breadcrumb-bg;
+    border-radius: 0;
+    text-align: right;
+
+    > li {
+
+	+ li:before {
+	    content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+	    color: @breadcrumb-color;
+	}
+    }
+
+    > .active {
+	color: @breadcrumb-active-color;
+    }
+
+    @media (max-width: @screen-sm-max) {
+	padding: @breadcrumb-padding-vertical 0;
+	text-align: center;
+    }
+
+}
+
+/* buttons  */
+
+.btn {
+    font-weight: @btn-font-weight;
+    font-family: @font-family-sans-serif;
+    text-transform: uppercase;
+    .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @border-radius-small );
+}
+
+.btn-primary {
+    .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+
+    &:hover,
+	&:focus,
+	&:active,
+	&:active:focus,
+	&.active {background: @btn-primary-color; color: @btn-primary-bg;}
+}
+
+
+.btn-lg {
+    // line-height: ensure even-numbered height of button next to large input
+    .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-base);
+}
+.btn-sm {
+    // line-height: ensure proper height of button next to small input
+    .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+.btn-xs {
+    .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+
+/* dropdowns */
+
+.dropdown-menu {
+    > li > a {
+	padding: 5px 20px;
+    }
+}
+
+/* labels */
+
+.label {font-family: @font-family-sans-serif; font-weight: normal; text-transform: uppercase;}
+
+/* forms.less */
+
+label {font-weight: normal;}
+
+.form-control {
+    .box-shadow(none);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* pager*/
+
+.pager {
+    margin: @line-height-computed 0;
+    border-top: solid 1px @gray-lighter;
+    padding-top: @line-height-computed;
+    text-transform: uppercase;
+    font-family: @font-family-sans-serif;
+    li {
+	display: inline;
+	> a,
+	> span {
+	    background-color: @pager-bg;
+	    border: 1px solid @pager-border;
+	    border-radius: @pager-border-radius;
+	}
+
+	> a:hover,
+	    > a:focus {
+	    text-decoration: none;
+	    color: #fff;
+	    background-color: @pager-hover-bg;
+	}
+    }
+
+    .disabled {
+	> a,
+	> a:hover,
+	    > a:focus,
+	    > span {
+	    color: @pager-disabled-color;
+	    background-color: @pager-bg;
+	    border-color: #ddd;
+	}
+    }
+}
+
+/* pagination */
+
+.pagination {
+    margin: @line-height-computed 0;
+    font-family: @font-family-sans-serif;
+    border-radius: 0;
+    > li {
+	> a,
+	> span {
+	    padding: @padding-base-vertical @padding-base-horizontal;
+	    line-height: @line-height-base;
+	    text-decoration: none;
+	    color: @pagination-color;
+	    background-color: @pagination-bg;
+	    border: 1px solid @pagination-border;
+	}
+    }
+    > li > a,
+    > li > span {
+	&:hover,
+	    &:focus {
+	    color: @pagination-hover-color;
+	    background-color: @pagination-hover-bg;
+	    border-color: @pagination-hover-border;
+	}
+    }
+
+    > .active > a,
+    > .active > span {
+	&,
+	&:hover,
+	    &:focus {
+	    z-index: 2;
+	    color: @pagination-active-color;
+	    background-color: @pagination-active-bg;
+	    border-color: @pagination-active-border;
+	}
+    }
+
+    > .disabled {
+	> span,
+	> span:hover,
+	    > span:focus,
+	    > a,
+	    > a:hover,
+	    > a:focus {
+	    color: @pagination-disabled-color;
+	    background-color: @pagination-disabled-bg;
+	    border-color: @pagination-disabled-border;
+	}
+    }
+}
+
+/* responsive utilities */
+
+.text-center-xs {
+    @media (max-width: @screen-xs-max) {
+	text-align: center !important;
+	img {.center-block;}
+
+    }
+}
+
+.text-center-sm {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+	text-align: center !important;
+	img {.center-block;}
+
+    }
+}
+
+/* type */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: @headings-font-family;
+    font-weight: @headings-font-weight;
+    line-height: @headings-line-height;
+    color: @headings-color;
+
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    margin-top: @line-height-computed;
+    margin-bottom: (@line-height-computed);
+}
+
+p {
+    margin: 0 0 (@line-height-computed / 2);
+}
+
+.lead {
+    margin-bottom: @line-height-computed;
+    font-size: floor((@font-size-base * 1.15));
+
+    @media (min-width: @screen-sm-min) {
+	font-size: (@font-size-base * 1.5);
+    }
+}
+
+
+.text-small {font-size: @font-size-small;}
+.text-large {font-size: @font-size-large;}
+.text-italic {font-style: italic;}
+
+.text-primary {
+    .text-emphasis-variant(@brand-primary);
+}
+
+.bg-primary {
+    color: #fff;
+    .bg-variant(@brand-primary);
+}
+
+abbr[title],
+abbr[data-original-title] {
+    border-bottom: 1px dotted @abbr-border-color;
+}
+// Blockquotes
+blockquote {
+    padding: (@line-height-computed / 2) @line-height-computed;
+    margin: 0 0 @line-height-computed;
+    font-size: @blockquote-font-size;
+    border-left: 5px solid @blockquote-border-color;
+
+    footer,
+    small,
+    .small {
+	display: block;
+	font-size: 80%; // back to default font-size
+	line-height: @line-height-base;
+	color: @blockquote-small-color;
+
+	&:before {
+	    content: '\2014 \00A0'; // em dash, nbsp
+	}
+    }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+    border-right: 5px solid @blockquote-border-color;
+}
+
+// Addresses
+address {
+    margin-bottom: @line-height-computed;
+    line-height: @line-height-base;
+}
+
+.panel {
+    margin-bottom: @line-height-computed;
+    background-color: @panel-bg;
+    border: 1px solid transparent;
+    border-radius: @panel-border-radius;
+    .box-shadow(0 0 0);
+}
+
+.panel-primary {
+    .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+    .panel-title {font-weight: 300;
+		  a:hover {color: #fff; text-decoration: none;}
+    }
+}
+
+// Hover state, but only for links
+a.badge {
+    &:hover,
+	&:focus {
+	color: @badge-link-hover-color;
+	text-decoration: none;
+	cursor: pointer;
+    }
+}
+
+// Account for counters in navs
+a.list-group-item.active > .badge,
+.nav-pills > .active > a > .badge {
+    color: @badge-active-color;
+    background-color: @badge-active-bg;
+}
+.nav-pills > li > a > .badge {
+    margin-left: 3px;
+}

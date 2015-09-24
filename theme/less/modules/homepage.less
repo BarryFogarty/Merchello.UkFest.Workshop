@@ -1,0 +1,72 @@
+#intro {background: url('../img/home.jpg') no-repeat center top; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; 
+	.item {font-family: @font-family-sans-serif; height: 100%; 
+
+	       h1 {text-transform: uppercase; font-size: 50px; color: #fff;margin-bottom: 40px;
+		   @media (max-width: @screen-sm-max) {
+		       font-size: 40px;
+		   }
+		   @media (max-width: @screen-xs-max) {
+		       font-size: 25px;
+		   }
+	       }
+	       h3 {color: #fff; margin-bottom: 40px;
+
+		   @media (max-width: @screen-xs-max) {
+		       font-size: 15px; margin-bottom: 20px;
+		   }
+
+	       }
+
+	       .btn {text-transform: none;
+		     @media (max-width: @screen-sm-max) {
+			 font-size: 14px;
+		     }
+	       }
+
+	       .carousel-caption {
+		   @media (max-width: @screen-sm-max) {
+		       left: 10%;
+		       right: 10%;
+		   }
+	       }
+	}  
+	.container, .row {
+	    height: 100%; position: relative;
+	}
+} 
+/* advantages homepage */
+#advantages {margin-top: @grid-gutter-width;
+
+	     p {clear: both; color: @gray; text-align: center; margin-bottom: 40px; font-style: italic; font-size: @font-size-large;
+		strong{color: @brand-primary;}
+	     }
+
+	     .box.no-border {text-align: left; margin: 0;
+			     i {position: relative; font-size: 45px; float: left; margin:0 20px 20px 0; color: @gray-light; .ondrTransition; 
+				@media (max-width: @screen-sm-max) { float: none; margin: 0;
+								     text-align: center !important;
+
+
+				}
+			     }
+			     h4 {font-size: 16px; margin-top: 5px; font-weight: 400; text-transform: uppercase; color: #ccc;
+				 a {color: #ccc;
+				    &:hover {text-decoration: none;}
+				 }
+			     }
+			     &:hover {
+				 i {color:@brand-primary;}
+			     }
+	     }
+}
+
+/* homepage slider */
+
+#slider {
+    a img {.ondrTransition;}
+    a:hover img {.opacity(0.8);}
+}
+
+/* breadcrumbs */
+
+.breadcrumb {font-family: @font-family-sans-serif; text-transform: uppercase;}
