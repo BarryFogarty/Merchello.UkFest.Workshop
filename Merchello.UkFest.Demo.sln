@@ -1,9 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Site", "Merchello.UkFest.Demo\Umbraco.Site.csproj", "{3835B8E8-128F-4ED4-9ABF-DB6857A68753}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merchello.UkFest.Demo.Tests", "Merchello.UkFest.Demo.Tests\Merchello.UkFest.Demo.Tests.csproj", "{CCF5F3E1-0E92-4913-93DA-B72E8AC918FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Umbraco.Site", "Umbraco.Site\Umbraco.Site.csproj", "{3835B8E8-128F-4ED4-9ABF-DB6857A68753}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://theme.merchello.ukfest.local", "http://theme.merchello.ukfest.local", "{97FED16C-5331-4188-B3CA-12271615CAAB}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -43,10 +41,6 @@ Global
 		{3835B8E8-128F-4ED4-9ABF-DB6857A68753}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3835B8E8-128F-4ED4-9ABF-DB6857A68753}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3835B8E8-128F-4ED4-9ABF-DB6857A68753}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCF5F3E1-0E92-4913-93DA-B72E8AC918FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCF5F3E1-0E92-4913-93DA-B72E8AC918FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCF5F3E1-0E92-4913-93DA-B72E8AC918FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCF5F3E1-0E92-4913-93DA-B72E8AC918FA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97FED16C-5331-4188-B3CA-12271615CAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{97FED16C-5331-4188-B3CA-12271615CAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97FED16C-5331-4188-B3CA-12271615CAAB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
