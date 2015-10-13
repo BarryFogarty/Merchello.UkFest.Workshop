@@ -457,8 +457,60 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\custom.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\style.blue.css" />
+    <Content Include="css\style.default.css" />
+    <Content Include="css\style.green.css" />
+    <Content Include="css\style.lightblue.css" />
+    <Content Include="css\style.red.css" />
+    <Content Include="css\style.turquoise.css" />
+    <Content Include="css\style.violet.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="img\banner.jpg" />
+    <Content Include="img\banner2.jpg" />
+    <Content Include="img\basketsquare.jpg" />
+    <Content Include="img\blog-avatar.jpg" />
+    <Content Include="img\blog-avatar2.jpg" />
+    <Content Include="img\blog.jpg" />
+    <Content Include="img\blog2.jpg" />
+    <Content Include="img\detailbig1.jpg" />
+    <Content Include="img\detailbig2.jpg" />
+    <Content Include="img\detailbig3.jpg" />
+    <Content Include="img\detailsquare.jpg" />
+    <Content Include="img\detailsquare2.jpg" />
+    <Content Include="img\detailsquare3.jpg" />
+    <Content Include="img\fixed-background-1.jpg" />
+    <Content Include="img\fixed-background-2.jpg" />
+    <Content Include="img\home.jpg" />
+    <Content Include="img\logo-small.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\men.jpg" />
+    <Content Include="img\payment.png" />
+    <Content Include="img\product1.jpg" />
+    <Content Include="img\product2.jpg" />
+    <Content Include="img\product3.jpg" />
+    <Content Include="img\product4.jpg" />
+    <Content Include="img\slide1.jpg" />
+    <Content Include="img\slide2.jpg" />
+    <Content Include="img\slide3.jpg" />
+    <Content Include="img\slide4.jpg" />
+    <Content Include="img\slide5.jpg" />
+    <Content Include="img\slide6.jpg" />
+    <Content Include="img\women.jpg" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\front.js" />
+    <Content Include="js\jquery-1.11.0.min.js" />
+    <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\respond.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -555,6 +607,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\404handlers.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\fonts\FontAwesome.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Home\ProductCarousel.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Account\LoginModal.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Home\NewArrivals.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Home\Advantages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_PromoBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Footer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Copyright.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
