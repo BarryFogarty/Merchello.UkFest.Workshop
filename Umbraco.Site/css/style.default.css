@@ -1211,6 +1211,12 @@ button i.fa {
   color: #ffffff;
   background-color: #c27baa;
 }
+.nav-pills > li.current > a,
+.nav-pills > li.current > a:hover,
+.nav-pills > li.current > a:focus {
+  color: #ffffff;
+  background-color: #c27baa;
+}
 .nav-tabs-justified > li > a {
   border-radius: 4px;
 }
