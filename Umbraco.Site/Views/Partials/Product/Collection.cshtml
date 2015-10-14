@@ -1,0 +1,115 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
+@* Display options *@
+<div class="box info-bar no-border">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 products-showing">
+            Showing <strong>12</strong> of <strong>25</strong> products                            
+        </div>
+
+        <div class="col-sm-12 col-md-8  products-number-sort">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="products-number">
+                            <strong>Show</strong>  <a href="#" class="btn btn-default btn-sm btn-primary">12</a>  <a href="#" class="btn btn-default btn-sm">24</a>  <a href="#" class="btn btn-default btn-sm">All</a>  <span class="hidden-md">products</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="products-sort-by">
+                            <strong>Sort by</strong>
+                            <select name="sort-by" class="form-control">
+                                <option>Price</option>
+                                <option>Name</option>
+                                <option>Sales first</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Product Grid *@
+<div class="row products">
+
+    <div class="col-md-4 col-sm-6">
+        <div class="product">
+            <div class="image">
+                <a href="detail.html">
+                    <img src="img/product1.jpg" alt="" class="img-responsive image1">
+                </a>
+                <div class="quick-view-button">
+                    <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Quick view</a>
+                </div>
+            </div>
+            <!-- /.image -->
+            <div class="text">
+                <h3><a href="#" data-toggle="modal" data-target="#product-quick-view-modal">Fur coat with very but very very long name</a></h3>
+                <p class="price">$143.00</p>
+            </div>
+            <!-- /.text -->
+        </div>
+        <!-- /.product -->
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+        <div class="product">
+            <div class="image">
+                <a href="detail.html">
+                    <img src="img/product2.jpg" alt="" class="img-responsive image1">
+                </a>
+                <div class="quick-view-button">
+                    <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Quick view</a>
+                </div>
+            </div>
+            <!-- /.image -->
+            <div class="text">
+                <h3><a href="detail.html">White Blouse Armani</a></h3>
+                <p class="price"><del>$280</del> $143.00</p>
+            </div>
+            <!-- /.text -->
+
+            <div class="ribbon sale">
+                <div class="theribbon">SALE</div>
+                <div class="ribbon-background"></div>
+            </div>
+            <!-- /.ribbon -->
+
+            <div class="ribbon new">
+                <div class="theribbon">NEW</div>
+                <div class="ribbon-background"></div>
+            </div>
+            <!-- /.ribbon -->
+        </div>
+        <!-- /.product -->
+    </div>
+
+    <div class="col-md-4 col-sm-6">
+        <div class="product">
+            <div class="image">
+                <a href="detail.html">
+                    <img src="img/product3.jpg" alt="" class="img-responsive image1">
+                </a>
+                <div class="quick-view-button">
+                    <a href="#" data-toggle="modal" data-target="#product-quick-view-modal" class="btn btn-default btn-sm">Quick view</a>
+                </div>
+            </div>
+            <!-- /.image -->
+            <div class="text">
+                <h3><a href="detail.html">Black Blouse Versace</a></h3>
+                <p class="price">$143.00</p>
+            </div>
+            <!-- /.text -->
+        </div>
+        <!-- /.product -->
+    </div>
+
+    @Html.Partial("Modal")
+    
+
+</div>
+<!-- /.products -->
+
+@Html.Partial("_Pager")
