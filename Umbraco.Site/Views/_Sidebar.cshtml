@@ -1,0 +1,50 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Base.cshtml";
+}
+
+<div id="content">
+    <div class="container">
+
+        <div class="col-md-12">
+            @Html.Partial("_Breadcrumbs")
+            @Html.Partial("_Header")
+        </div>
+
+        <div class="row">
+
+
+            <!-- *** LEFT COLUMN ***
+			_________________________________________________________ -->
+
+            <div class="col-sm-9">
+
+                @RenderBody()
+
+            </div>
+            <!-- /.col-md-9 -->
+
+            <!-- *** LEFT COLUMN END *** -->
+
+            <!-- *** RIGHT COLUMN ***
+			_________________________________________________________ -->
+
+            <div class="col-sm-3">
+
+                <!-- *** MENUS AND FILTERS ***
+                    _________________________________________________________ -->
+
+                @RenderSection("Sidebar")
+
+                <!-- *** MENUS AND FILTERS END *** -->
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <!-- *** RIGHT COLUMN END *** -->
+
+        </div>
+
+    </div>
+    <!-- /.container -->
+</div>
