@@ -1,0 +1,60 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@using ClientDependency.Core.Mvc
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Minimal |e-commerce template</title>
+
+    <meta name="keywords" content="">
+    @{
+        Html.RequiresCss("http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic")
+            .RequiresCss("css/font-awesome.css")
+            .RequiresCss("css/bootstrap.min.css")
+            .RequiresCss("css/style.default.css")
+            .RequiresCss("css/custom.css")
+            .RequiresCss("css/owl.carousel.css")
+            .RequiresCss("css/owl.theme.css")
+            .RequiresJs("js/respond.min.js")
+            .RequiresJs("js/jquery-1.11.0.min.js")
+            .RequiresJs("js/bootstrap.min.js")
+            .RequiresJs("js/jquery.cookie.js")
+            .RequiresJs("js/front.js")
+            .RequiresJs("js/owl.carousel.min.js");
+    }
+    
+    @Html.RenderCssHere()
+    <link rel="shortcut icon" href="favicon.png">
+
+</head>
+
+<body>
+
+    @Html.Partial("_NavBar")
+
+    @Html.Partial("Account/LoginModal")
+
+    @RenderSection("Head", false)
+
+    <div id="all">
+
+        @RenderBody()
+
+        @Html.Partial("_Footer")
+
+        @Html.Partial("_Copyright")
+
+    </div>
+
+    @Html.RenderJsHere()
+
+</body>
+</html>
