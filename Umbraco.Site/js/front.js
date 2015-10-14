@@ -1,4 +1,4 @@
-if ($.cookie("theme_csspath")) {
+ if ($.cookie("theme_csspath")) {
     $('link#theme-stylesheet').attr("href", $.cookie("theme_csspath"));
 }
 
@@ -238,7 +238,6 @@ function productDetailSizes() {
     });
 }
 
-
 $.fn.alignElementsSameHeight = function () {
     $('.same-height-row').each(function () {
 
@@ -286,4 +285,35 @@ $(window).resize(function () {
 	windowWidth = newWindowWidth;
     }
 
+});
+
+
+
+/* jQuery Steps checkout form */
+
+$("#checkout").steps({
+
+    /* Behaviour */
+    headerTag: "h3",
+    bodyTag: "section",
+    enableFinishButton: false,
+    enablePagination: false,
+    enableAllSteps: true,
+    titleTemplate: "#title#",
+    
+    /* Labels */
+    labels: {
+        //cancel: "Cancel",
+        current: "",
+        //pagination: "Pagination",
+        //finish: "Finish",
+        //next: "Next",
+        //previous: "Previous",
+        //loading: "Loading ..."
+    },
+    
+    /* Events */
+    onInit: function(event, currentIndex) {
+        $("#checkout ul").addClass("nav nav-pills nav-justified");
+    }
 });

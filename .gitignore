@@ -131,16 +131,10 @@ $RECYCLE.BIN/
 # =========================
 **/App_Data/umbraco.config
 **/App_Data/preview/*.config
-**/App_Data/TEMP/ClientDependency/
+**/App_Data/TEMP/*
 **/App_Data/ClientDependency/
-**/App_Data/TEMP/ExamineIndexes/
-**/App_Data/ExamineIndexes/
-**/App_Data/TEMP/PluginCache/*
 **/App_Data/Logs/*
-**/App_Data/TEMP/Razor/
 **/App_Data/FeedCache/
-**/App_Data/courier/revisions/
-**/App_Data/courier/cache/*
 **/App_Data/umbraco.licensing.log.txt
 **/aspnet_client/
 **/App_Data/*.udt

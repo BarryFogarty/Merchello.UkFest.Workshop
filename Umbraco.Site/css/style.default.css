@@ -314,12 +314,12 @@ button i.fa {
   background: #fff;
 }
 #content .bar.background-image-fixed-1 {
-  background: url('../img/fixed-background-1.jpg') center top no-repeat;
+  background: url('/img/fixed-background-1.jpg') center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 #content .bar.background-image-fixed-2 {
-  background: url('../img/fixed-background-2.jpg') center top no-repeat;
+  background: url('/img/fixed-background-2.jpg') center top no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -354,7 +354,7 @@ button i.fa {
   filter: alpha(opacity=30);
 }
 #intro {
-  background: url('../img/home.jpg') no-repeat center top;
+  background: url('/img/home.jpg') no-repeat center top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1208,6 +1208,12 @@ button i.fa {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
+  color: #ffffff;
+  background-color: #c27baa;
+}
+.nav-pills > li.current > a,
+.nav-pills > li.current > a:hover,
+.nav-pills > li.current > a:focus {
   color: #ffffff;
   background-color: #c27baa;
 }
