@@ -1,6 +1,8 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Breadcrumb>
 
 <ul class="breadcrumb">
-    <li><a href="/">Home</a></li>
-    <li>Ladies</li>
+    @foreach (var link in Model.View.Links)
+    {
+        <li><a href="@link.Url">@link.Title</a></li>
+    }
 </ul>
