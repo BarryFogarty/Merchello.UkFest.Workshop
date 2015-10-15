@@ -1,0 +1,41 @@
+﻿@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.PublishedContent.CategoryNavItem>
+@using Merchello.UkFest.Web
+
+<a href="@Model.Url" class="dropdown-toggle" data-toggle="dropdown">@Model.Name<b class="caret"></b></a>
+<ul class="dropdown-menu">
+
+    <li>
+        <div class="yamm-content">
+            <div class="row">
+                <div class="col-sm-3">
+                    @if (Model.WillWork("image"))
+                    {
+                        <img src="@Model.Image.GetCropUrl(height: 170)" class="img-responsive hidden-xs" alt="">
+                    }                    
+                </div>
+                @foreach (var child in Model.VisibleChildren())
+                {
+
+                    <div class="col-sm-3">
+                        <h3><a href="@child.Url">@child.Name</a></h3>
+                        <ul>
+                            @foreach (var sub in child.VisibleChildren())
+                            {
+                                <li>
+                                    <a href="@sub.Url">@sub.Name</a>
+                                </li>
+                            }                           
+                        </ul>
+                    </div>
+                }
+
+            </div>
+        <div class="footer clearfix hidden-xs">
+            <h4 class="pull-right">@Model.Name</h4>
+            <div class="buttons pull-left">
+                <a href="#" class="btn btn-default"><i class="fa fa-tags"></i> Sales</a>
+            </div>
+        </div>
+       </div>
+    </li>
+</ul>

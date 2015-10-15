@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Sidebar.cshtml";
+}
+
+
+@section Sidebar {
+    @Html.Partial("Product/Filters/Category")
+    @Html.Partial("Product/Filters/Brand")
+    @Html.Partial("Product/Filters/Colour")
+}

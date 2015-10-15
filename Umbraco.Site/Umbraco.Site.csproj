@@ -723,6 +723,18 @@
   <ItemGroup>
     <Content Include="Config\uSyncBackOffice.Config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Merchello.UkFest.Web\Merchello.UkFest.Web.csproj">
+      <Project>{b0c5fbcc-7e02-49ee-ad1b-4e6b8ff44624}</Project>
+      <Name>Merchello.UkFest.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SubCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_CategoryNavItem.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

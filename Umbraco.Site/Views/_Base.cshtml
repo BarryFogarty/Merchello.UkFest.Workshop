@@ -1,20 +1,18 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Layout>
+@using Merchello.UkFest.Web.Models
 @using ClientDependency.Core.Mvc
 @{
     Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Minimal |e-commerce template</title>
-
-    <meta name="keywords" content="">
+    <title>@Model.View.MetaValues.PageTitle</title>
+    <meta name="description" content="@Model.View.MetaValues.MetaDescription">
     @{
         Html.RequiresCss("http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic")
             .RequiresCss("/css/font-awesome.css")
@@ -31,12 +29,9 @@
             .RequiresJs("/js/jquery.steps.min.js")
             .RequiresJs("/js/front.js");
     }
-    
     @Html.RenderCssHere()
     <link rel="shortcut icon" href="favicon.png">
-
 </head>
-
 <body>
 
     @Html.Partial("_NavBar")
