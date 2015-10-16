@@ -250,6 +250,7 @@
     <Compile Include="BasketExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BasketController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DitFloController.cs" />
     <Compile Include="Ditto\Contexts\CustomerContextValueResolverContext.cs" />
     <Compile Include="Ditto\ValueResolvers\AddToBasketValueResolver.cs" />
@@ -276,7 +277,9 @@
     <Compile Include="Models\Breadcrumb.cs" />
     <Compile Include="Models\Carousel.cs" />
     <Compile Include="Models\CarouselItem.cs" />
-    <Compile Include="Models\CategoryHeader.cs" />
+    <Compile Include="Models\Category\Category.cs" />
+    <Compile Include="Models\Category\CategoryHeader.cs" />
+    <Compile Include="Models\Category\CategoryTop.cs" />
     <Compile Include="Models\CheckoutBase.cs" />
     <Compile Include="Models\OrderSummary.cs" />
     <Compile Include="Models\ProductBase.cs" />

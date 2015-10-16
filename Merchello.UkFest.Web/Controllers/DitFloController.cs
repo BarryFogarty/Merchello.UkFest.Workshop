@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Web.Mvc;
 
-    using Merchello.UkFest.Web.Models;
     using Merchello.UkFest.Web.Models.DitFlo;
 
     using Our.Umbraco.Ditto;
@@ -12,10 +11,22 @@
     using Umbraco.Web.Models;
     using Umbraco.Web.Mvc;
 
+    /// <summary>
+    /// The base DitFloController.
+    /// </summary>
+    /// <remarks>
+    /// No changes
+    /// </remarks>
     public abstract class DitFloController : SurfaceController, IRenderMvcController
     {
+        /// <summary>
+        /// A list of resolver contexts.
+        /// </summary>
         protected List<DittoValueResolverContext> _resolverContexts;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DitFloController"/> class.
+        /// </summary>
         protected DitFloController()
         {
             this._resolverContexts = new List<DittoValueResolverContext>();

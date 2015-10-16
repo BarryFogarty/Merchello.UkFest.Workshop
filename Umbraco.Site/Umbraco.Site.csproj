@@ -662,7 +662,7 @@
     <Content Include="Views\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
@@ -741,6 +741,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\BasketTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ProductBox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,6 @@
 ﻿namespace Merchello.UkFest.Web.Controllers
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
 
@@ -73,7 +74,37 @@
         [HttpPost]
         public ActionResult UpdateBasket(UpdateBasket model)
         {
+            // The only thing that can be updated in this basket is the quantity
+            foreach (var item in model.Items.Where(item => this.Basket.Items.First(x => x.Key == item.Key).Quantity != item.Quantity))
+            {
+                this.Basket.UpdateQuantity(item.Key, item.Quantity);
+            }
+
+            this.Basket.Save();
+
             return this.RedirectToCurrentUmbracoPage();
         }
+
+        /// <summary>
+        /// Removes an item from the basket.
+        /// </summary>
+        /// <param name="key">
+        /// The key.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
+        [HttpGet]
+        public ActionResult Remove(Guid key)
+        {
+            EnsureOwner(Basket.Items, key);
+            
+            //// remove the item by it's pk.  
+            Basket.RemoveItem(key);
+
+            Basket.Save();
+
+            return this.RedirectToCurrentUmbracoPage();
+        } 
     }
 }

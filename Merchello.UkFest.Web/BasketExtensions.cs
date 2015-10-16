@@ -37,10 +37,11 @@
 
             return new BasketItem
                        {
+                           Key = item.Key,
                            FormattedUnitPrice = StoreHelper.FormatCurrency(item.Price),
                            FormattedPrice = StoreHelper.FormatCurrency(item.TotalPrice),
                            Image = images.Any() ? images.First().Url : string.Empty,
-                           Key = product.Key,
+                           ProductKey = product.Key,
                            Name = item.Name,
                            ProductUrl = product.Url,
                            Quantity = item.Quantity
