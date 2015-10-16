@@ -75,5 +75,14 @@
         {
             return string.Format(StoreCurrencyFormat.Format, _storeCurrency.Symbol, amount);
         }
+
+        /// <summary>
+        /// Clears the static field values.
+        /// </summary>
+        internal static void ResetCurrency()
+        {
+            _storeCurrency = null;
+            _currencyFormat = null;
+        }
     }
 }

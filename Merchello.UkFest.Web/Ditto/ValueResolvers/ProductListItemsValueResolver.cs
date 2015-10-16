@@ -1,17 +1,13 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.ValueResolvers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Merchello.Core;
     using Merchello.UkFest.Web.Models;
     using Merchello.Web.Models.VirtualContent;
 
     using Our.Umbraco.Ditto;
 
-    using Umbraco.Core.Logging;
-    using Umbraco.Core.Models;
     using Umbraco.Web;
 
     /// <summary>
@@ -34,15 +30,7 @@
 
             var products = Content.GetPropertyValue<IEnumerable<IProductContent>>("products");
 
-            return products.Select(x => new ProductListItem
-                {
-                    Name = x.Name,
-                    FormattedPrice = StoreHelper.FormatCurrency(x.Price),
-                    FormattedSalePrice = StoreHelper.FormatCurrency(x.SalePrice),
-                    OnSale = x.OnSale,
-                    IsNew = x.WillWork("isNew") && x.GetPropertyValue<bool>("isNew"),
-                    ImageSrc = x.WillWork("images") ? x.GetPropertyValue<IEnumerable<IPublishedContent>>("images").First().GetCropUrl(255,255) : string.Empty
-                });
+            return products.Select(x => x.AsProductListItem());
         }
     }
 }

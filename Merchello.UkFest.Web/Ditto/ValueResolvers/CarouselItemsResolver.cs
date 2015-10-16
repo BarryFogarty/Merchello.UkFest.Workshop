@@ -33,7 +33,7 @@
                     x =>
                     new CarouselItem
                         {
-                            ImageSrc =
+                            ImageUrl =
                                 x.GetPropertyValue<IEnumerable<IPublishedContent>>("images").First()
                                 .GetCropUrl(width: 450, height: 450),
                             Url = x.Url

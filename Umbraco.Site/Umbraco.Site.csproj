@@ -642,9 +642,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Home\NewArrivals.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Partials\Home\Advantages.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -703,7 +700,7 @@
     <Content Include="Views\Partials\Product\Related.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\AddToBasket.cshtml" />
+    <Content Include="Views\Partials\Basket\AddToBasket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Basket.cshtml" />
@@ -737,6 +734,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_ProductList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Basket\BasketTable.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

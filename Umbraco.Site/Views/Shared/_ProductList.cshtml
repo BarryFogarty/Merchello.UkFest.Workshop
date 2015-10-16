@@ -16,10 +16,10 @@
             <div class="col-md-3 col-sm-4">
                 <div class="product">
                     <div class="image">
-                        @if (!product.ImageSrc.IsNullOrWhiteSpace())
+                        @if (!product.ImageUrl.IsNullOrWhiteSpace())
                         {                           
                             <a href="@product.Url">
-                                <img src="@product.ImageSrc" alt="" class="img-responsive image1">
+                                <img src="@product.ImageUrl" alt="" class="img-responsive image1">
                             </a>
                         }
                         <div class="quick-view-button">
