@@ -6,9 +6,9 @@
     public class CarouselItem
     {
         /// <summary>
-        /// Gets or sets the image src.
+        /// Gets or sets the image URL.
         /// </summary>
-        public string ImageSrc { get; set; }
+        public string ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or sets the url.

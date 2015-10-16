@@ -1,0 +1,66 @@
+﻿@using Merchello.UkFest.Web.Controllers
+@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.UpdateBasket>
+@using (Html.BeginUmbracoForm<BasketController>("UpdateBasket"))
+{
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Discount</th>
+                        <th colspan="2">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                @if (!item.Image.IsNullOrWhiteSpace())
+                                {
+                                    <a href="@item.ProductUrl">
+                                        <img src="@item.Image" alt="@item.Name">
+                                    </a>
+                                }
+                            </td>
+                            <td>
+                                <a href="@item.ProductUrl">@item.Name</a>
+                            </td>
+                            <td>
+                                <input type="number" value="2" class="form-control">
+                            </td>
+                            <td>$123.00</td>
+                            <td>$0.00</td>
+                            <td>$246.00</td>
+                            <td>
+                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    }                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5">Total</th>
+                        <th colspan="2">$446.00</th>
+                    </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <!-- /.table-responsive -->
+
+        <div class="box-footer">
+            <div class="pull-left">
+                <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+            </div>
+            <div class="pull-right">
+                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>
+                <button type="submit" class="btn btn-primary">
+                    Proceed to checkout <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+}
+

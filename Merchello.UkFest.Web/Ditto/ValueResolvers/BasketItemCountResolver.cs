@@ -19,7 +19,7 @@
         public override object ResolveValue()
         {
             if (Content == null) return 0;
-            return Context.CustomerContext.CurrentCustomer.Basket().TotalQuantityCount;
+            return Context.Basket.TotalQuantityCount;
         }
     }
 }
