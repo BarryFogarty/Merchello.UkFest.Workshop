@@ -1,0 +1,22 @@
+﻿@model Merchello.UkFest.Web.Models.ProductListItem
+
+<div class="col-md-3 col-sm-6">
+    <div class="product">
+        <div class="image">
+            <a href="@Model.Url">
+                <img src="@Model.ImageUrl" alt="" class="img-responsive image1">
+            </a>
+        </div>
+        <div class="text">
+            <h3><a href="@Model.Url">@Model.Name</a></h3>
+            @if (Model.OnSale)
+            {
+                <p class="price"><del>@Model.FormattedPrice</del> @Model.FormattedSalePrice</p>
+            }
+            else
+            {
+                <p class="price">@Model.FormattedPrice</p>
+            }
+        </div>
+    </div>
+</div>

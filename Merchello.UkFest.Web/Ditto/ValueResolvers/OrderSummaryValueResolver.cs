@@ -23,32 +23,24 @@
         public override object ResolveValue()
         {
             if (Content == null) return null;
+ 
             var shippingRate = 0M;
-            var totalTitle = "Sub Total";
+            const string TotalTitle = "Sub Total";
             var total = Context.Basket.TotalBasketPrice;
-            var preparation = Context.SalePreparation;
-            if (!preparation.IsReadyToInvoice())
+            var shipment = Context.Basket.PackageBasket(new Address() { CountryCode = "GB" }).FirstOrDefault();
+            if (shipment != null)
             {
-                var shipment = Context.Basket.PackageBasket(new Address() { CountryCode = "GB" }).FirstOrDefault();
-                if (shipment != null)
-                {
-                    var quote = shipment.ShipmentRateQuotes().FirstOrDefault();
-                    if (quote != null) shippingRate = quote.Rate;
-                    total += shippingRate;
-                }
+                var quote = shipment.ShipmentRateQuotes().FirstOrDefault();
+                if (quote != null) shippingRate = quote.Rate;
+                total += shippingRate;
             }
-            else
-            {
-                totalTitle = "Total";
-                total = preparation.PrepareInvoice().Total;
-            }
-
+          
             return new OrderSummary
                        {
                            FormattedSubTotal = StoreHelper.FormatCurrency(Context.Basket.TotalBasketPrice),
                            FormattedShippingTotal = StoreHelper.FormatCurrency(shippingRate),
                            FormattedTotal = StoreHelper.FormatCurrency(total),
-                           TotalTitle = totalTitle
+                           TotalTitle = TotalTitle
                        };
         }
     }

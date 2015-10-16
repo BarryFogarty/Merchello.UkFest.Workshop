@@ -1,5 +1,5 @@
-﻿@using Merchello.UkFest.Web.Controllers
-@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.UpdateBasket>
+﻿@inherits Merchello.Web.Mvc.MerchelloViewPage<Merchello.UkFest.Web.Models.UpdateBasket>
+@using Merchello.UkFest.Web.Controllers
 @using (Html.BeginUmbracoForm<BasketController>("UpdateBasket"))
 {
         <div class="table-responsive">
@@ -14,28 +14,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Items)
+                    @for (var i = 0; i < Model.Items.Length; i++)
                     {
                         <tr>
                             <td>
-                                @if (!item.Image.IsNullOrWhiteSpace())
+                                @if (!Model.Items[i].Image.IsNullOrWhiteSpace())
                                 {
-                                    <a href="@item.ProductUrl">
-                                        <img src="@item.Image" alt="@item.Name">
+                                    <a href="@Model.Items[i].ProductUrl">
+                                        <img src="@Model.Items[i].Image" alt="@Model.Items[i].Name">
                                     </a>
                                 }
                             </td>
                             <td>
-                                <a href="@item.ProductUrl">@item.Name</a>
+                                <a href="@Model.Items[i].ProductUrl">@Model.Items[i].Name</a>
                             </td>
                             <td>
-                                <input type="number" value="2" class="form-control">
+                                @Html.TextBoxFor(model => Model.Items[i].Quantity, new { @type = "number", @min = "1", @class="form-control" })
+                                
                             </td>
-                            <td>$123.00</td>
+                            <td>@Model.Items[i].FormattedUnitPrice</td>
                             <td>$0.00</td>
-                            <td>$246.00</td>
+                            <td>@Model.Items[i].FormattedPrice</td>
                             <td>
-                                <a href="#"><i class="fa fa-trash-o"></i></a>
+                                <a href="@Url.SurfaceAction("Remove", "Basket", new { key = Model.Items[i].Key })"><i class="fa fa-trash-o"></i></a>
+                                @Html.HiddenFor(model => Model.Items[i].Key)
+                                @Html.HiddenFor(model => Model.Items[i].ProductKey)
                             </td>
                         </tr>
                     }                   
@@ -43,7 +46,7 @@
                 <tfoot>
                     <tr>
                         <th colspan="5">Total</th>
-                        <th colspan="2">$446.00</th>
+                        <th colspan="2">@Model.FormattedBasketTotal</th>
                     </tr>
                 </tfoot>
             </table>
@@ -53,13 +56,13 @@
 
         <div class="box-footer">
             <div class="pull-left">
-                <a href="category.html" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                <a href="@Model.ContinueShoppingUrl" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
             </div>
             <div class="pull-right">
                 <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>
-                <button type="submit" class="btn btn-primary">
+                <a href="@Model.CheckoutUrl" class="btn btn-primary">
                     Proceed to checkout <i class="fa fa-chevron-right"></i>
-                </button>
+                </a>
             </div>
         </div>
 }

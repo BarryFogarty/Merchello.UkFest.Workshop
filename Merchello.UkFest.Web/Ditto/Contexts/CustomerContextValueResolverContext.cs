@@ -1,13 +1,14 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.Contexts
 {
-    using System;
-
+    using Merchello.Core.Models;
     using Merchello.Web;
     using Merchello.Web.Pluggable;
     using Merchello.Web.Workflow;
 
     using Our.Umbraco.Ditto;
 
+    using Umbraco.Core;
+    using Umbraco.Core.Cache;
     using Umbraco.Web;
 
     /// <summary>
@@ -16,28 +17,9 @@
     public class CustomerContextValueResolverContext : DittoValueResolverContext
     {
         /// <summary>
-        /// The <see cref="ICustomerContext"/>.
+        /// The Request cache.
         /// </summary>
-        private readonly ICustomerContext _customerContext = PluggableObjectHelper.GetInstance<CustomerContextBase>("CustomerContext", UmbracoContext.Current);
-
-        /// <summary>
-        /// The <see cref="IBasket"/>
-        /// </summary>
-        private Lazy<IBasket> _basket;
-
-        /// <summary>
-        /// The <see cref="BasketSalePreparation"/>.
-        /// </summary>
-        private Lazy<BasketSalePreparation> _preparation; 
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerContextValueResolverContext"/> class.
-        /// </summary>
-        public CustomerContextValueResolverContext()
-        {
-            this.Initialize();
-        }
-
+        private readonly ICacheProvider _requestCache = ApplicationContext.Current.ApplicationCache.RequestCache;
 
         /// <summary>
         /// Gets the <see cref="ICustomerContext"/>.
@@ -46,7 +28,21 @@
         {
             get
             {
-                return _customerContext;
+                return (ICustomerContext)_requestCache
+                    .GetCacheItem(
+                    "CustomerContext",
+                    () => PluggableObjectHelper.GetInstance<CustomerContextBase>("CustomerContext", UmbracoContext.Current));
+            }
+        }
+
+        /// <summary>
+        /// Gets the current customer.
+        /// </summary>
+        public ICustomerBase CurrentCustomer
+        {
+            get
+            {
+                return CustomerContext.CurrentCustomer;
             }
         }
 
@@ -57,7 +53,7 @@
         {
             get
             {
-                return _basket.Value;
+                return CurrentCustomer.Basket();
             }
         }
 
@@ -68,17 +64,8 @@
         {
             get
             {
-                return _preparation.Value;
+                return Basket.SalePreparation();
             }
-        }
-
-        /// <summary>
-        /// Initializes the context.
-        /// </summary>
-        private void Initialize()
-        {
-            _basket = new Lazy<IBasket>(() => CustomerContext.CurrentCustomer.Basket());
-            _preparation = new Lazy<BasketSalePreparation>(() => _basket.Value.SalePreparation());
         }
     }
 }

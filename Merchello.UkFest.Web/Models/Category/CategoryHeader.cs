@@ -1,4 +1,4 @@
-﻿namespace Merchello.UkFest.Web.Models
+﻿namespace Merchello.UkFest.Web.Models.Category
 {
     using Our.Umbraco.Ditto;
 

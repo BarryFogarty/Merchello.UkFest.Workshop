@@ -25,6 +25,6 @@
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        public IEnumerable<BasketItem> Items { get; set; }
+        public BasketItem[] Items { get; set; }
     }
 }

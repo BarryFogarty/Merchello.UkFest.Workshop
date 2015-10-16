@@ -38,7 +38,7 @@
                     ContinueShoppingUrl = contentResolver.GetRootContent().Url,
                     CheckoutUrl = string.Empty,
                     FormattedBasketTotal = StoreHelper.FormatCurrency(basket.TotalBasketPrice),
-                    Items = basket.Items.Select(x => ((IItemCacheLineItem)x).AsBasketItem(_merchello))
+                    Items = basket.Items.Select(x => ((IItemCacheLineItem)x).AsBasketItem(_merchello)).ToArray()
                 };
         }
     }
