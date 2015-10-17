@@ -18,6 +18,7 @@
         /// <summary>
         /// Gets or sets the url.
         /// </summary>
+        [UmbracoProperty("Url")]
         public string Url { get; set; }
 
         /// <summary>
@@ -25,5 +26,11 @@
         /// </summary>
         [DittoValueResolver(typeof(UrlTargetResolver))]
         public string Target { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether is active.
+        /// </summary>
+        [DittoValueResolver(typeof(ActiveLinkValueResolver))]
+        public bool IsActive { get; set; }
     } 
 }

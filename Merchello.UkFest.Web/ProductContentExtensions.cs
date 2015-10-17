@@ -39,7 +39,8 @@
                                    ? product.GetPropertyValue<IEnumerable<IPublishedContent>>("images")
                                          .First()
                                          .GetCropUrl(255, 255)
-                                   : string.Empty
+                                   : string.Empty,
+                            Price = product.OnSale ? product.SalePrice : product.Price
                        };
         }
     }

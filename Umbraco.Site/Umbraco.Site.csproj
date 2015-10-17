@@ -185,12 +185,8 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Our.Umbraco.Ditto, Version=0.8.5746.20658, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Our.Umbraco.Ditto.0.8.3\lib\net45\Our.Umbraco.Ditto.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Our.Umbraco.PropertyEditorConverters, Version=2.1.5.35, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Our.Umbraco.CoreValueConverters.2.1.5\lib\net45\Our.Umbraco.PropertyEditorConverters.dll</HintPath>
+    <Reference Include="Our.Umbraco.Ditto, Version=0.8.5738.28308, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.Ditto.0.8.2\lib\net45\Our.Umbraco.Ditto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -528,6 +524,7 @@
     <Content Include="js\main.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
+    <Content Include="js\Store.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -671,16 +668,16 @@
     <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\Collection.cshtml" />
+    <Content Include="Views\Category\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\Modal.cshtml" />
+    <Content Include="Views\Shared\Modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\Filters\Category.cshtml" />
+    <Content Include="Views\Shared\_CategoryTree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Product\Filters\Brand.cshtml" />
@@ -698,7 +695,7 @@
     <Content Include="Views\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\RecentlyViewed.cshtml" />
+    <Content Include="Views\Shared\_RecentlyViewed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Product\Related.cshtml" />
@@ -744,6 +741,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_ProductBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Category\CategoryTop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ProductBoxComplex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
