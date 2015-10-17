@@ -1,8 +1,10 @@
-﻿@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.ProductDetail>
+﻿@using Merchello.UkFest.Web.Models
 
-    <div class="modal fade" id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+<div class="modal fade" id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <!-- result -->
+            <div id="modal-result">
                 <div class="modal-body">
 
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -10,52 +12,48 @@
                     <div class="row quick-view product-main">
                         <div class="col-sm-6">
                             <div class="quick-view-main-image">
-                                @if (Model.Images.Any())
-                                {
-                                   <img src="@Model.Images.First()" alt="" class="img-responsive"> 
-                                }
-                                
+                                <img src="img/detailbig1.jpg" alt="" class="img-responsive" id="modal-image">
                             </div>
-                            @if (Model.OnSale)
-                            {
-                                <div class="ribbon ribbon-quick-view sale">
-                                    <div class="theribbon">SALE</div>
-                                    <div class="ribbon-background"></div>
-                                </div>  
-                            }
 
+                            <div class="ribbon ribbon-quick-view sale" id="modal-onsale">
+                                <div class="theribbon">SALE</div>
+                                <div class="ribbon-background"></div>
+                            </div>
                             <!-- /.ribbon -->
-                            @if (Model.IsNew)
-                            {
-                                <div class="ribbon ribbon-quick-view new">
-                                    <div class="theribbon">NEW</div>
-                                    <div class="ribbon-background"></div>
-                                </div>
-                            }
 
+                            <div class="ribbon ribbon-quick-view new" id="modal-isnew">
+                                <div class="theribbon">NEW</div>
+                                <div class="ribbon-background"></div>
+                            </div>
                             <!-- /.ribbon -->
 
                             <div class="row thumbs">
-                                @foreach (var image in Model.Images)
-                                {
-                                    <div class="col-xs-4">
-                                        <a href="@image" class="thumb">
-                                            <img src="@image" alt="" class="img-responsive">
-                                        </a>
-                                    </div>
-                                }                            
+                                <div class="col-xs-4">
+                                    <a href="img/detailbig1.jpg" class="thumb" id="modal-athumb0">
+                                        <img src="img/detailsquare.jpg" alt="" class="img-responsive" id="modal-thumb0">
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="img/detailbig2.jpg" class="thumb" id="modal-athumb1">
+                                        <img src="img/detailsquare2.jpg" alt="" class="img-responsive" id="modal-thumb1">
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="img/detailbig3.jpg" class="thumb" id="modal-athumb2">
+                                        <img src="img/detailsquare3.jpg" alt="" class="img-responsive" id="modal-thumb2">
+                                    </a>
+                                </div>
                             </div>
 
                         </div>
                         <div class="col-sm-6">
 
-                            <h2>@Model.Name</h2>
+                            <h2 id="modal-name">White Blouse Armani</h2>
 
-                            <p class="text-muted text-small text-center">@Model.Description</p>
+                            <p class="text-muted text-small text-center" id="modal-desc">White lace top, woven, has a round neck, short sleeves, has knitted lining attached</p>
 
                             <div class="box">
-
-                                @Html.Partial("Basket/AddToBasket", Model.AddToBasket)
+                                @Html.Partial("Basket/AddToBasket", new AddToBasket())
                             </div>
                             <!-- /.box -->
 
@@ -74,6 +72,8 @@
                     </div>
                 </div>
             </div>
+            <!-- result -->
         </div>
-        <!--/.modal-dialog-->
     </div>
+    <!--/.modal-dialog-->
+</div>

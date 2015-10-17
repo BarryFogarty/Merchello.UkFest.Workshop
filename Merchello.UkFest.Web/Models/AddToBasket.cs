@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Merchello.UkFest.Web.Ditto.ValueResolvers;
     using Merchello.Web.Models.ContentEditing;
@@ -13,6 +14,14 @@
     /// </summary>
     public class AddToBasket
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddToBasket"/> class.
+        /// </summary>
+        public AddToBasket()
+        {
+            this.ProductOptions = Enumerable.Empty<ProductOptionDisplay>();    
+        }
+
         /// <summary>
         /// Gets or sets the product key.
         /// </summary>
