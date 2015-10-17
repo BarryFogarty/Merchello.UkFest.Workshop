@@ -2,10 +2,13 @@
 @{
     Layout = "../_Sidebar.cshtml";
 }
-@Html.Partial("Product/Collection")
+@Html.Partial("Collection", Model.View.Pager)
+
+@Model.View.Pager.CurrentPage<br/>
+@Model.View.Pager.Items.Count()
 
 @section Sidebar {
-    @Html.Partial("Product/Filters/Category")
-    @Html.Partial("Product/Filters/Brand")
-    @Html.Partial("Product/Filters/Colour")
+    @Html.Partial("_CategoryTree")
+    @*@Html.Partial("Product/Filters/Brand")
+    @Html.Partial("Product/Filters/Colour")*@
 }

@@ -1,5 +1,7 @@
 ﻿namespace Merchello.UkFest.Web.Resolvers
 {
+    using System.Linq;
+
     using Umbraco.Core.Models;
     using Umbraco.Web;
 
@@ -71,6 +73,23 @@
                     var root = this.GetRootContent();
                     return root.Descendant("Basket");
                 });
+        }
+
+        /// <summary>
+        /// The get surf category content.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IPublishedContent"/>.
+        /// </returns>
+        internal IPublishedContent GetSurfCategoryContent()
+        {
+            return this.GetByAlias(
+                "Surf",
+                () =>
+                    {
+                        var root = this.GetRootContent();
+                        return root.Descendants("Category").FirstOrDefault(x => x.Name == "Surf");
+                    });
         }
     }
 }

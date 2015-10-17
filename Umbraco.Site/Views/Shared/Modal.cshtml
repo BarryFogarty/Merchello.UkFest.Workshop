@@ -1,0 +1,79 @@
+﻿@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.ProductDetail>
+
+    <div class="modal fade" id="product-quick-view-modal" tabindex="-1" role="dialog" aria-hidden="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                    <div class="row quick-view product-main">
+                        <div class="col-sm-6">
+                            <div class="quick-view-main-image">
+                                @if (Model.Images.Any())
+                                {
+                                   <img src="@Model.Images.First()" alt="" class="img-responsive"> 
+                                }
+                                
+                            </div>
+                            @if (Model.OnSale)
+                            {
+                                <div class="ribbon ribbon-quick-view sale">
+                                    <div class="theribbon">SALE</div>
+                                    <div class="ribbon-background"></div>
+                                </div>  
+                            }
+
+                            <!-- /.ribbon -->
+                            @if (Model.IsNew)
+                            {
+                                <div class="ribbon ribbon-quick-view new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                            }
+
+                            <!-- /.ribbon -->
+
+                            <div class="row thumbs">
+                                @foreach (var image in Model.Images)
+                                {
+                                    <div class="col-xs-4">
+                                        <a href="@image" class="thumb">
+                                            <img src="@image" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                }                            
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+
+                            <h2>@Model.Name</h2>
+
+                            <p class="text-muted text-small text-center">@Model.Description</p>
+
+                            <div class="box">
+
+                                @Html.Partial("Basket/AddToBasket", Model.AddToBasket)
+                            </div>
+                            <!-- /.box -->
+
+                            <div class="quick-view-social">
+                                <h4>Show it to your friends</h4>
+                                <p>
+                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/.modal-dialog-->
+    </div>

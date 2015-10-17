@@ -1,9 +1,18 @@
 ﻿namespace Merchello.UkFest.Web.Models.Category
 {
-    using System.Collections.Generic;
+    using Merchello.UkFest.Web.Ditto.ValueResolvers;
 
+    using Our.Umbraco.Ditto;
+
+    /// <summary>
+    /// The category top.
+    /// </summary>
     public class CategoryTop
     {
-        public IEnumerable<Category> Categories { get; set; } 
+        /// <summary>
+        /// Gets or sets the products.
+        /// </summary>
+        [DittoValueResolver(typeof(CategoryTopProductListValueResolver))]
+        public PagedCollection<ProductListItem> Pager { get; set; } 
     }
 }

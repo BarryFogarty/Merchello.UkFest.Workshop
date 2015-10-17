@@ -46,5 +46,13 @@
         /// Gets or sets a value indicating whether is new.
         /// </summary>
         public bool IsNew { get; set; }
+
+        /// <summary>
+        /// Gets or sets the price.
+        /// </summary>
+        /// <remarks>
+        /// This is either the Price or the Sale price.  Used for sorting in pager.
+        /// </remarks>
+        internal decimal Price { get; set; }
     }
 }
