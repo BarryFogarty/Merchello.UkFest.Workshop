@@ -26,11 +26,11 @@
             var current = Content;
             while (current.Parent != null)
             {
-                list.Add(current.AsLink());
+                list.Add(current.As<Link>());
                 current = current.Parent;
             }
 
-            list.Add(current.AsLink());
+            list.Add(current.As<Link>());
 
             list.Reverse();
             return list;

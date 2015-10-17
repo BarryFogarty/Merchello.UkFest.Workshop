@@ -11,32 +11,9 @@ $(function () {
     menuSliding();
     productDetailSizes();
     utils();
-    demo();
 
 });
 
-/* for demo purpose only - can be deleted */
-
-function demo() {
-
-    if ($.cookie("theme_csspath")) {
-	$('link#theme-stylesheet').attr("href", $.cookie("theme_csspath"));
-    }
-
-    $("#colour").change(function () {
-
-	if ($(this).val() !== '') {
-
-	    var theme_csspath = 'css/style.' + $(this).val() + '.css';
-
-	    $('link#theme-stylesheet').attr("href", theme_csspath);
-
-	    $.cookie("theme_csspath", theme_csspath, {expires: 365, path: '/'});
-	}
-
-	return false;
-    });
-}
 
 /* slider homepage */
 

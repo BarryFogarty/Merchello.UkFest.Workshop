@@ -64,12 +64,12 @@
             </p>
         </div>
 
-        @Html.Partial("Product/Related")
-        @Html.Partial("Product/RecentlyViewed")
+        @*@Html.Partial("Product/Related")*@
+        @Html.Partial("_RecentlyViewed")
 
 
         @section Sidebar {
-            @Html.Partial("Product/Filters/Category")
-            @Html.Partial("Product/Filters/Brand")
-            @Html.Partial("Product/Filters/Colour")
+            @Html.Partial("_CategoryTree")
+            @*@Html.Partial("Product/Filters/Brand")
+            @Html.Partial("Product/Filters/Colour")*@
         }

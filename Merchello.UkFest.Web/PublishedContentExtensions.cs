@@ -6,6 +6,8 @@
 
     using Merchello.UkFest.Web.Models;
 
+    using Our.Umbraco.Ditto;
+
     using Umbraco.Core.Models;
     using Umbraco.Web;
 
@@ -47,20 +49,6 @@
         {
             return content.HasProperty(propertyAlias) && content.HasValue(propertyAlias);
         }
-
-        /// <summary>
-        /// Maps <see cref="IPublishedContent"/> to <see cref="Link"/>.
-        /// </summary>
-        /// <param name="content">
-        /// The content.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Link"/>.
-        /// </returns>
-        public static Link AsLink(this IPublishedContent content)
-        {
-            return new Link { Title = content.Name, Url = content.Url };
-        } 
 
         /// <summary>
         /// The visible children.
