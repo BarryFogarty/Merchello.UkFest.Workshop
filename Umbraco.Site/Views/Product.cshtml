@@ -73,5 +73,5 @@
 @Html.Partial("_RecentlyViewed")
 
 @section Sidebar {
-    @Html.Partial("_CategoryTree")
+    @Html.CachedPartial("_CategoryTree", null, 200)
 }
