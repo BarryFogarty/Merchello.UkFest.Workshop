@@ -28,7 +28,7 @@
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        [UmbracoProperty("bodyText")]
+        [UmbracoProperty("Text")]
         public IHtmlString Description { get; set; }
 
         /// <summary>
