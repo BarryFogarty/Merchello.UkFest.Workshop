@@ -22,15 +22,7 @@
             var product = Content as IProductContent;
             if (product == null) return new AddToBasket();
 
-            return new AddToBasket
-                       {
-                           FormattedPrice = StoreHelper.FormatCurrency(product.Price),
-                           FormattedSalePrice = StoreHelper.FormatCurrency(product.SalePrice),
-                           OnSale = product.OnSale,
-                           ProductKey = product.Key,
-                           ProductOptions = product.ProductOptions
-                       };
-
+            return product.As<AddToBasket>();
         }
     }
 }

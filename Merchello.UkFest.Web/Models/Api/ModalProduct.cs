@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
 
-    using Merchello.Web.Models.ContentEditing;
-
     /// <summary>
     /// The modal product.
     /// </summary>
@@ -36,9 +34,9 @@
         public IEnumerable<string> Images { get; set; } 
 
         /// <summary>
-        /// Gets or sets the product options.
+        /// Gets or sets the possible choices.
         /// </summary>
-        public IEnumerable<ProductOptionDisplay> ProductOptions { get; set; }
+        public IEnumerable<Tuple<string, string>> PossibleChoices { get; set; }
 
         /// <summary>
         /// Gets or sets the price.

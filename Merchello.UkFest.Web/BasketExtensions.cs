@@ -40,7 +40,7 @@
                            Key = item.Key,
                            FormattedUnitPrice = StoreHelper.FormatCurrency(item.Price),
                            FormattedPrice = StoreHelper.FormatCurrency(item.TotalPrice),
-                           Image = images.Any() ? images.First().Url : string.Empty,
+                           Image = images.Any() ? images.First().GetCropUrl(50, 50) : string.Empty,
                            ProductKey = product.Key,
                            Name = item.Name,
                            ProductUrl = product.Url,

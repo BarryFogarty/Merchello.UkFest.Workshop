@@ -263,8 +263,10 @@
     <Compile Include="Ditto\ValueResolvers\CategoryTopProductListValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CategoryTreeItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\FormattedPricingValueResolvers.cs" />
+    <Compile Include="Ditto\ValueResolvers\OptionChoiceValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\OrderSummaryValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductImagesValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\ProductOptionsListItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\RecentlyViewedValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketItemCountResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketLinkResolver.cs" />

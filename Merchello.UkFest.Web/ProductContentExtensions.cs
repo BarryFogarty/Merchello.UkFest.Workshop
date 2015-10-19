@@ -1,5 +1,6 @@
 ﻿namespace Merchello.UkFest.Web
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -57,6 +58,11 @@
         /// </returns>
         public static ModalProduct AsModalProduct(this IProductContent product)
         {
+            var choices = product.ProductOptions.Any() ?
+                    product.ProductOptions.First()
+                    .Choices.Select(x => new Tuple<string, string>(x.Key.ToString(), x.Name)) :
+                    Enumerable.Empty<Tuple<string, string>>();
+           
             return new ModalProduct
                        {
                            Key = product.Key,
@@ -71,7 +77,7 @@
                                    ? product.GetPropertyValue<IEnumerable<IPublishedContent>>("images")
                                          .Select(x => x.Url)
                                    : Enumerable.Empty<string>(),
-                           ProductOptions = product.ProductOptions,
+                           PossibleChoices = choices,
                            Description = product.GetPropertyValue<string>("brief")
                        };
         }

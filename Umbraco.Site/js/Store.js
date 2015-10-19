@@ -23,7 +23,6 @@ var Store = {
             if (modals.length > 0) {
                 $.each(modals, function(idx, link) {
                     $(link).click(function () {
-                        console.info('got here');
                         Store.Modal.getModal(this);
                     });
                 });
@@ -50,7 +49,7 @@ var Store = {
             $.get(Store.Modal.apiEndPoint + 'modal', { key: key }, function (data) {
                 $('#modal-name').text(data.name);
                 $('#modal-desc').text(data.description);
-                
+                console.info(data);
                 if (data.onSale) {
                     $('#modal-onsale').show();
                 } else {
@@ -63,10 +62,63 @@ var Store = {
                     $('#modal-isnew').hide();
                 }
                 $('#ProductKey').val(data.key);
+                Store.Modal.assignChoices(data.possibleChoices),
                 Store.Modal.assignThumbs(data.images);
                 Store.Modal.setPrice(data);
                 $('#modal-result').show();
             });
+        },
+        assignChoices : function(choices) {
+            if (choices.length > 0) {
+                var div = document.createElement('div');
+                $(div).addClass('sizes');
+                var h3 = document.createElement('h3');
+                $(h3).text('Available Sizes');
+                $(div).append(h3);
+                for (var i = 0; i < choices.length; i++) {
+                    $(div).append(Store.Modal.createChoiceRadio(choices[i], i === 0));
+                }
+                $('#choice-wrapper').append(div);
+            }
+        },
+        createChoiceRadio : function(choice, isFirst) {
+            var key = choice.item1;
+            var name = choice.item2;
+
+            var label = document.createElement('label');
+            $(label).attr('for', key);
+
+            var a = document.createElement('a');
+            $(a).attr('href', '#').text(name);
+            if (isFirst) {
+                $(a).addClass('active');
+            }
+
+            $(a).click(function(e) {
+                    e.preventDefault();
+                    $('.sizes a').removeClass('active');
+                    $('.size-input').prop('checked', false);
+                    $(this).addClass('active');
+                $(this).next('input').prop('checked', true);
+            });
+
+            $(label).append(a);
+
+            var input = document.createElement('input');
+            $(input).attr('type', 'radio').attr('name', 'OptionChoice').attr('value', key).addClass('size-input');
+            if (isFirst) {
+                $(input).attr('checked', 'checked');
+            }
+            $(label).append(input);
+
+            return label;
+
+            //var elem = '<label for="{key}">' +
+            //    '<a href="#" class="active">30"</a>' +
+            //    '<input checked="checked" class="size-input" id="OptionChoice" name="OptionChoice" type="radio" value="3a37fe72-29ad-465c-85a3-60bc22cf63c2">' +
+            //    '</label>';
+
+
         },
         assignThumbs : function(images) {
             if (images.length > 0) {
@@ -77,11 +129,9 @@ var Store = {
                   }
 
                   if (i < count) {
-                      var idx = i + 1;
                       $('#modal-athumb' + i).attr('href', images[i]);
                       $('#modal-athumb' + i).attr('src', images[i]);
                       $('#modal-thumb' + i).attr('src', images[i]);
-                      console.info($('#modal-athumb' + i));
                       $('#modal-thumb' + i).show();
                       $('#modal-athumb' + i).show();
                   } else {
