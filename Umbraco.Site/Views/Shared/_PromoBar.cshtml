@@ -1,20 +1,14 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
-    
-<div class="bar background-image-fixed-2 no-mb color-white text-center">
-    <div class="dark-mask"></div>
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Promo>
+@using Merchello.UkFest.Web.Models
+
+<div class="bar no-mb color-white text-center" style="background: url('@Model.View.Image.Url') center top no-repeat;background-size: cover;background-attachment: fixed;">
+    @*<div class="dark-mask"></div>*@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="icon icon-lg">
-                    <i class="fa fa-file-code-o"></i>
-                </div>
-                <h1>Do you want to see more?</h1>
-                <p class="lead">We have prepared for you 23 different HTML pages, including 2 variations of homepage.</p>
-                <p class="text-center">
-                    <a href="index2.html" class="btn btn-primary btn-lg">Check other homepage</a>
-                </p>
+                <h1>@Model.View.Title</h1>
+                @Model.View.Text
             </div>
-
         </div>
     </div>
 </div>

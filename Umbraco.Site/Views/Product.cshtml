@@ -31,7 +31,7 @@
                 <div class="ribbon-background"></div>
             </div>
         }
-
+        
         <div class="row" id="thumbs">
             @foreach (var image in Model.View.Images)
             {                       
@@ -70,12 +70,8 @@
 
 </div>
 
-
-@*@Html.Partial("Product/Related")*@
 @Html.Partial("_RecentlyViewed")
 
 @section Sidebar {
     @Html.Partial("_CategoryTree")
-    @*@Html.Partial("Product/Filters/Brand")
-    @Html.Partial("Product/Filters/Colour")*@
 }
