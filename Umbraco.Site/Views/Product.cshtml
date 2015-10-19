@@ -1,15 +1,19 @@
 ﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.ProductDetail>
+@using Merchello.UkFest.Web
+@using Umbraco.Web.Models
 @{
     Layout = "_Sidebar.cshtml";
 }
 
 <div class="row" id="productMain">
+
     <div class="col-sm-6">
 
         <div id="mainImage">
             @if (Model.View.Images.Any())
             {
-                <img src="@Model.View.Images.First()" alt="" class="img-responsive">
+                var mainImage = Model.View.Images.First();
+                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive">
             }
         </div>
 
@@ -28,35 +32,31 @@
             </div>
         }
 
-     </div>
+        <div class="row" id="thumbs">
+            @foreach (var image in Model.View.Images)
+            {                       
+                <div class="col-xs-4 padding-md">
+                    <a href="@image.Url" class="thumb">
+                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive">
+                    </a>
+                </div>                   
+            }
+        </div>
 
-     <div class="col-sm-6">
-                <div class="box">
+    </div>
 
-                    @Html.Partial("Basket/AddToBasket", Model.View.AddToBasket)
+    <div class="col-sm-6">
 
-                </div>
+        <div id="add-basket">
+            @Html.Partial("Basket/AddToBasket", Model.View.AddToBasket)
+        </div>
 
-                <div class="row" id="thumbs">
-                    @foreach (var image in Model.View.Images)
-                    {                       
-                    <div class="col-xs-4">
-                        <a href="@image" class="thumb">
-                            <img src="@image" alt="" class="img-responsive">
-                        </a>
-                    </div>                   
-                    }
-                </div>
-            </div>
-
-</div>
-
-<div class="box" id="details">
+        <div id="details">
             <h4>Product details</h4>
             @Model.View.Description
         </div>
-
-<div class="box social" id="product-social">
+        
+        <div class="box social" id="product-social">
             <h4>Show it to your friends</h4>
             <p>
                 <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
@@ -65,6 +65,11 @@
                 <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
             </p>
         </div>
+
+    </div>
+
+</div>
+
 
 @*@Html.Partial("Product/Related")*@
 @Html.Partial("_RecentlyViewed")
