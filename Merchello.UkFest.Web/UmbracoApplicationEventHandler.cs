@@ -50,8 +50,7 @@
         {
             foreach (IContent entity in e.SavedEntities)
             {
-                entity.SetDefaultValue("title", entity.Name);
-                entity.SetDefaultValue("metaTitle", entity.Name);
+                entity.SetDefaultValue("headTitle", entity.Name);
             }
         }
 

@@ -12,7 +12,7 @@ namespace Merchello.UkFest.Web.Models
         /// <summary>
         /// Gets or sets the meta values.
         /// </summary>
-        [DittoValueResolver(typeof(MetaValuesValueResolver))]
+        [CurrentContentAs]
         public MetaValues MetaValues { get; set; }
         
         /// <summary>

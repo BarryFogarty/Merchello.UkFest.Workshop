@@ -1,4 +1,6 @@
-﻿namespace Merchello.UkFest.Web.Models
+﻿using System.Web;
+
+namespace Merchello.UkFest.Web.Models
 {
     using Our.Umbraco.Ditto;
 
@@ -8,7 +10,7 @@
     public class Header
     {
         /// <summary>
-        /// Gets or sets the brief.
+        /// Gets or sets the title.
         /// </summary>
         [UmbracoProperty("Title", "Name")]
         public string Title { get; set; }
@@ -16,7 +18,7 @@
         /// <summary>
         /// Gets or sets the brief.
         /// </summary>
-        [UmbracoProperty("Brief", "MetaDescription")]
-        public string Brief { get; set; } 
+        [UmbracoProperty("Brief", "HeadDescription")]
+        public IHtmlString Brief { get; set; } 
     }
 }

@@ -1,21 +1,24 @@
-﻿using Our.Umbraco.Ditto;
+﻿using System.ComponentModel;
+using Merchello.UkFest.Web.Ditto.TypeConverters;
+using Our.Umbraco.Ditto;
 
 namespace Merchello.UkFest.Web.Models
 {
     /// <summary>
     /// The meta values.
     /// </summary>
+    [UmbracoProperties(Prefix = "Head", Recursive = true)]
     public class MetaValues
     {
         /// <summary>
         /// Gets or sets the page title.
         /// </summary>
-        [UmbracoProperty("MetaTitle", "Name")]
-        public string MetaTitle { get; set; }
+        public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the Meta description.
         /// </summary>
-        public string MetaDescription { get; set; }
+        [TypeConverter(typeof(MetaDescriptionConverter))]
+        public string Description { get; set; }
     }
 }
