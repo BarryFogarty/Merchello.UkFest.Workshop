@@ -667,7 +667,7 @@
     <Content Include="Views\Category\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\Modal.cshtml" />
+    <Content Include="Views\Shared\_Modal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Pager.cshtml" />

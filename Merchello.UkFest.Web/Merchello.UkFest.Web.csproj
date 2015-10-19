@@ -293,6 +293,7 @@
     <Compile Include="Models\Category\CategoryTree.cs" />
     <Compile Include="Models\Category\CategoryTreeItem.cs" />
     <Compile Include="Models\CheckoutBase.cs" />
+    <Compile Include="Models\Promo.cs" />
     <Compile Include="Models\TextPage.cs" />
     <Compile Include="Models\OrderSummary.cs" />
     <Compile Include="Models\PagedCollection.cs" />
