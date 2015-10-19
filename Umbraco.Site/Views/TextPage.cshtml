@@ -1,0 +1,36 @@
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.TextPage>
+@{
+    Layout = "_Sidebar.cshtml";
+}
+
+@Model.View.Text
+<hr/>
+@Html.Partial("_RecentlyViewed")
+
+
+@section Sidebar
+{
+    <div class="panel panel-default sidebar-menu">
+        
+        @*TODO: Sibling nav*@
+        <div class="panel-heading">
+            <h3 class="panel-title">Pages</h3>
+        </div>
+
+        <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked">
+                <li>
+                    <a href="#">Text page</a>
+                </li>
+                <li>
+                    <a href="#">Contact page</a>
+                </li>
+                <li>
+                    <a href="#">FAQ</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+}

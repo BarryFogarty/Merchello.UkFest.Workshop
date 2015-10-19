@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Header>
 
 <div id="advantages">
 
@@ -7,50 +7,10 @@
         <div class="col-md-12">
 
             <div class="box text-center">
-                <h3 class="text-uppercase">About Minimal</h3>
-
-                <p>Minimal contains <strong>23 beautiful HTML pages</strong> and is built with strong attention to detail.</p>
-
-
-
-                <div class="same-height-row row">
-                    <div class="col-sm-3">
-                        <div class="box same-height clickable no-border text-center-xs text-center-sm">
-                            <div class="icon">
-                                <i class="fa fa-heart-o"></i>
-                            </div>
-                            <h4><a href="text.html">Satisfied customers</a></h4>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="box same-height clickable no-border text-center-xs text-center-sm">
-                            <div class="icon">
-                                <i class="fa fa-tags"></i>
-                            </div>
-                            <h4><a href="text.html">Best prices</a></h4>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="box same-height clickable no-border text-center-xs text-center-sm">
-                            <div class="icon">
-                                <i class="fa fa-send-o"></i>
-                            </div>
-                            <h4><a href="faq.html">Next day delivery</a></h4>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="box same-height clickable no-border text-center-xs text-center-sm">
-                            <div class="icon">
-                                <i class="fa fa-refresh"></i>
-                            </div>
-                            <h4><a href="contact.html">Free returns for 3 months</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.row -->
+                <h3 class="text-uppercase">@Model.View.Title</h3>
+                @Model.View.Brief
+                
+                @Html.Partial("Home/StoreFeatures")
 
             </div>
 

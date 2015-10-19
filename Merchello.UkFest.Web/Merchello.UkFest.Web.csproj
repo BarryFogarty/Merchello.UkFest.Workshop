@@ -255,6 +255,7 @@
     <Compile Include="Controllers\ModalApiController.cs" />
     <Compile Include="Ditto\Contexts\CategoryPagerResolverContext.cs" />
     <Compile Include="Ditto\Contexts\CustomerContextValueResolverContext.cs" />
+    <Compile Include="Ditto\TypeConverters\MetaDescriptionConverter.cs" />
     <Compile Include="Ditto\ValueResolvers\ActiveLinkValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\AddToBasketValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CategoryProductListingBaseValueResolver.cs" />
@@ -271,7 +272,6 @@
     <Compile Include="Ditto\ValueResolvers\BreadcrumbValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CarouselItemsResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CategoryContentValueResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\MetaValuesValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\PageTitleResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductCollectionNameValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductListItemsValueResolver.cs" />
@@ -286,11 +286,12 @@
     <Compile Include="Models\Carousel.cs" />
     <Compile Include="Models\CarouselItem.cs" />
     <Compile Include="Models\Category\Category.cs" />
-    <Compile Include="Models\Category\CategoryHeader.cs" />
+    <Compile Include="Models\Header.cs" />
     <Compile Include="Models\Category\CategoryTop.cs" />
     <Compile Include="Models\Category\CategoryTree.cs" />
     <Compile Include="Models\Category\CategoryTreeItem.cs" />
     <Compile Include="Models\CheckoutBase.cs" />
+    <Compile Include="Models\TextPage.cs" />
     <Compile Include="Models\OrderSummary.cs" />
     <Compile Include="Models\PagedCollection.cs" />
     <Compile Include="Models\ProductBase.cs" />

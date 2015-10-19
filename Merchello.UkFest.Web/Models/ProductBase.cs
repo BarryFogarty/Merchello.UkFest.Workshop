@@ -22,7 +22,6 @@
         /// </summary>
         string Url { get; set; }
 
-
         /// <summary>
         /// Gets or sets a value indicating whether the product is on sale.
         /// </summary>

@@ -80,6 +80,25 @@
             where T : class, IPublishedContent
         {
             return content.Children<T>().Where(x => x.IsVisible());
-        } 
+        }
+
+
+        /// <summary>
+        /// Sets a default value on a content entity
+        /// Used by the content_saving event to populate content auto-properties
+        /// NB: Strictly speaking this is a Content extension, not IPublishedContent - refactor to own class if there will be others
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="alias"></param>
+        /// <param name="defaultValue"></param>
+        public static void SetDefaultValue(this IContent entity, string alias, string defaultValue)
+        {
+            if (entity.HasProperty(alias) && string.IsNullOrWhiteSpace(entity.GetValue<string>(alias)))
+            {
+                entity.SetValue(alias, defaultValue);
+            }
+        }
+
+
     }
 }

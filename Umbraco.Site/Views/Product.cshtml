@@ -12,6 +12,7 @@
                 <img src="@Model.View.Images.First()" alt="" class="img-responsive">
             }
         </div>
+
         @if (Model.View.OnSale)
         {
             <div class="ribbon sale">
@@ -27,8 +28,9 @@
             </div>
         }
 
-        </div>
-            <div class="col-sm-6">
+     </div>
+
+     <div class="col-sm-6">
                 <div class="box">
 
                     @Html.Partial("Basket/AddToBasket", Model.View.AddToBasket)
@@ -47,14 +49,14 @@
                 </div>
             </div>
 
-        </div>
+</div>
 
-        <div class="box" id="details">
+<div class="box" id="details">
             <h4>Product details</h4>
             @Model.View.Description
         </div>
 
-        <div class="box social" id="product-social">
+<div class="box social" id="product-social">
             <h4>Show it to your friends</h4>
             <p>
                 <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
@@ -64,12 +66,11 @@
             </p>
         </div>
 
-        @*@Html.Partial("Product/Related")*@
-        @Html.Partial("_RecentlyViewed")
+@*@Html.Partial("Product/Related")*@
+@Html.Partial("_RecentlyViewed")
 
-
-        @section Sidebar {
-            @Html.Partial("_CategoryTree")
-            @*@Html.Partial("Product/Filters/Brand")
-            @Html.Partial("Product/Filters/Colour")*@
-        }
+@section Sidebar {
+    @Html.Partial("_CategoryTree")
+    @*@Html.Partial("Product/Filters/Brand")
+    @Html.Partial("Product/Filters/Colour")*@
+}

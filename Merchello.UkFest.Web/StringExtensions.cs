@@ -180,5 +180,57 @@
             var regex = new Regex("(?:[^a-z0-9 ]|(?<=['\"])s)", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
             return regex.Replace(input, string.Empty);
         }
+
+
+        /// <summary>
+        /// Syntactic sugar for !string.IsNullOrEmpty
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static bool IsNotNullOrEmpty(this object input)
+        {
+            return input != null && !string.IsNullOrEmpty(input.ToString());
+        }
+
+        /// <summary>
+        /// Syntactic sugar for !string.IsNullOrWhiteSpace
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static bool IsNotNullOrWhiteSpace(this object input)
+        {
+            return input != null && !string.IsNullOrWhiteSpace(input.ToString());
+        }
+
+        /// <summary>
+        /// Replaces newline characters with the supplied string
+        /// Useful when stringifying content from richtext and multilinee textbox editors
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="replacementString"></param>
+        /// <returns></returns>
+        public static string ReplaceNewLines(this string input, string replacementString)
+        {
+            return Regex.Replace(input, @"\r\n?|\n", replacementString);
+        }
+
+        /// <summary>
+        /// Truncates the provided string to the passed number of characters.
+        /// Will not chop a word in half, if possible.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string TruncateAtWord(this string input, int length)
+        {
+
+            if (input == null || input.Length < length || input.IndexOf(" ", length, System.StringComparison.Ordinal) == -1)
+                return input;
+
+            // Little hack as the HtmlString from the RTE is URL Encoded.
+            var result = input.Replace("&amp;", "&");
+
+            return result.Substring(0, result.IndexOf(" ", length, System.StringComparison.Ordinal));
+        }
     }
 }
