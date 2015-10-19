@@ -2,3 +2,20 @@
 #modal-result {
     display: none;
 }
+
+#add-basket {
+    margin-bottom: 20px;
+}
+
+#mainImage {
+    margin-bottom: 10px;
+}
+
+.padding-md {
+    padding: 5px;
+}
+
+.row #thumbs {
+    margin-right: -5px;
+    margin-left: -5px;
+}

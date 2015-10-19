@@ -34,8 +34,8 @@
         /// <summary>
         /// Gets or sets the images.
         /// </summary>
-        [DittoValueResolver(typeof(ProductImagesValueResolver))]
-        public IEnumerable<string> Images { get; set; }
+        //[DittoValueResolver(typeof(ProductImagesValueResolver))]
+        public IEnumerable<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the URL.

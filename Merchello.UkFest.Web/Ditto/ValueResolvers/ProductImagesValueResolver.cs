@@ -1,4 +1,6 @@
-﻿namespace Merchello.UkFest.Web.Ditto.ValueResolvers
+﻿using Merchello.UkFest.Web.Models;
+
+namespace Merchello.UkFest.Web.Ditto.ValueResolvers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -24,8 +26,7 @@
             if (Content == null) return Enumerable.Empty<string>();
             if (!Content.WillWork("images")) return Enumerable.Empty<string>();
 
-            return Content.GetPropertyValue<IEnumerable<IPublishedContent>>("images")
-                .Select(x => x.GetCropUrl(409, 616));
+            return Content.GetPropertyValue<IEnumerable<Image>>("images");
         }
     }
 }

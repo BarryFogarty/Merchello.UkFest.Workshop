@@ -1,4 +1,6 @@
-﻿namespace Merchello.UkFest.Web
+﻿using Umbraco.Web.Models;
+
+namespace Merchello.UkFest.Web
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -97,6 +99,17 @@
             {
                 entity.SetValue(alias, defaultValue);
             }
+        }
+
+
+        public static string GetCrop(this IPublishedContent publishedContent, int? width = null, int? height = null, ImageCropMode? cropMode = null) //ImageCropRatioMode? ratioMode = null
+        {
+            return publishedContent.GetCropUrl(width, height, imageCropMode: cropMode, furtherOptions: string.Format("&bgcolor={0}", AppSettings.CropBackgroundColour));
+        }
+
+        public static string GetCrop(this string imageUrl, int? width = null, int? height = null, ImageCropMode? cropMode = null)
+        {
+            return imageUrl.GetCropUrl(width, height, imageCropMode: cropMode, furtherOptions: string.Format("&bgcolor={0}", AppSettings.CropBackgroundColour));
         }
 
 

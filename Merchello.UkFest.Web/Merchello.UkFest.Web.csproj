@@ -147,6 +147,7 @@
       <HintPath>..\packages\UmbracoCms.Core.7.3.0\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -247,6 +248,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSettings.cs" />
     <Compile Include="BasketExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BasketController.cs" />
@@ -263,10 +265,8 @@
     <Compile Include="Ditto\ValueResolvers\CategoryTopProductListValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CategoryTreeItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\FormattedPricingValueResolvers.cs" />
-    <Compile Include="Ditto\ValueResolvers\OptionChoiceValueResolver.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Ditto\ValueResolvers\OrderSummaryValueResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\ProductImagesValueResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\ProductOptionsListItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\RecentlyViewedValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketItemCountResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketLinkResolver.cs" />
