@@ -1,20 +1,19 @@
 ﻿namespace Merchello.UkFest.Web.Controllers
 {
     using System;
-    using System.Web.Mvc;
+    using System.Web.Http;
 
-    using Merchello.UkFest.Web.Models;
+    using Merchello.UkFest.Web.Models.Api;
     using Merchello.Web;
-    using Merchello.Web.Mvc;
+    using Merchello.Web.Models.ContentEditing;
 
-    using Our.Umbraco.Ditto;
-
-    using Umbraco.Web.Mvc;
+    using Umbraco.Web.WebApi;
 
     /// <summary>
     /// The modal controller.
     /// </summary>
-    public class ModalController : SurfaceController
+    [JsonCamelCaseFormatter]
+    public class ModalApiController : UmbracoApiController
     {
         /// <summary>
         /// The Merchello Helper.
@@ -28,14 +27,14 @@
         /// The key.
         /// </param>
         /// <returns>
-        /// The <see cref="ActionResult"/>.
+        /// The <see cref="ProductDisplay"/>.
         /// </returns>
         [HttpGet]
-        public ActionResult Modal(Guid key)
+        public ModalProduct Modal(Guid key)
         {
             var product = _merchello.TypedProductContent(key);
-            
-            return this.PartialView(product.As<ProductDetail>());
+
+            return product.AsModalProduct();
         }
     }
 }

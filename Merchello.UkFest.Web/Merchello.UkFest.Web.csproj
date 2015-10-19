@@ -252,7 +252,7 @@
     <Compile Include="Controllers\BasketController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\DitFloController.cs" />
-    <Compile Include="Controllers\ModalController.cs" />
+    <Compile Include="Controllers\ModalApiController.cs" />
     <Compile Include="Ditto\Contexts\CategoryPagerResolverContext.cs" />
     <Compile Include="Ditto\Contexts\CustomerContextValueResolverContext.cs" />
     <Compile Include="Ditto\ValueResolvers\ActiveLinkValueResolver.cs" />
@@ -279,6 +279,7 @@
     <Compile Include="Ditto\ValueResolvers\UpdateBasketValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\UrlTargetResolver.cs" />
     <Compile Include="Models\AddToBasket.cs" />
+    <Compile Include="Models\Api\ModalProduct.cs" />
     <Compile Include="Models\BasketItem.cs" />
     <Compile Include="Models\BasketView.cs" />
     <Compile Include="Models\Breadcrumb.cs" />

@@ -3,7 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Merchello.Core.Models;
     using Merchello.UkFest.Web.Models;
+    using Merchello.UkFest.Web.Models.Api;
     using Merchello.Web.Models.VirtualContent;
 
     using Umbraco.Core.Models;
@@ -41,6 +43,36 @@
                                          .GetCropUrl(255, 255)
                                    : string.Empty,
                             Price = product.OnSale ? product.SalePrice : product.Price
+                       };
+        }
+
+        /// <summary>
+        /// Maps <see cref="IProductContent"/> to <see cref="ModalProduct"/>.
+        /// </summary>
+        /// <param name="product">
+        /// The product.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ModalProduct"/>.
+        /// </returns>
+        public static ModalProduct AsModalProduct(this IProductContent product)
+        {
+            return new ModalProduct
+                       {
+                           Key = product.Key,
+                           Name = product.Name,
+                           Url = product.Url,
+                           Price = StoreHelper.FormatCurrency(product.Price),
+                           SalePrice = StoreHelper.FormatCurrency(product.SalePrice),
+                           OnSale = product.OnSale,
+                           IsNew = product.WillWork("isNew") && product.GetPropertyValue<bool>("isNew"),
+                           Images =
+                               product.WillWork("images")
+                                   ? product.GetPropertyValue<IEnumerable<IPublishedContent>>("images")
+                                         .Select(x => x.Url)
+                                   : Enumerable.Empty<string>(),
+                           ProductOptions = product.ProductOptions,
+                           Description = product.GetPropertyValue<string>("brief")
                        };
         }
     }

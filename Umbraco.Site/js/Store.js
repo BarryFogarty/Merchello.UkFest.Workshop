@@ -22,7 +22,8 @@ var Store = {
             var modals = $('[data-productmodal]');
             if (modals.length > 0) {
                 $.each(modals, function(idx, link) {
-                    $(link).click(function() {
+                    $(link).click(function () {
+                        console.info('got here');
                         Store.Modal.getModal(this);
                     });
                 });
@@ -46,10 +47,60 @@ var Store = {
     Modal: {
         getModal : function(link) {
             var key = $(link).data('productmodal');
-            $.get(Store.Modal.surfaceEndPoint + 'modal', { key: key }, function(data) {
-                $('#modal-wrapper').html(data);
+            $.get(Store.Modal.apiEndPoint + 'modal', { key: key }, function (data) {
+                $('#modal-name').text(data.name);
+                $('#modal-desc').text(data.description);
+                
+                if (data.onSale) {
+                    $('#modal-onsale').show();
+                } else {
+                    $('#modal-onsale').hide();
+                }
+
+                if (data.isNew) {
+                    $('#modal-isnew').show();
+                } else {
+                    $('#modal-isnew').hide();
+                }
+                $('#ProductKey').val(data.key);
+                Store.Modal.assignThumbs(data.images);
+                Store.Modal.setPrice(data);
+                $('#modal-result').show();
             });
         },
-        surfaceEndPoint: '/umbraco/surface/modal/'
+        assignThumbs : function(images) {
+            if (images.length > 0) {
+              var count = images.length < 3 ? images.length : 3;
+              for (var i = 0; i < 3; i++) {
+                  if (i == 0) {
+                      $('#modal-image').attr('src', images[i]);
+                  }
+
+                  if (i < count) {
+                      var idx = i + 1;
+                      $('#modal-athumb' + i).attr('href', images[i]);
+                      $('#modal-athumb' + i).attr('src', images[i]);
+                      $('#modal-thumb' + i).attr('src', images[i]);
+                      console.info($('#modal-athumb' + i));
+                      $('#modal-thumb' + i).show();
+                      $('#modal-athumb' + i).show();
+                  } else {
+                      $('#modal-athumb' + i).hide();
+                      $('#modal-thumb' + i).hide();
+                  }
+                      
+              }
+          }  
+        },
+        setPrice : function(p) {
+            var price = '<del>{0}</del> {1}';
+            if (p.onSale) {
+                price = price.replace('{0}', p.price).replace('{1}', p.salePrice);
+            } else {
+                price = p.price;
+            }
+            $('[data-modal="price"]').html(price);
+        },
+        apiEndPoint: '/umbraco/api/modalapi/'
     }
 };
