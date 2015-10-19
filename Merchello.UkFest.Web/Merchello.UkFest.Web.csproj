@@ -286,11 +286,12 @@
     <Compile Include="Models\Carousel.cs" />
     <Compile Include="Models\CarouselItem.cs" />
     <Compile Include="Models\Category\Category.cs" />
-    <Compile Include="Models\Category\CategoryHeader.cs" />
+    <Compile Include="Models\Header.cs" />
     <Compile Include="Models\Category\CategoryTop.cs" />
     <Compile Include="Models\Category\CategoryTree.cs" />
     <Compile Include="Models\Category\CategoryTreeItem.cs" />
     <Compile Include="Models\CheckoutBase.cs" />
+    <Compile Include="Models\TextPage.cs" />
     <Compile Include="Models\OrderSummary.cs" />
     <Compile Include="Models\PagedCollection.cs" />
     <Compile Include="Models\ProductBase.cs" />

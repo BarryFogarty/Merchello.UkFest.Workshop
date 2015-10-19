@@ -25,7 +25,7 @@
 
             return new MetaValues
                        {
-                           PageTitle = root.GetPropertyValue<string>("pageTitle"),
+                           MetaTitle = root.GetPropertyValue<string>("pageTitle"),
                            MetaDescription = root.GetPropertyValue<string>("metaDescription")
                        };
         }

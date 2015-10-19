@@ -30,6 +30,7 @@
         /// </param>
         protected override void ApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
+            ContentService.Saving += ContentServiceOnSaving;
             ContentService.Saved += ContentServiceOnSaved;
             ContentService.Deleted += ContentServiceOnDeleted;
 
@@ -37,6 +38,24 @@
             StoreSettingService.Saved += StoreSettingServiceOnSaved;
             ProductContentFactory.Initializing += ProductContentFactoryOnInitializing;
         }
+
+
+        /// <summary>
+        /// Set auto-properties on content saving
+        /// We can't do these properties on create as the source values will not exist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ContentServiceOnSaving(IContentService sender, SaveEventArgs<IContent> e)
+        {
+            foreach (IContent entity in e.SavedEntities)
+            {
+                entity.SetDefaultValue("title", entity.Name);
+                entity.SetDefaultValue("metaTitle", entity.Name);
+            }
+        }
+
+        
 
         /// <summary>
         /// Removes hashed references to content when content is deleted.
