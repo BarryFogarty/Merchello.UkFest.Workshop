@@ -36,7 +36,7 @@
             return new UpdateBasket
                 {
                     ContinueShoppingUrl = contentResolver.GetRootContent().Url,
-                    CheckoutUrl = string.Empty,
+                    CheckoutUrl = contentResolver.GetCheckoutContent().Url,
                     FormattedBasketTotal = StoreHelper.FormatCurrency(basket.TotalBasketPrice),
                     Items = basket.Items.Select(x => ((IItemCacheLineItem)x).AsBasketItem(_merchello)).ToArray()
                 };

@@ -3,9 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Web.Mvc;
 
     using Merchello.UkFest.Web.Ditto.ValueResolvers;
-    using Merchello.Web.Models.ContentEditing;
 
     using Our.Umbraco.Ditto;
 
@@ -19,7 +19,7 @@
         /// </summary>
         public AddToBasket()
         {
-            this.ProductOptions = Enumerable.Empty<ProductOptionDisplay>();    
+            this.PossibleChoices = Enumerable.Empty<SelectListItem>();    
         }
 
         /// <summary>
@@ -32,16 +32,21 @@
         /// Gets or sets the option choices (if there are any), used to determine the variant 
         /// in post back
         /// </summary>
-        public Guid[] OptionChoices { get; set; }
+        /// <remarks>
+        /// Sets the inital radio button
+        /// </remarks>
+        [DittoValueResolver(typeof(OptionChoiceValueResolver))]
+        public Guid OptionChoice { get; set; }
 
         /// <summary>
         /// Gets or sets the product options.
         /// </summary>
         /// <remarks>
-        /// This will be empty if the product does not have variants
+        /// This will be empty if the product does not have variants.
+        /// In this build we are assuming that a product has no more that a single option.
         /// </remarks>
-        [UmbracoProperty("ProductOptions")]
-        public IEnumerable<ProductOptionDisplay> ProductOptions { get; set; }
+        [DittoValueResolver(typeof(ProductOptionsListItemValueResolver))]
+        public IEnumerable<SelectListItem> PossibleChoices { get; set; }
 
         /// <summary>
         /// Gets or sets the formatted price.

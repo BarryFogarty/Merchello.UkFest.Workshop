@@ -76,6 +76,23 @@
         }
 
         /// <summary>
+        /// Gets the checkout content.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IPublishedContent"/>.
+        /// </returns>
+        internal IPublishedContent GetCheckoutContent()
+        {
+            return TryGetUniquePageContent(
+                "Checkout",
+                () =>
+                    {
+                        var basket = this.GetBasketContent();
+                        return basket.FirstChild();
+                    });
+        }
+
+        /// <summary>
         /// The get surf category content.
         /// </summary>
         /// <returns>

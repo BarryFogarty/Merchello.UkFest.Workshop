@@ -1,7 +1,5 @@
 ﻿namespace Merchello.UkFest.Web.Models
 {
-    using System.Collections.Generic;
-
     /// <summary>
     /// A model used for updating a basket.
     /// </summary>
