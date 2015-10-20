@@ -93,19 +93,19 @@
         }
 
         /// <summary>
-        /// The get surf category content.
+        /// The get store category content.
         /// </summary>
         /// <returns>
         /// The <see cref="IPublishedContent"/>.
         /// </returns>
-        internal IPublishedContent GetSurfCategoryContent()
+        internal IPublishedContent GetStoreCategoryContent()
         {
             return this.GetByAlias(
-                "Surf",
+                "Store",
                 () =>
                     {
                         var root = this.GetRootContent();
-                        return root.Descendants("Category").FirstOrDefault(x => x.Name == "Surf");
+                        return root.Descendants("Category").FirstOrDefault();
                     });
         }
     }

@@ -10,32 +10,32 @@
                 <div class="col-sm-3">
                     @if (Model.WillWork("image"))
                     {
-                        <img src="@Model.Image.GetCropUrl(height: 170)" class="img-responsive hidden-xs" alt="">
+                        <img src="@Model.Image.GetCropUrl(height: 170)" class="img-responsive hidden-xs" alt="" />
                     }                    
                 </div>
-                @foreach (var child in Model.VisibleChildren())
+                @foreach (var category in Model.VisibleChildren())
                 {
-
                     <div class="col-sm-3">
-                        <h3><a href="@child.Url">@child.Name</a></h3>
+                        <h3><a href="@category.Url">@category.Name</a></h3>
                         <ul>
-                            @foreach (var sub in child.VisibleChildren())
+                            @foreach (var subCategory in category.VisibleChildren())
                             {
                                 <li>
-                                    <a href="@sub.Url">@sub.Name</a>
+                                    <a href="@subCategory.Url">@subCategory.Name</a>
                                 </li>
                             }                           
                         </ul>
                     </div>
                 }
-
             </div>
-        <div class="footer clearfix hidden-xs">
+        </div>
+
+        @*<div class="footer clearfix hidden-xs">
             <h4 class="pull-right">@Model.Name</h4>
             <div class="buttons pull-left">
                 <a href="#" class="btn btn-default"><i class="fa fa-tags"></i> Sales</a>
             </div>
-        </div>
-       </div>
+        </div>*@
+
     </li>
 </ul>

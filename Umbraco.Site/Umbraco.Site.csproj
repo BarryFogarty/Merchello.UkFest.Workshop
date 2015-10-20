@@ -697,7 +697,7 @@
     <Content Include="Views\Shared\_RecentlyViewed.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\Related.cshtml" />
+    <Content Include="Views\Partials\Product\Featured.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\AddToBasket.cshtml" />

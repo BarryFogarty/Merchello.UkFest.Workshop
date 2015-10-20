@@ -26,13 +26,7 @@
         /// <summary>
         /// Gets or sets the image.
         /// </summary>
-        [UmbracoProperty("image")]
-        public IPublishedContent Image { get; set; }
+        public Image Image { get; set; }
 
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        [UmbracoProperty("description")]
-        public IHtmlString Description { get; set; } 
     }
 }
