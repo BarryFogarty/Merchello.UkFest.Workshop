@@ -23,7 +23,7 @@
         {
             if (Content == null) return Enumerable.Empty<CategoryTreeItem>();
 
-            var top = ContentResolver.Instance.GetSurfCategoryContent();
+            var top = ContentResolver.Instance.GetStoreCategoryContent();
             var treeItems = top.VisibleChildren()
                 .Select(category => 
                     new CategoryTreeItem

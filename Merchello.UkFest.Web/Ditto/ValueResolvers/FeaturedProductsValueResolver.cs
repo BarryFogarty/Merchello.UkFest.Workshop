@@ -13,7 +13,9 @@ namespace Merchello.UkFest.Web.Ditto.ValueResolvers
     using Umbraco.Web;
 
     /// <summary>
-    /// A resolver for product listings.
+    /// A resolver for featured product listings.
+    /// Gets a listing of products in a collection and selects the first 3.
+    /// The collection is set via a picker on the root (Home) node
     /// </summary>
     public class FeaturedProductsValueResolver : DittoValueResolver
     {

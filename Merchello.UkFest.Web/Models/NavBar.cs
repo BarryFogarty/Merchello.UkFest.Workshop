@@ -16,8 +16,11 @@
         /// <summary>
         /// Gets or sets the categories.
         /// </summary>
-        [DittoValueResolver(typeof(CategoryContentValueResolver))]
-        public IEnumerable<IPublishedContent> Categories { get; set; }
+        //[DittoValueResolver(typeof(CategoryContentValueResolver))]
+        //public IEnumerable<IPublishedContent> Categories { get; set; }
+
+        [DittoValueResolver(typeof(NavBarValueResolver))]
+        public IEnumerable<IPublishedContent> Menu { get; set; }
 
         /// <summary>
         /// Gets or sets the site branding information.

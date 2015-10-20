@@ -250,6 +250,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Ditto\ValueResolvers\NavBarValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\FeaturedProductsValueResolver.cs" />
     <Compile Include="Models\Checkout\DeliveryMethods.cs" />
     <Compile Include="Models\Checkout\DeliveryQuote.cs" />

@@ -1,4 +1,5 @@
 ﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<NavBar>
+@using Merchello.UkFest.Web
 @using Merchello.UkFest.Web.Models
 @using Merchello.UkFest.Web.Models.PublishedContent
 @using Our.Umbraco.Ditto
@@ -30,14 +31,21 @@
         <div class="navbar-collapse collapse" id="navigation">
 
             <ul class="nav navbar-nav navbar-left">
-                <li class=""><!-- active -->
-                    <a href="/">Home</a>                    
-                </li>
-                @foreach (var category in Model.View.Categories)
+                
+                @foreach (var topLink in Model.View.Menu)
                 {
-                    <li class="dropdown yamm-fw">
-                        @Html.Partial("_CategoryNavItem", category.As<CategoryNavItem>()) 
-                    </li>
+                    if (topLink.DocumentTypeAlias == "Category")
+                    {
+                        <li class="dropdown yamm-fw">
+                            @Html.Partial("_CategoryNavItem", topLink.As<CategoryNavItem>())
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@topLink.Url">@topLink.Name</a>                    
+                        </li>
+                    }
                 }
             </ul>
 
