@@ -250,9 +250,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Ditto\ValueResolvers\FeaturedProductsValueResolver.cs" />
     <Compile Include="Models\Checkout\DeliveryMethods.cs" />
     <Compile Include="Models\Checkout\DeliveryQuote.cs" />
     <Compile Include="Models\Checkout\PaymentMethods.cs" />
+    <Compile Include="Models\FeaturedProducts.cs" />
     <Compile Include="StoreExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BasketController.cs" />
