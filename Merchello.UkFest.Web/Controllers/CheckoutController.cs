@@ -227,6 +227,27 @@
         }
 
         /// <summary>
+        /// Confirms the order.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
+        /// <remarks>
+        /// This method is overly simple since we only have the cash provider installed.
+        /// Normally, we'd post values for processing a payment, but in this case we just need to authorize the 
+        /// transaction.
+        /// </remarks>
+        [HttpGet]
+        public ActionResult ConfirmOrder()
+        {
+            var preparation = _preparation.Value;
+
+            preparation.AuthorizePayment(preparation.GetPaymentMethod().Key);
+
+            return RedirectToUmbracoPage(ContentResolver.Instance.GetRootContent());
+        }
+
+        /// <summary>
         /// Initializes the controller.
         /// </summary>
         private void Initialize()
