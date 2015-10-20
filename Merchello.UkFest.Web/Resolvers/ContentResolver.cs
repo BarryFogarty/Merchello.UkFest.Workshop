@@ -76,6 +76,23 @@
         }
 
         /// <summary>
+        /// Gets the receipt page content.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IPublishedContent"/>.
+        /// </returns>
+        internal IPublishedContent GetReceiptContent()
+        {
+            return TryGetUniquePageContent(
+                "Receipt",
+                () =>
+                    {
+                        var root = this.GetRootContent();
+                        return root.Descendant("Receipt");
+                    });
+        }
+
+        /// <summary>
         /// Gets the checkout content.
         /// </summary>
         /// <returns>

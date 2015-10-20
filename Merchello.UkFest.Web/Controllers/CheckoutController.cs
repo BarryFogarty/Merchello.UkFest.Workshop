@@ -249,9 +249,12 @@
         {
             var preparation = _preparation.Value;
 
-            preparation.AuthorizePayment(preparation.GetPaymentMethod().Key);
+            var result = preparation.AuthorizePayment(preparation.GetPaymentMethod().Key);
 
-            return RedirectToUmbracoPage(ContentResolver.Instance.GetRootContent());
+            var context = new ReceiptValueResolverContext();
+            context.SetValue(result.Invoice.Key);
+
+            return RedirectToUmbracoPage(ContentResolver.Instance.GetReceiptContent());
         }
 
         /// <summary>

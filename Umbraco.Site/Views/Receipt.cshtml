@@ -1,0 +1,103 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "_Base.cshtml";
+}
+
+
+<div class="col-md-9 clearfix" id="customer-order">
+    <div class="box">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">Product</th>
+                        <th>Quantity</th>
+                        <th>Unit price</th>
+                        <th>Discount</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img src="img/detailsquare.jpg" alt="White Blouse Armani">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">White Blouse Armani</a>
+                        </td>
+                        <td>2</td>
+                        <td>$123.00</td>
+                        <td>$0.00</td>
+                        <td>$246.00</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">Black Blouse Armani</a>
+                        </td>
+                        <td>1</td>
+                        <td>$200.00</td>
+                        <td>$0.00</td>
+                        <td>$200.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5" class="text-right">Order subtotal</th>
+                        <th>$446.00</th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" class="text-right">Shipping and handling</th>
+                        <th>$10.00</th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" class="text-right">Tax</th>
+                        <th>$0.00</th>
+                    </tr>
+                    <tr>
+                        <th colspan="5" class="text-right">Total</th>
+                        <th>$456.00</th>
+                    </tr>
+                    <tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <!-- /.table-responsive -->
+
+        <div class="row addresses">
+            <div class="col-sm-6">
+                <h2>Invoice address</h2>
+                <p>
+                    John Brown
+                    <br>13/25 New Avenue
+                    <br>New Heaven
+                    <br>45Y 73J
+                    <br>England
+                    <br>Great Britain
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <h2>Shipping address</h2>
+                <p>
+                    John Brown
+                    <br>13/25 New Avenue
+                    <br>New Heaven
+                    <br>45Y 73J
+                    <br>England
+                    <br>Great Britain
+                </p>
+            </div>
+        </div>
+        <!-- /.addresses -->
+
+    </div>
+    <!-- /.box -->
+
+</div>
