@@ -36,9 +36,8 @@
             return new UpdateBasket
                 {
                     ContinueShoppingUrl = contentResolver.GetRootContent().Url,
-                    CheckoutUrl = contentResolver.GetCheckoutContent().Url,
                     FormattedBasketTotal = StoreHelper.FormatCurrency(basket.TotalBasketPrice),
-                    Items = basket.Items.Select(x => ((IItemCacheLineItem)x).AsBasketItem(_merchello)).ToArray()
+                    Items = basket.Items.Select(x => x.AsBasketItem(_merchello)).ToArray()
                 };
         }
     }

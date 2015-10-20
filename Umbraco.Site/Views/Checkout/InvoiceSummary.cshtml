@@ -1,0 +1,46 @@
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.InvoiceSummary>
+
+<h3 class="hidden"><i class="fa fa-eye"></i><br>Order Review</h3>
+<form id="step4" action="@Url.Action("ConfirmOrder", "Checkout")" method="GET">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2">Product</th>
+                    <th>Quantity</th>
+                    <th>Unit price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.View.Products)
+                {
+                    <tr>
+                        <td>                            
+                            <img src="@item.Image" alt="@item.Name">                            
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>@item.Quantity</td>
+                        <td>@item.FormattedUnitPrice</td>
+                        <td>@item.FormattedPrice</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">Total</th>
+                    <th>@Model.View.FormattedTotal</th>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+    <div class="box-footer">
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="Confirm" />
+        </div>
+    </div>
+</form>
+

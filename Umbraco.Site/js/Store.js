@@ -6,6 +6,7 @@ var Store = {
 
     init : function() {
         Store.Controls.init();
+        Store.Checkout.init();
     },
 
     Controls : {
@@ -152,5 +153,47 @@ var Store = {
             $('[data-modal="price"]').html(price);
         },
         apiEndPoint: '/umbraco/api/modalapi/'
+    },
+
+    Checkout : {
+        init : function() {
+            $("#checkout-forms").steps({
+
+                /* Behaviour */
+                headerTag: "h3",
+                bodyTag: "form",
+                enableFinishButton: false,
+                enablePagination: false,
+                enableAllSteps: true,
+                titleTemplate: "#title#",
+
+                /* Labels */
+                labels: {
+                    //cancel: "Cancel",
+                    current: "",
+                    //pagination: "Pagination",
+                    //finish: "Finish",
+                    //next: "Next",
+                    //previous: "Previous",
+                    //loading: "Loading ..."
+                },
+
+                /* Events */
+                onInit: function (event, currentIndex) {
+                    $("#checkout-forms ul").addClass("nav nav-pills nav-justified");
+                    var stage = $('#View_Stage').val();
+                    Store.Checkout.setMaxStage(stage * 1);
+                }
+            });
+        },
+        setMaxStage : function(current) {
+            for (var i = current + 1; i <= 3; i++) {
+                $('#checkout-forms-t-' + i).unbind();
+                $('#checkout-forms-t-' + i).click(function(e) {
+                    e.preventDefault();
+                });
+            }
+            $('#checkout-forms-t-' + current).trigger('click');
+        }
     }
 };

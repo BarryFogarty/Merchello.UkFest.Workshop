@@ -30,7 +30,32 @@
         /// <returns>
         /// The <see cref="BasketItem"/>.
         /// </returns>
-        public static BasketItem AsBasketItem(this IItemCacheLineItem item, MerchelloHelper merchello)
+        public static BasketItem AsBasketItem(this ILineItem item, MerchelloHelper merchello)
+        {
+            var product = merchello.TypedProductContent(item.ExtendedData.GetProductKey());
+
+            var productItem = item.AsProductLineItem(merchello);
+
+            var basketItem = AutoMapper.Mapper.Map<BasketItem>(productItem);
+            basketItem.ProductKey = product.Key;
+            basketItem.ProductUrl = product.Url;
+
+            return basketItem;
+        }
+
+        /// <summary>
+        /// The as product line item.
+        /// </summary>
+        /// <param name="item">
+        /// The item.
+        /// </param>
+        /// <param name="merchello">
+        /// The merchello.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ProductLineItem"/>.
+        /// </returns>
+        public static ProductLineItem AsProductLineItem(this ILineItem item, MerchelloHelper merchello)
         {
             if (!item.ExtendedData.ContainsProductKey()) return null;
             var product = merchello.TypedProductContent(item.ExtendedData.GetProductKey());
@@ -38,17 +63,15 @@
 
             var images = product.GetPropertyValue<IEnumerable<IPublishedContent>>("images").ToArray();
 
-            return new BasketItem
-                       {
-                           Key = item.Key,
-                           FormattedUnitPrice = StoreHelper.FormatCurrency(item.Price),
-                           FormattedPrice = StoreHelper.FormatCurrency(item.TotalPrice),
-                           Image = images.Any() ? images.First().GetCropUrl(50, 50) : string.Empty,
-                           ProductKey = product.Key,
-                           Name = item.Name,
-                           ProductUrl = product.Url,
-                           Quantity = item.Quantity
-                       };
+            return new ProductLineItem()
+            {
+                Key = item.Key,
+                FormattedUnitPrice = StoreHelper.FormatCurrency(item.Price),
+                FormattedPrice = StoreHelper.FormatCurrency(item.TotalPrice),
+                Image = images.Any() ? images.First().GetCropUrl(50, 50) : string.Empty,
+                Name = item.Name,
+                Quantity = item.Quantity
+            };
         }
 
         /// <summary>

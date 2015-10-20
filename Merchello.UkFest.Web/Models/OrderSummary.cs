@@ -1,5 +1,9 @@
 ﻿namespace Merchello.UkFest.Web.Models
 {
+    using System.Collections.Generic;
+
+    using Merchello.Core.Models;
+
     /// <summary>
     /// A model for the order summary.
     /// </summary>
@@ -29,5 +33,10 @@
         /// Gets or sets the formatted total.
         /// </summary>
         public string FormattedTotal { get; set; }
+
+        /// <summary>
+        /// Gets or sets the items.
+        /// </summary>
+        public IEnumerable<ILineItem> Items { get; set; } 
     }
 }

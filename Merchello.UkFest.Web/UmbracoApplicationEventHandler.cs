@@ -3,8 +3,13 @@
     using System;
     using System.Linq;
 
+    using Merchello.Core.Events;
+    using Merchello.Core.Gateways.Payment;
     using Merchello.Core.Models;
+    using Merchello.Core.Sales;
     using Merchello.Core.Services;
+    using Merchello.UkFest.Web.Ditto.Contexts;
+    using Merchello.UkFest.Web.Models;
     using Merchello.UkFest.Web.Resolvers;
     using Merchello.Web.Models.VirtualContent;
 
@@ -37,15 +42,32 @@
             // Merchello
             StoreSettingService.Saved += StoreSettingServiceOnSaved;
             ProductContentFactory.Initializing += ProductContentFactoryOnInitializing;
+            SalePreparationBase.Finalizing += SalePreparationBaseOnFinalizing;
+
+            AutoMapper.Mapper.CreateMap<ProductLineItem, BasketItem>();
         }
 
+        /// <summary>
+        /// The sale preparation base on finalizing.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private static void SalePreparationBaseOnFinalizing(SalePreparationBase sender, SalesPreparationEventArgs<IPaymentResult> e)
+        {
+            var context = new CheckoutStageResolverContext();
+            context.Reset();
+        }
 
         /// <summary>
         /// Set auto-properties on content saving
         /// We can't do these properties on create as the source values will not exist
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The content service</param>
+        /// <param name="e">The save event arguments</param>
         protected void ContentServiceOnSaving(IContentService sender, SaveEventArgs<IContent> e)
         {
             foreach (IContent entity in e.SavedEntities)
@@ -53,8 +75,6 @@
                 entity.SetDefaultValue("headTitle", entity.Name);
             }
         }
-
-        
 
         /// <summary>
         /// Removes hashed references to content when content is deleted.

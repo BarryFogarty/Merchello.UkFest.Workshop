@@ -10,6 +10,12 @@
     public class CheckoutModel
     {
         /// <summary>
+        /// Gets or sets the max validated stage.
+        /// </summary>
+        [DittoValueResolver(typeof(CheckoutStageValueResolver))]
+        public int Stage { get; set; }
+
+        /// <summary>
         /// Gets or sets the basket url.
         /// </summary>
         [DittoValueResolver(typeof(BasketUrlValueResolver))]

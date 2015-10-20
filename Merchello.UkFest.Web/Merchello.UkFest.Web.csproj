@@ -250,12 +250,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="Ditto\Contexts\CheckoutStageResolverContext.cs" />
+    <Compile Include="Ditto\ValueResolvers\BasketItemValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\CheckoutStageValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\CollectionTotalValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\CheckoutUrlValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\ContinueShoppingUrlValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\NavBarValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\FeaturedProductsValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\OrderSummaryValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\ProductLineItemsValueResolver.cs" />
     <Compile Include="Models\Checkout\DeliveryMethods.cs" />
     <Compile Include="Models\Checkout\DeliveryQuote.cs" />
     <Compile Include="Models\Checkout\PaymentMethods.cs" />
     <Compile Include="Models\FeaturedProducts.cs" />
+    <Compile Include="Models\ProductLineItem.cs" />
+    <Compile Include="Models\InvoiceSummary.cs" />
     <Compile Include="StoreExtensions.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\BasketController.cs" />
@@ -282,7 +292,6 @@
     <Compile Include="Models\Checkout\CheckoutStage.cs" />
     <Compile Include="Models\Checkout\CheckoutStageBase.cs" />
     <Compile Include="Models\Image.cs" />
-    <Compile Include="Ditto\ValueResolvers\OrderSummaryValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\RecentlyViewedValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketItemCountResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketLinkResolver.cs" />
@@ -308,7 +317,6 @@
     <Compile Include="Models\Category\CategoryTop.cs" />
     <Compile Include="Models\Category\CategoryTree.cs" />
     <Compile Include="Models\Category\CategoryTreeItem.cs" />
-    <Compile Include="Models\CheckoutBase.cs" />
     <Compile Include="Models\Promo.cs" />
     <Compile Include="Models\TextPage.cs" />
     <Compile Include="Models\OrderSummary.cs" />
