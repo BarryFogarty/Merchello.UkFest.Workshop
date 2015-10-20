@@ -58,12 +58,15 @@
             <div class="pull-left">
                 <a href="@Model.ContinueShoppingUrl" class="btn btn-default"><i class="fa fa-chevron-left"></i> Continue shopping</a>
             </div>
-            <div class="pull-right">
-                <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>
-                <a href="@Model.CheckoutUrl" class="btn btn-primary">
-                    Proceed to checkout <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
+            @if (Model.Items.Any())
+            {
+                <div class="pull-right">
+                    <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>                
+                    <a href="@Model.CheckoutUrl" class="btn btn-primary">
+                        Proceed to checkout <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            }
         </div>
 }
 

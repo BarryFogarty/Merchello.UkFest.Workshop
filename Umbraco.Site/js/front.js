@@ -268,11 +268,11 @@ $(window).resize(function () {
 
 /* jQuery Steps checkout form */
 
-$("#checkout").steps({
+$("#checkout-forms").steps({
 
     /* Behaviour */
     headerTag: "h3",
-    bodyTag: "section",
+    bodyTag: "form",
     enableFinishButton: false,
     enablePagination: false,
     enableAllSteps: true,
@@ -291,6 +291,6 @@ $("#checkout").steps({
     
     /* Events */
     onInit: function(event, currentIndex) {
-        $("#checkout ul").addClass("nav nav-pills nav-justified");
+        $("#checkout-forms ul").addClass("nav nav-pills nav-justified");
     }
 });

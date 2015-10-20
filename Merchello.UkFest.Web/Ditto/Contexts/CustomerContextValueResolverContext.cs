@@ -1,5 +1,7 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.Contexts
 {
+    using System;
+
     using Merchello.Core.Models;
     using Merchello.Web;
     using Merchello.Web.Pluggable;
@@ -20,6 +22,19 @@
         /// The Request cache.
         /// </summary>
         private readonly ICacheProvider _requestCache = ApplicationContext.Current.ApplicationCache.RequestCache;
+
+        /// <summary>
+        /// The <see cref="IBasketSalePreparation"/>.
+        /// </summary>
+        private Lazy<IBasketSalePreparation> _preparation;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomerContextValueResolverContext"/> class.
+        /// </summary>
+        public CustomerContextValueResolverContext()
+        {
+            this.Initialize();
+        }
 
         /// <summary>
         /// Gets the <see cref="ICustomerContext"/>.
@@ -60,12 +75,20 @@
         /// <summary>
         /// Gets the sale preparation.
         /// </summary>
-        public BasketSalePreparation SalePreparation
+        public IBasketSalePreparation SalePreparation
         {
             get
             {
-                return Basket.SalePreparation();
+                return _preparation.Value;
             }
+        }
+
+        /// <summary>
+        /// The initialize.
+        /// </summary>
+        private void Initialize()
+        {
+            _preparation = new Lazy<IBasketSalePreparation>(() => Basket.SalePreparation());
         }
     }
 }

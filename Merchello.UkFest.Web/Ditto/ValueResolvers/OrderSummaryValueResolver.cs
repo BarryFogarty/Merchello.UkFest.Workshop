@@ -23,7 +23,19 @@
         public override object ResolveValue()
         {
             if (Content == null) return null;
- 
+
+            if (Context.SalePreparation.IsReadyToInvoice())
+            {
+                var invoice = Context.SalePreparation.PrepareInvoice();
+                return new OrderSummary
+                           {
+                               FormattedSubTotal = StoreHelper.FormatCurrency(invoice.TotalItemPrice()),
+                               FormattedShippingTotal = StoreHelper.FormatCurrency(invoice.TotalShipping()),
+                               FormattedTotal = StoreHelper.FormatCurrency(invoice.Total),
+                               TotalTitle = "Total"
+                           };
+            }
+
             var shippingRate = 0M;
             const string TotalTitle = "Sub Total";
             var total = Context.Basket.TotalBasketPrice;

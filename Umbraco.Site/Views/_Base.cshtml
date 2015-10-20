@@ -24,6 +24,9 @@
             .RequiresJs("/js/respond.min.js")
             .RequiresJs("/js/jquery-1.11.0.min.js")
             .RequiresJs("/js/bootstrap.min.js")
+            .RequiresJs("/js/jquery.validate.min.js")
+            .RequiresJs("/js/jquery.unobtrusive-ajax.min.js")
+            .RequiresJs("/js/jquery.validate.unobtrusive.min.js")
             .RequiresJs("/js/jquery.cookie.js")
             .RequiresJs("/js/owl.carousel.min.js")
             .RequiresJs("/js/jquery.steps.min.js")
@@ -35,7 +38,7 @@
 </head>
 <body>
 
-    @Html.Partial("_NavBar")
+    @Html.CachedPartial("_NavBar", null, 500)
 
     @Html.Partial("Account/LoginModal")
 
@@ -45,7 +48,7 @@
 
         @RenderBody()
 
-        @Html.Partial("_Footer")
+        @Html.CachedPartial("_Footer", null, 500)
 
         @Html.Partial("_Copyright")
 

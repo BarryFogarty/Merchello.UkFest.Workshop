@@ -1,0 +1,39 @@
+﻿@using Merchello.UkFest.Web.Controllers
+@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.Checkout.PaymentMethods>
+
+<h3 class="hidden"><i class="fa fa-money"></i><br>Payment Method</h3>
+@using (Html.BeginUmbracoForm<CheckoutController>("SavePaymentMethod", null, new { id = "step3" }))
+{
+    <fieldset>
+        <div class="row">
+            @foreach (var method in Model.Methods)
+            {
+
+                <div class="col-sm-6">
+                    <div class="box payment-method">
+
+                        <h4>@method.Name</h4>
+                        
+                        @* This would need to be added to the model if we had more than a single payment method *@
+                        <p>Cash payment</p>
+
+                        <div class="box-footer text-center">
+
+                            @Html.RadioButtonFor(x => x.SelectedPaymentMethod, method.Key)
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </fieldset>
+    <div class="box-footer">
+        <div class="pull-left">
+            <a href="@Model.PreviousUrl" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+        </div>
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="Next" />
+        </div>
+    </div>
+}

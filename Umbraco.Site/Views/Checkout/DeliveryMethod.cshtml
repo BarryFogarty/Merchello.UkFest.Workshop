@@ -1,0 +1,37 @@
+﻿@using Merchello.UkFest.Web.Controllers
+@inherits UmbracoViewPage<Merchello.UkFest.Web.Models.Checkout.DeliveryMethod>
+          
+<h3 class="hidden"><i class="fa fa-truck"></i><br>Delivery Method</h3>
+@using (Html.BeginUmbracoForm<CheckoutController>("SaveDeliverMethod", null, new { id = "step2" }))
+{
+    <fieldset>
+        <div class="row">
+            @foreach (var quote in Model.Quotes)
+            {
+                <div class="col-sm-6">
+                    <div class="box shipping-method">
+
+                        <h4>@quote.MethodName (@quote.Rate)</h4>
+
+                        <p>@quote.Description</p>
+
+                        <div class="box-footer text-center">
+                            @Html.RadioButtonFor(x => x.ShipMethodKey, quote.Key)
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </fieldset>
+    <div class="box-footer">
+        <div class="pull-left">
+            <a href="@Model.PreviousUrl" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
+        </div>
+        <div class="pull-right">
+            <input type="submit" class="btn btn-primary" value="Next" />
+            @*<button type="submit" class="btn btn-primary">
+                    Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                </button>*@
+        </div>
+    </div>
+}
