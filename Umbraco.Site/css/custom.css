@@ -19,3 +19,7 @@
     margin-right: -5px;
     margin-left: -5px;
 }
+
+#checkout-forms fieldset {
+    margin: 2rem 0;
+}

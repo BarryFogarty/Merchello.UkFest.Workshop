@@ -32,6 +32,7 @@
                                FormattedSubTotal = StoreHelper.FormatCurrency(invoice.TotalItemPrice()),
                                FormattedShippingTotal = StoreHelper.FormatCurrency(invoice.TotalShipping()),
                                FormattedTotal = StoreHelper.FormatCurrency(invoice.Total),
+                               Items = invoice.Items,
                                TotalTitle = "Total"
                            };
             }
@@ -52,6 +53,7 @@
                            FormattedSubTotal = StoreHelper.FormatCurrency(Context.Basket.TotalBasketPrice),
                            FormattedShippingTotal = StoreHelper.FormatCurrency(shippingRate),
                            FormattedTotal = StoreHelper.FormatCurrency(total),
+                           Items = Context.Basket.Items,
                            TotalTitle = TotalTitle
                        };
         }

@@ -7,6 +7,7 @@
     using Merchello.Core;
     using Merchello.Core.Models;
     using Merchello.Core.Sales;
+    using Merchello.UkFest.Web.Ditto.Contexts;
     using Merchello.UkFest.Web.Models.Checkout;
     using Merchello.UkFest.Web.Resolvers;
     using Merchello.Web;
@@ -174,6 +175,8 @@
             prepartion.SaveBillToAddress(model.AsAddress(AddressType.Billing));
             prepartion.SaveShipToAddress(model.AsAddress(AddressType.Shipping));
 
+            this.UpdateStage(1);
+
             return this.CurrentUmbracoPage();
         }
 
@@ -195,9 +198,11 @@
             var shipment = _basket.PackageBasket(address).FirstOrDefault();
             preparation.ClearShipmentRateQuotes();
 
-            var quote = shipment.ShipmentRateQuoteByShipMethod(model.ShipMethodKey);
+            var quote = shipment.ShipmentRateQuoteByShipMethod(model.ShipMethodKey, false);
 
             preparation.SaveShipmentRateQuote(quote);
+
+            this.UpdateStage(2);
 
             return this.CurrentUmbracoPage();
         }
@@ -223,7 +228,56 @@
             if (method != null)
             preparation.SavePaymentMethod(method.PaymentMethod);
 
+            this.UpdateStage(3);
+
             return this.CurrentUmbracoPage();
+        }
+
+        /// <summary>
+        /// Confirms the order.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
+        /// <remarks>
+        /// This method is overly simple since we only have the cash provider installed.
+        /// Normally, we'd post values for processing a payment, but in this case we just need to authorize the 
+        /// transaction.
+        /// </remarks>
+        [HttpGet]
+        public ActionResult ConfirmOrder()
+        {
+            var preparation = _preparation.Value;
+
+            preparation.AuthorizePayment(preparation.GetPaymentMethod().Key);
+
+            return RedirectToUmbracoPage(ContentResolver.Instance.GetRootContent());
+        }
+
+        /// <summary>
+        /// Starts the checkout.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
+        [HttpGet]
+        public ActionResult StartCheckout()
+        {
+            var context = new CheckoutStageResolverContext();
+            context.SetStage(0);
+            return this.RedirectToUmbracoPage(ContentResolver.Instance.GetCheckoutContent());
+        }
+
+        /// <summary>
+        /// Updates the stage.
+        /// </summary>
+        /// <param name="stage">
+        /// The stage.
+        /// </param>
+        private void UpdateStage(int stage)
+        {
+            var context = new CheckoutStageResolverContext();
+            context.SetStage(stage);
         }
 
         /// <summary>

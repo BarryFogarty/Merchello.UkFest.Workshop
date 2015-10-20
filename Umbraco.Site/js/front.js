@@ -268,29 +268,4 @@ $(window).resize(function () {
 
 /* jQuery Steps checkout form */
 
-$("#checkout-forms").steps({
 
-    /* Behaviour */
-    headerTag: "h3",
-    bodyTag: "form",
-    enableFinishButton: false,
-    enablePagination: false,
-    enableAllSteps: true,
-    titleTemplate: "#title#",
-    
-    /* Labels */
-    labels: {
-        //cancel: "Cancel",
-        current: "",
-        //pagination: "Pagination",
-        //finish: "Finish",
-        //next: "Next",
-        //previous: "Previous",
-        //loading: "Loading ..."
-    },
-    
-    /* Events */
-    onInit: function(event, currentIndex) {
-        $("#checkout-forms ul").addClass("nav nav-pills nav-justified");
-    }
-});

@@ -7,12 +7,15 @@
 }
 
 <div class="box" id="checkout-forms">
-
     @Html.Action("AddressForm", "Checkout", new { addressType = AddressType.Billing })
     @Html.Action("DeliveryMethod", "Checkout")
     @Html.Action("PaymentMethod", "Checkout")
-    @Html.Partial("OrderConfirmation")
+    @Html.Partial("InvoiceSummary")
 </div>
+
+<form>
+    @Html.HiddenFor(x => x.View.Stage)
+</form>
 
 @section Sidebar {
     @Html.Partial("Basket/Summary", Model.View.OrderSummary)
