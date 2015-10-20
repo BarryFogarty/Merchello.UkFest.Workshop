@@ -517,6 +517,9 @@
     <Content Include="js\front.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jquery.validate.unobtrusive.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
@@ -534,7 +537,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Checkout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -750,6 +752,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Home\StoreFeatures.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\AddressForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\DeliveryMethod.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\PaymentMethod.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\OrderConfirmation.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

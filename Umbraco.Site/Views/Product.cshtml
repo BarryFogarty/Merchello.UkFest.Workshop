@@ -13,7 +13,7 @@
             @if (Model.View.Images.Any())
             {
                 var mainImage = Model.View.Images.First();
-                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
+                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive">
             }
         </div>
 
@@ -37,7 +37,7 @@
             {                       
                 <div class="col-xs-4 padding-md">
                     <a href="@image.Url" class="thumb">
-                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive" />
+                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive">
                     </a>
                 </div>                   
             }
