@@ -7,6 +7,7 @@
     using Merchello.Core.Gateways.Shipping;
     using Merchello.Core.Models;
     using Merchello.UkFest.Web.Models;
+    using Merchello.UkFest.Web.Models.Account;
     using Merchello.UkFest.Web.Models.Checkout;
     using Merchello.Web;
 
@@ -145,6 +146,46 @@
                            Description = quote.ShipMethod.Name == "Ground" ? "Standard delivery" : "Get it quick",
                            MethodName = quote.ShipMethod.Name
                        };
+        }
+
+        /// <summary>
+        /// Maps an <see cref="IInvoice"/> to <see cref="CustomerOrder"/>.
+        /// </summary>
+        /// <param name="invoice">
+        /// The invoice.
+        /// </param>
+        /// <returns>
+        /// The <see cref="CustomerOrder"/>.
+        /// </returns>
+        public static CustomerOrder AsCustomerOrder(this IInvoice invoice)
+        {
+            var shippingLineItem = invoice.ShippingLineItems().FirstOrDefault();
+            
+            var shippingAdr = shippingLineItem != null
+                                  ? shippingLineItem.ExtendedData.GetShipment<InvoiceLineItem>()
+                                        .GetDestinationAddress()
+                                        .AsAddressModel()
+                                  : new AddressModel();
+
+            var billingAdr = invoice.GetBillingAddress().AsAddressModel();
+
+            var merchello = new MerchelloHelper();
+
+            return new CustomerOrder
+                {
+                    BillingAddress = billingAdr,
+                    ShippingAddress = shippingAdr,
+                    FormattedDiscountTotal = StoreHelper.FormatCurrency(0),
+                    FormattedShippingTotal = StoreHelper.FormatCurrency(invoice.TotalShipping()),
+                    FormattedSubTotal = StoreHelper.FormatCurrency(invoice.TotalItemPrice()),
+                    FormattedTotal = StoreHelper.FormatCurrency(invoice.Total),
+                    InvoiceDate = invoice.InvoiceDate,
+                    InvoiceNumber = invoice.PrefixedInvoiceNumber(),
+                    InvoiceStatus = invoice.InvoiceStatus.Name,
+                    OrderStatus = invoice.Orders.Any() ? invoice.Orders.First().OrderStatus.Name : "Being prepared",
+                    Key = invoice.Key,
+                    Products = invoice.ProductLineItems().Select(x => x.AsBasketItem(merchello))
+                };
         }
     }
 }
