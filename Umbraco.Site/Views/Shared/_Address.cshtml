@@ -1,0 +1,14 @@
+﻿@model Merchello.UkFest.Web.Models.Checkout.AddressModel
+
+
+<p>
+    @Model.FirstName @Model.LastName
+    <br />@Model.Address1
+    @if (!Model.Address2.IsNullOrWhiteSpace())
+    {
+        <br/>@Model.Address2
+    }
+    <br />@Model.Locality
+    <br />@Model.PostalCode
+    <br />Great Britain
+</p>

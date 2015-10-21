@@ -1,103 +1,97 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Receipt>
 @{
     Layout = "_Base.cshtml";
 }
 
 
-<div class="col-md-9 clearfix" id="customer-order">
-    <div class="box">
-        <div class="table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th colspan="2">Product</th>
-                        <th>Quantity</th>
-                        <th>Unit price</th>
-                        <th>Discount</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <a href="#">
-                                <img src="img/detailsquare.jpg" alt="White Blouse Armani">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">White Blouse Armani</a>
-                        </td>
-                        <td>2</td>
-                        <td>$123.00</td>
-                        <td>$0.00</td>
-                        <td>$246.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <a href="#">
-                                <img src="img/basketsquare.jpg" alt="Black Blouse Armani">
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">Black Blouse Armani</a>
-                        </td>
-                        <td>1</td>
-                        <td>$200.00</td>
-                        <td>$0.00</td>
-                        <td>$200.00</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="5" class="text-right">Order subtotal</th>
-                        <th>$446.00</th>
-                    </tr>
-                    <tr>
-                        <th colspan="5" class="text-right">Shipping and handling</th>
-                        <th>$10.00</th>
-                    </tr>
-                    <tr>
-                        <th colspan="5" class="text-right">Tax</th>
-                        <th>$0.00</th>
-                    </tr>
-                    <tr>
-                        <th colspan="5" class="text-right">Total</th>
-                        <th>$456.00</th>
-                    </tr>
-                    <tr>
-                </tfoot>
-            </table>
+<div id="all">
 
-        </div>
-        <!-- /.table-responsive -->
+    <div id="content">
+        <div class="container">
+    
 
-        <div class="row addresses">
-            <div class="col-sm-6">
-                <h2>Invoice address</h2>
-                <p>
-                    John Brown
-                    <br>13/25 New Avenue
-                    <br>New Heaven
-                    <br>45Y 73J
-                    <br>England
-                    <br>Great Britain
-                </p>
+            <div class="box text-center">
+
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1>Invoice #@Model.View.CustomerOrder.InvoiceNumber</h1>
+
+                        <p class="lead">Invoice #@Model.View.CustomerOrder.InvoiceNumber was placed on <strong>@Model.View.CustomerOrder.InvoiceDate.ToString("MM/dd/yy")</strong> and is currently <strong>@Model.View.CustomerOrder.OrderStatus</strong>.</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <h2>Shipping address</h2>
-                <p>
-                    John Brown
-                    <br>13/25 New Avenue
-                    <br>New Heaven
-                    <br>45Y 73J
-                    <br>England
-                    <br>Great Britain
-                </p>
+
+            <div class="col-md-9 clearfix" id="customer-order">
+                <div class="box">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Product</th>
+                                    <th>Quantity</th>
+                                    <th>Unit price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.View.CustomerOrder.Products)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a href="@item.ProductUrl">
+                                                <img src="@item.Image" alt="@item.Name">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="@item.ProductUrl">@item.Name</a>
+                                        </td>
+                                        <td>@item.Quantity</td>
+                                        <td>@item.FormattedUnitPrice</td>
+                                        <td>@item.FormattedPrice</td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="4" class="text-right">Order subtotal</th>
+                                    <th>@Model.View.CustomerOrder.FormattedSubTotal</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" class="text-right">Shipping and handling</th>
+                                    <th>@Model.View.CustomerOrder.FormattedShippingTotal</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" class="text-right">Discounts</th>
+                                    <th>@Model.View.CustomerOrder.FormattedDiscountTotal</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" class="text-right">Total</th>
+                                    <th>@Model.View.CustomerOrder.FormattedTotal</th>
+                                </tr>
+                                <tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                    <!-- /.table-responsive -->
+
+                    <div class="row addresses">
+                        <div class="col-sm-6">
+                            <h2>Invoice address</h2>
+                            @Html.Partial("_Address", Model.View.CustomerOrder.BillingAddress)
+                        </div>
+                        <div class="col-sm-6">
+                            <h2>Shipping address</h2>
+                            @Html.Partial("_Address", Model.View.CustomerOrder.ShippingAddress)
+                        </div>
+                    </div>
+                    <!-- /.addresses -->
+
+                </div>
+                <!-- /.box -->
+
             </div>
         </div>
-        <!-- /.addresses -->
-
     </div>
-    <!-- /.box -->
-
 </div>

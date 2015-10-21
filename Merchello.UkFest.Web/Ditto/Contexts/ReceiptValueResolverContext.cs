@@ -23,6 +23,17 @@
         }
 
         /// <summary>
+        /// Gets the invoice key.
+        /// </summary>
+        public Guid InvoiceKey
+        {
+            get
+            {
+                return _invoiceKey;
+            }
+        }
+
+        /// <summary>
         /// The set value.
         /// </summary>
         /// <param name="invoiceKey">
