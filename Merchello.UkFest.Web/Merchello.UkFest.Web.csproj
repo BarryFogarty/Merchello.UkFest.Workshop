@@ -251,6 +251,7 @@
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
     <Compile Include="Ditto\Contexts\CheckoutStageResolverContext.cs" />
+    <Compile Include="Ditto\Contexts\ReceiptValueResolverContext.cs" />
     <Compile Include="Ditto\ValueResolvers\BasketItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CheckoutStageValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\CollectionTotalValueResolver.cs" />
