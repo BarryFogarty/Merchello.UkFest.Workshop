@@ -7,7 +7,9 @@ namespace Merchello.UkFest.Web.Models
     /// <summary>
     /// The meta values.
     /// </summary>
-    //[UmbracoProperties(Prefix = "Head")]
+    //[UmbracoProperties(Prefix = "Head")] 
+    // Can't use the above attribute in this case, due to a "feature" in ditto where it falls back to a default value without the prefix.
+    // We want to provide our own falbacks so needs to be done on individual properties.
     public class MetaValues
     {
         /// <summary>

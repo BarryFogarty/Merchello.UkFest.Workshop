@@ -25,11 +25,10 @@
 
             var root = ContentResolver.Instance.GetRootContent();
 
+            // get a list of visible children from the root, plus the root (home) itself.  Is SortOrder the default sort?  if not, .OrderBy(x => x.SortOrder)
             var menuItems = new[] {root}.Union(root.VisibleChildren());
 
             return menuItems;
-
-            //return root.VisibleChildren().OrderBy(x => x.SortOrder);
         }
     }
 }

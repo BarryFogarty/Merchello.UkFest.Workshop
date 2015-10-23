@@ -23,3 +23,10 @@
 #checkout-forms fieldset {
     margin: 2rem 0;
 }
+
+.field-validation-error {
+    font-weight: bold;
+    color: red; 
+}
+
+.input-validation-error{ border: 1px solid red; }

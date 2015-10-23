@@ -524,7 +524,9 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\Store.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -763,13 +765,7 @@
     <Content Include="Views\Checkout\PaymentMethod.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Checkout\InvoiceSummary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Receipt.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Address.cshtml" />
+    <Content Include="Views\Checkout\OrderConfirmation.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

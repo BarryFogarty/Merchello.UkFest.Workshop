@@ -42,7 +42,7 @@
   text-transform: uppercase;
   text-decoration: underline;
 }
-.navbar li.active a {
+.navbar li.current a {
   text-decoration: none !important;
 }
 .navbar .yamm-fw .dropdown-menu {
@@ -781,8 +781,8 @@ button i.fa {
   text-decoration: none;
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
-#content #productMain .sizes a.active,
-#content .quick-view .sizes a.active,
+#content #productMain .sizes a.current,
+#content .quick-view .sizes a.current,
 #content #productMain .sizes a:hover,
 #content .quick-view .sizes a:hover {
   background: #38a7bb;
@@ -827,8 +827,8 @@ button i.fa {
   display: block;
   border: solid 1px transparent;
 }
-#content .thumbs a.active,
-#content #thumbs a.active {
+#content .thumbs a.current,
+#content #thumbs a.current {
   border-color: #38a7bb;
 }
 #content .quick-view .thumbs {
@@ -1036,14 +1036,14 @@ button i.fa {
 #content #blog-post #comment-form {
   margin-bottom: 20px;
 }
-#content #checkout .nav {
+#content #checkout-forms .nav {
   margin-bottom: 20px;
   border-bottom: solid 1px #38a7bb;
 }
-#content #checkout .nav li {
+#content #checkout-forms .nav li {
   height: 100%;
 }
-#content #checkout .nav li a {
+#content #checkout-forms .nav li a {
   display: block;
   height: 100%;
 }
@@ -1059,23 +1059,23 @@ button i.fa {
   color: #555555;
   font-weight: 700;
 }
-#content #checkout .table tbody tr td,
+#content #checkout-forms .table tbody tr td,
 #content #basket .table tbody tr td,
 #content #customer-order .table tbody tr td {
   vertical-align: middle;
 }
-#content #checkout .table tbody tr td input,
+#content #checkout-forms .table tbody tr td input,
 #content #basket .table tbody tr td input,
 #content #customer-order .table tbody tr td input {
   width: 50px;
   text-align: right;
 }
-#content #checkout .table tbody tr td img,
+#content #checkout-forms .table tbody tr td img,
 #content #basket .table tbody tr td img,
 #content #customer-order .table tbody tr td img {
   width: 50px;
 }
-#content #checkout .table tfoot,
+#content #checkout-forms .table tfoot,
 #content #basket .table tfoot,
 #content #customer-order .table tfoot {
   font-size: 18px;
@@ -1195,9 +1195,9 @@ button i.fa {
 .nav-tabs > li > a:hover {
   border-color: #eeeeee #eeeeee #dddddd;
 }
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
+.nav-tabs > li.current > a,
+.nav-tabs > li.current > a:hover,
+.nav-tabs > li.current > a:focus {
   color: #555555;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -1205,18 +1205,18 @@ button i.fa {
 .nav-pills > li > a {
   border-radius: 0;
 }
-.nav-pills > li.active > a,
-.nav-pills > li.active > a:hover,
-.nav-pills > li.active > a:focus {
+.nav-pills > li.current > a,
+.nav-pills > li.current > a:hover,
+.nav-pills > li.current > a:focus {
   color: #ffffff;
   background-color: #38a7bb;
 }
 .nav-tabs-justified > li > a {
   border-radius: 4px;
 }
-.nav-tabs-justified > .active > a,
-.nav-tabs-justified > .active > a:hover,
-.nav-tabs-justified > .active > a:focus {
+.nav-tabs-justified > .current > a,
+.nav-tabs-justified > .current > a:hover,
+.nav-tabs-justified > .current > a:focus {
   border: 1px solid #dddddd;
 }
 @media (min-width: 768px) {
@@ -1224,9 +1224,9 @@ button i.fa {
     border-bottom: 1px solid #dddddd;
     border-radius: 4px 4px 0 0;
   }
-  .nav-tabs-justified > .active > a,
-  .nav-tabs-justified > .active > a:hover,
-  .nav-tabs-justified > .active > a:focus {
+  .nav-tabs-justified > .current > a,
+  .nav-tabs-justified > .current > a:hover,
+  .nav-tabs-justified > .current > a:focus {
     border-bottom-color: #ffffff;
   }
 }
@@ -1419,9 +1419,9 @@ button i.fa {
   color: #333333;
   background-color: transparent;
 }
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover,
-.navbar-default .navbar-nav > .active > a:focus {
+.navbar-default .navbar-nav > .current > a,
+.navbar-default .navbar-nav > .current > a:hover,
+.navbar-default .navbar-nav > .current > a:focus {
   color: #555555;
   background-color: transparent;
 }
@@ -1459,9 +1459,9 @@ button i.fa {
     color: #333333;
     background-color: transparent;
   }
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
-  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+  .navbar-default .navbar-nav .open .dropdown-menu > .current > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .current > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .current > a:focus {
     color: #555555;
     background-color: transparent;
   }
@@ -1521,7 +1521,7 @@ hr {
   content: ">\00a0";
   color: #cccccc;
 }
-.breadcrumb > .active {
+.breadcrumb > .current {
   color: #999999;
 }
 @media (max-width: 991px) {
@@ -1548,14 +1548,14 @@ hr {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
-.btn-primary.active,
+.btn-primary.current,
 .open .dropdown-toggle.btn-primary {
   color: #38a7bb;
   background-color: #ebebeb;
   border-color: #2a7d8c;
 }
 .btn-primary:active,
-.btn-primary.active,
+.btn-primary.current,
 .open .dropdown-toggle.btn-primary {
   background-image: none;
 }
@@ -1571,9 +1571,9 @@ fieldset[disabled] .btn-primary:focus,
 .btn-primary.disabled:active,
 .btn-primary[disabled]:active,
 fieldset[disabled] .btn-primary:active,
-.btn-primary.disabled.active,
-.btn-primary[disabled].active,
-fieldset[disabled] .btn-primary.active {
+.btn-primary.disabled.current,
+.btn-primary[disabled].current,
+fieldset[disabled] .btn-primary.current {
   background-color: #ffffff;
   border-color: #38a7bb;
 }
@@ -1585,7 +1585,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary:active:focus,
-.btn-primary.active {
+.btn-primary.current {
   background: #38a7bb;
   color: #ffffff;
 }
@@ -1682,12 +1682,12 @@ label {
   background-color: #a7dbe5;
   border-color: #dddddd;
 }
-.pagination > .active > a,
-.pagination > .active > span,
-.pagination > .active > a:hover,
-.pagination > .active > span:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span:focus {
+.pagination > .current > a,
+.pagination > .current > span,
+.pagination > .current > a:hover,
+.pagination > .current > span:hover,
+.pagination > .current > a:focus,
+.pagination > .current > span:focus {
   z-index: 2;
   color: #ffffff;
   background-color: #38a7bb;
@@ -1851,8 +1851,8 @@ a.badge:focus {
   text-decoration: none;
   cursor: pointer;
 }
-a.list-group-item.active > .badge,
-.nav-pills > .active > a > .badge {
+a.list-group-item.current > .badge,
+.nav-pills > .current > a > .badge {
   color: #38a7bb;
   background-color: #ffffff;
 }
