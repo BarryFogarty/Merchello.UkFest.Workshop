@@ -313,9 +313,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Plugins\Merchello\assets\css\merchello.css" />
     <Content Include="App_Plugins\Merchello\assets\css\merchello.min.css" />
     <Content Include="App_Plugins\Merchello\assets\images\github_thumb.jpg" />
@@ -712,6 +709,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Checkout\InvoiceSummary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Home\StoreFeatures.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
