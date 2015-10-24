@@ -9,11 +9,6 @@ namespace Merchello.UkFest.Web.Models
     /// </summary>
     public class TextPage
     {
-        /// <summary>
-        /// Gets or sets the meta values.
-        /// </summary>
-        [CurrentContentAs]
-        public MetaValues MetaValues { get; set; }
         
         /// <summary>
         /// Gets or sets the page title.

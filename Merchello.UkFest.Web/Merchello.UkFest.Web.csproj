@@ -335,7 +335,6 @@
     <Compile Include="Models\DitFlo\DitFloTransferModel.cs" />
     <Compile Include="Models\DitFlo\DitFloViewModel.cs" />
     <Compile Include="Models\DitFlo\IDitFloViewModel.cs" />
-    <Compile Include="Models\Layout.cs" />
     <Compile Include="Models\Link.cs" />
     <Compile Include="Models\Branding.cs" />
     <Compile Include="Models\MetaValues.cs" />

@@ -37,6 +37,6 @@
         /// <summary>
         /// Gets or sets the items.
         /// </summary>
-        public virtual IEnumerable<ILineItem> Items { get; set; } 
+        public IEnumerable<ILineItem> Items { get; set; } 
     }
 }
