@@ -13,7 +13,11 @@
                 <form class="form-inline">
                     <div class="col-md-6 col-sm-6">
                         <div class="products-number">
-                            <strong>Show</strong>  <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 12 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 12, "btn-primary")">12</a>  <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 24 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 24, "btn-primary")">24</a>  <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = int.MaxValue })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize > 24, "btn-primary")">All</a>  <span class="hidden-md">products</span>
+                            <strong>Show</strong>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 12 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 12, "btn-primary")">12</a>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 24 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 24, "btn-primary")">24</a>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = int.MaxValue })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize > 24, "btn-primary")">All</a>  
+                            <span class="hidden-md">products</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
