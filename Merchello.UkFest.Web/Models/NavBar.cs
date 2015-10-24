@@ -20,7 +20,7 @@
         //public IEnumerable<IPublishedContent> Categories { get; set; }
 
         [DittoValueResolver(typeof(NavBarValueResolver))]
-        public IEnumerable<IPublishedContent> Menu { get; set; }
+        public virtual IEnumerable<IPublishedContent> Menu { get; set; }
 
         /// <summary>
         /// Gets or sets the site branding information.

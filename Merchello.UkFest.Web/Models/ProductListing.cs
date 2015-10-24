@@ -19,15 +19,9 @@
         public string CollectionName { get; set; }
 
         /// <summary>
-        /// Gets or sets the collection brief.
-        /// </summary>
-        [UmbracoProperty("collectionBrief")]
-        public IHtmlString CollectionBrief { get; set; }
-
-        /// <summary>
         /// Gets or sets the products.
         /// </summary>
         [DittoValueResolver(typeof(ProductListItemsValueResolver))]
-        public IEnumerable<ProductListItem> Products { get; set; } 
+        public virtual IEnumerable<ProductListItem> Products { get; set; } 
     }
 }

@@ -15,7 +15,7 @@
         /// Gets or sets the products.
         /// </summary>
         [DittoValueResolver(typeof(ProductLineItemsValueResolver))]
-        public IEnumerable<ProductLineItem> Products { get; set; }
+        public virtual IEnumerable<ProductLineItem> Products { get; set; }
 
         /// <summary>
         /// Gets or sets the formatted total.

@@ -21,6 +21,6 @@
         /// Gets or sets the products.
         /// </summary>
         [DittoValueResolver(typeof(FeaturedProductsValueResolver))]
-        public IEnumerable<ProductListItem> Products { get; set; }
+        public virtual IEnumerable<ProductListItem> Products { get; set; }
     }
 }

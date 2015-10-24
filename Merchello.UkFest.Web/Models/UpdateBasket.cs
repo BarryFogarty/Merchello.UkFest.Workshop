@@ -25,6 +25,6 @@
         /// Gets or sets the items.
         /// </summary>
         [DittoValueResolver(typeof(BasketItemValueResolver))]
-        public BasketItem[] Items { get; set; }
+        public virtual BasketItem[] Items { get; set; }
     }
 }

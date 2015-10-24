@@ -15,6 +15,6 @@
         /// Gets or sets the items.
         /// </summary>
         [DittoValueResolver(typeof(CarouselItemsResolver))]
-        public IEnumerable<CarouselItem> Items { get; set; }  
+        public virtual IEnumerable<CarouselItem> Items { get; set; }  
     }
 }
