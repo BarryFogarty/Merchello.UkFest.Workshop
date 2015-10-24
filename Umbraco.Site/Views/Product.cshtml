@@ -1,6 +1,4 @@
 ﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.ProductDetail>
-@using Merchello.UkFest.Web
-@using Umbraco.Web.Models
 @{
     Layout = "_Sidebar.cshtml";
 }
@@ -9,39 +7,8 @@
 
     <div class="col-sm-6">
 
-        <div id="mainImage">
-            @if (Model.View.Images.Any())
-            {
-                var mainImage = Model.View.Images.First();
-                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
-            }
-        </div>
-
-        @if (Model.View.OnSale)
-        {
-            <div class="ribbon sale">
-                <div class="theribbon">SALE</div>
-                <div class="ribbon-background"></div>
-            </div>
-        }
-        @if (Model.View.IsNew)
-        {
-            <div class="ribbon new">
-                <div class="theribbon">NEW</div>
-                <div class="ribbon-background"></div>
-            </div>
-        }
-        
-        <div class="row" id="thumbs">
-            @foreach (var image in Model.View.Images)
-            {                       
-                <div class="col-xs-4 padding-md">
-                    <a href="@image.Url" class="thumb">
-                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive" />
-                    </a>
-                </div>                   
-            }
-        </div>
+        <!-- TODO: Product Photos -->
+        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=TODO:ProductPhotos&w=400&h=600">
 
     </div>
 
@@ -53,7 +20,7 @@
 
         <div id="details">
             <h4>Product details</h4>
-            @Model.View.Description
+            <!-- Get Details -->
         </div>
         
         <div class="box social" id="product-social">
@@ -69,8 +36,6 @@
     </div>
 
 </div>
-
-@Html.Partial("_RecentlyViewed")
 
 @section Sidebar {
     @Html.CachedPartial("_CategoryTree", null, 500)
