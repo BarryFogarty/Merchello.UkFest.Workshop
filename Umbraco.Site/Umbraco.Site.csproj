@@ -16,7 +16,7 @@
     <AssemblyName>Merchello.UkFest.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -100,18 +100,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\UmbracoCms.Core.7.3.0\lib\interfaces.dll</HintPath>
     </Reference>
-    <Reference Include="Jumoo.uSync.BackOffice, Version=3.0.5750.30827, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.BackOffice.3.0.0\lib\net45\Jumoo.uSync.BackOffice.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Jumoo.uSync.BackOffice.UI, Version=3.0.5750.30839, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.BackOffice.3.0.0\lib\net45\Jumoo.uSync.BackOffice.UI.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Jumoo.uSync.Core, Version=3.0.5750.30340, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\uSync.Core.3.0.0\lib\net45\Jumoo.uSync.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\UmbracoCms.Core.7.3.0\lib\log4net.dll</HintPath>
@@ -183,6 +171,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Our.Umbraco.PropertyEditorConverters, Version=2.1.5.35, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Our.Umbraco.CoreValueConverters.2.1.5\lib\net45\Our.Umbraco.PropertyEditorConverters.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -446,7 +438,6 @@
     <Content Include="App_Plugins\Merchello\propertyeditors\productlistview\merchello.productlistview.html" />
     <Content Include="App_Plugins\Merchello\propertyeditors\productpicker\merchello.productselector.dialog.html" />
     <Content Include="App_Plugins\Merchello\propertyeditors\productpicker\merchello.productselector.html" />
-    <Content Include="App_Plugins\uSync\BackOffice\uSyncBackOfficeDashboard.ascx" />
     <Content Include="Config\grid.editors.config.js" />
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
@@ -534,7 +525,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -712,12 +705,6 @@
     <Content Include="Views\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\uSyncCore.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Config\uSyncBackOffice.Config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Merchello.UkFest.Web\Merchello.UkFest.Web.csproj">
       <Project>{b0c5fbcc-7e02-49ee-ad1b-4e6b8ff44624}</Project>
       <Name>Merchello.UkFest.Web</Name>
@@ -785,7 +772,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53039</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://merchello.ukfest.local</IISUrl>
+          <IISUrl>http://localhost:53039/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
