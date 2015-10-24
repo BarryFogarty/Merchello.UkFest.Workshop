@@ -2,25 +2,7 @@
 @using Merchello.UkFest.Web.Controllers
 @using (Html.BeginUmbracoForm<BasketController>("AddToBasket"))
 {
-    <div id="choice-wrapper">
-        @if (Model.PossibleChoices.Any())
-        {
-            <div class="sizes">
-
-                <h3>Available sizes</h3>
-                @foreach (var choice in Model.PossibleChoices)
-                {
-                    <label for="@choice.Value">
-                        <a href="#" @Umbraco.If(choice.Value == Model.OptionChoice.ToString(), "class=\"active\"")>@choice.Text</a>
-                        @Html.RadioButtonFor(model => model.OptionChoice, choice.Value, new { @class = "size-input" })
-                    </label>
-                }
-
-            </div>
-        }
-    </div>
-
-    if (Model.OnSale)
+   if (Model.OnSale)
     {
         <p class="price"><del>@Model.FormattedPrice</del> @Model.FormattedSalePrice</p>
     }

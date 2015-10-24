@@ -516,6 +516,7 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\Store.js" />
+    <Content Include="Views\Shared\_ProductList.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -531,8 +532,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -628,20 +627,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Home\ProductCarousel.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Account\LoginModal.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Partials\Home\Advantages.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_PromoBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -654,40 +640,16 @@
     <Content Include="Views\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Product\Collection.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Modal.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Pager.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_CategoryTree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_Sidebar.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\_SidebarLeft.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Product.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_RecentlyViewed.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Product\Featured.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\AddToBasket.cshtml" />
@@ -711,28 +673,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\SubCategory.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_CategoryNavItem.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\BasketTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_ProductBox.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_ProductBoxComplex.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\TextPage.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Home\StoreFeatures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Checkout\AddressForm.cshtml" />
@@ -772,7 +719,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53039</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53039/</IISUrl>
+          <IISUrl>http://localhost:53040/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

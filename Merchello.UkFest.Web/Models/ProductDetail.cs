@@ -16,7 +16,7 @@
         /// <summary>
         /// Gets or sets the key.
         /// </summary>
-        [DittoValueResolver(typeof(StoreRecentProductKeyValueResolver))]
+        //[DittoValueResolver(typeof(StoreRecentProductKeyValueResolver))]
         public Guid Key { get; set; }
 
         /// <summary>
