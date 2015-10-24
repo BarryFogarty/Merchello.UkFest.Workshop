@@ -516,7 +516,16 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\Store.js" />
+    <Content Include="Views\Category.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Product.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Views\Shared\_ProductList.cshtml" />
+    <Content Include="Views\SubCategory.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -700,6 +709,9 @@
     <Content Include="Views\Shared\_Address.cshtml">
       <SubType>Code</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Checkout\InvoiceSummary.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

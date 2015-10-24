@@ -289,8 +289,6 @@
     <Compile Include="Ditto\ValueResolvers\BasketLinkResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BrandingValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BreadcrumbValueResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\CategoryContentValueResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\PageTitleResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductListItemsValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\UpdateBasketValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\UrlTargetResolver.cs" />
@@ -333,9 +331,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Api\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
