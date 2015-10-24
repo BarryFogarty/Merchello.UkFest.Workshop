@@ -22,7 +22,7 @@
         {
             if (Content == null) return Enumerable.Empty<ProductListItem>();
 
-            var productListings = Content.VisibleChildren().Where(x => x.DocumentTypeAlias == "SubCategory").Select(x => x.As<ProductListing>());
+            var productListings = Content.VisibleDescendants().Where(x => x.DocumentTypeAlias == "SubCategory").Select(x => x.As<ProductListing>());
 
             foreach (var prodList in productListings)
             {

@@ -21,11 +21,11 @@
         public override object ResolveValue()
         {
             if (Content == null) return Guid.Empty;
+
             var product = Content as IProductContent;
             if (product == null) return Guid.Empty;
-            if (!product.ProductOptions.Any()) return Guid.Empty;
 
-            return product.ProductOptions.First().Choices.First().Key;
+            return !product.ProductOptions.Any() ? Guid.Empty : product.ProductOptions.First().Choices.First().Key;
         }
     }
 }

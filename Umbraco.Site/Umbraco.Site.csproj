@@ -517,6 +517,7 @@
     <Content Include="js\front.js" />
     <Content Include="js\jquery-1.11.0.min.js" />
     <Content Include="js\jquery.cookie.js" />
+    <Content Include="js\jquery.steps.min.js" />
     <Content Include="js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="js\jquery.validate.min.js" />
     <Content Include="js\jquery.validate.unobtrusive.min.js" />
@@ -660,7 +661,7 @@
     <Content Include="Views\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
@@ -669,7 +670,7 @@
     <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category\Collection.cshtml" />
+    <Content Include="Views\Partials\Product\Collection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Modal.cshtml" />
@@ -679,12 +680,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_CategoryTree.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Product\Filters\Brand.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Product\Filters\Colour.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_Sidebar.cshtml" />
@@ -744,9 +739,6 @@
     <Content Include="Views\Shared\_ProductBox.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Category\CategoryTop.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Shared\_ProductBoxComplex.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -766,6 +758,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Checkout\OrderConfirmation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Receipt.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

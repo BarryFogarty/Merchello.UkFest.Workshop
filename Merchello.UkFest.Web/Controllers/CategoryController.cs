@@ -12,28 +12,6 @@
     /// </summary>
     public class CategoryController : DitFloController
     {
-        /// <summary>
-        /// The category top.
-        /// </summary>
-        /// <param name="model">
-        /// The model.
-        /// </param>
-        /// <param name="page">
-        /// The page index.
-        /// </param>
-        /// <returns>
-        /// The <see cref="ActionResult"/>.
-        /// </returns>
-        public ActionResult CategoryTop(RenderModel model, long page = 1)
-        {
-            this.RegisterValueResolverContext(
-                new CategoryPagerResolverContext
-                {
-                    CurrentPage = page,
-                });
-
-            return this.CurrentView(model);
-        }
 
         /// <summary>
         /// The category.

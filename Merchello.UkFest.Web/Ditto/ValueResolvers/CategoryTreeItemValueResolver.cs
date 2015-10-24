@@ -9,7 +9,8 @@
     using Our.Umbraco.Ditto;
 
     /// <summary>
-    /// Resolves the surf category tree.
+    /// Resolves the store category tree.
+    /// TODO: workshop: simplify, use foreach? remove product count, replace extensions (e.g. (VisibleChildren => Children)
     /// </summary>
     public class CategoryTreeItemValueResolver : DittoValueResolver
     {

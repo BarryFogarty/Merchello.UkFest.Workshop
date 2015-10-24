@@ -67,6 +67,20 @@ namespace Merchello.UkFest.Web
         }
 
         /// <summary>
+        /// As above but iterating through all descendants.
+        /// </summary>
+        /// <param name="content">
+        /// The content.
+        /// </param>
+        /// <returns>
+        /// The <see cref="IEnumerable"/>.
+        /// </returns>
+        public static IEnumerable<IPublishedContent> VisibleDescendants(this IPublishedContent content)
+        {
+            return content.Descendants().Where(x => x.IsVisible());
+        }
+
+        /// <summary>
         /// The visible children.
         /// </summary>
         /// <param name="content">

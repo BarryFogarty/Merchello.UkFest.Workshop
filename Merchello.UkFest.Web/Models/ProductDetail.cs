@@ -57,6 +57,7 @@
 
         /// <summary>
         /// Gets or sets the add to basket.
+        /// TODO: workshop: Unbind or simplify (no product options perhaps)
         /// </summary>
         [DittoValueResolver(typeof(AddToBasketValueResolver))]
         public AddToBasket AddToBasket { get; set; }
