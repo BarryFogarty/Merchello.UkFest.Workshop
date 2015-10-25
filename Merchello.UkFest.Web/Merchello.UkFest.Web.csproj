@@ -265,6 +265,7 @@
     <Compile Include="Models\Checkout\DeliveryMethods.cs" />
     <Compile Include="Models\Checkout\DeliveryQuote.cs" />
     <Compile Include="Models\Checkout\PaymentMethods.cs" />
+    <Compile Include="Models\Header.cs" />
     <Compile Include="Models\Merchello\ProductLineItem.cs" />
     <Compile Include="Models\Merchello\InvoiceSummary.cs" />
     <Compile Include="Models\Merchello\Receipt.cs" />

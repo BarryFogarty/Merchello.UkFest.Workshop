@@ -1,11 +1,10 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
-
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Header>
 <div class="row">
     <div class="box text-center">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <h1>@Model.GetPropertyValue("headTitle")</h1>
-                <div class="text-muted">@Model.GetPropertyValue("headDescription")</div>
+                <h1>@Model.View.HeadTitle</h1>
+                <div class="text-muted">@Model.View.HeadDescription</div>
             </div>
         </div>
     </div>
