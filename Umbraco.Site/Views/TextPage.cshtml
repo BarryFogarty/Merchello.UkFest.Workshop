@@ -1,9 +1,10 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.TextPage>
 @{
     Layout = "_Sidebar.cshtml";
 }
 
-<!-- TODO Wire up Umbraco data --> 
+<h1>@Model.View.Title</h1>
+@Model.View.Text
 <hr/>
 
 
