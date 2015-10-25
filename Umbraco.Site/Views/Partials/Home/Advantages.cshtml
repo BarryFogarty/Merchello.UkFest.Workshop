@@ -1,4 +1,4 @@
-﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Header>
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 
 <div id="advantages">
 
@@ -7,8 +7,8 @@
         <div class="col-md-12">
 
             <div class="box text-center">
-                <h3 class="text-uppercase">@Model.View.Title</h3>
-                @Model.View.Brief
+                <h3 class="text-uppercase">@Model.GetPropertyValue("headTitle")</h3>
+                @Model.GetPropertyValue("headDescription")
                 
                 @Html.Partial("Home/StoreFeatures")
 
