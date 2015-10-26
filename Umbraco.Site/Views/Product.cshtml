@@ -1,4 +1,6 @@
-﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
+﻿@using Merchello.UkFest.Web
+@using Umbraco.Web.Models
+@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
 @{
     Layout = "_Sidebar.cshtml";
 }
@@ -7,8 +9,24 @@
 
     <div class="col-sm-6">
 
-        <!-- TODO: Product Photos -->
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=TODO:ProductPhotos&w=400&h=600">
+        <div id="mainImage">
+            @if (Model.View.Images.Any())
+            {
+                var mainImage = Model.View.Images.First();
+                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
+            }
+        </div>
+        
+        <div class="row" id="thumbs">
+            @foreach (var image in Model.View.Images)
+            {                       
+                <div class="col-xs-4 padding-md">
+                    <a href="@image.Url" class="thumb">
+                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive" />
+                    </a>
+                </div>                   
+            }
+        </div>
 
     </div>
 
@@ -21,7 +39,7 @@
 
         <div id="details">
             <h4>Product details</h4>
-            <!-- Get Details -->
+            @Model.View.Text
         </div>
         
         <div class="box social" id="product-social">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Merchello.UkFest.Web.Models
 {
@@ -22,6 +23,16 @@ namespace Merchello.UkFest.Web.Models
         /// Gets or sets the price.
         /// </summary>
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public IHtmlString Text { get; set; }
+
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        public virtual IEnumerable<Image> Images { get; set; }
 
     }
 }
