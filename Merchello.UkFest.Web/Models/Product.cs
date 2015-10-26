@@ -34,5 +34,21 @@ namespace Merchello.UkFest.Web.Models
         /// </summary>
         public virtual IEnumerable<Image> Images { get; set; }
 
+        /// <summary>
+        /// Gets or sets the URL.
+        /// </summary>
+        public string Url { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether on sale.
+        /// </summary>
+        public bool OnSale { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether is new.
+        /// </summary>
+        public bool IsNew { get; set; }
+
+
     }
 }

@@ -1,4 +1,4 @@
-﻿@using Merchello.UkFest.Web
+@using Merchello.UkFest.Web
 @using Umbraco.Web.Models
 @inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
 @{
@@ -16,21 +16,6 @@
                 <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
             }
         </div>
-        
-        @if (Model.View.OnSale)
-        {
-            <div class="ribbon sale">
-                <div class="theribbon">SALE</div>
-                <div class="ribbon-background"></div>
-            </div>
-        }
-        @if (Model.View.IsNew)
-        {
-            <div class="ribbon new">
-                <div class="theribbon">NEW</div>
-                <div class="ribbon-background"></div>
-            </div>
-        }
         
         <div class="row" id="thumbs">
             @foreach (var image in Model.View.Images)

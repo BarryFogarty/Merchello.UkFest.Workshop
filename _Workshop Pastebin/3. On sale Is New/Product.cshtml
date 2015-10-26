@@ -1,4 +1,4 @@
-﻿@using Merchello.UkFest.Web
+@using Merchello.UkFest.Web
 @using Umbraco.Web.Models
 @inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
 @{
@@ -16,8 +16,8 @@
                 <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
             }
         </div>
-        
-        @if (Model.View.OnSale)
+		
+		@if (Model.View.OnSale)
         {
             <div class="ribbon sale">
                 <div class="theribbon">SALE</div>
