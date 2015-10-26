@@ -122,7 +122,7 @@
                 () =>
                     {
                         var root = this.GetRootContent();
-                        return root.Descendants("Category").FirstOrDefault();
+                        return root.Descendants("Store").FirstOrDefault();
                     });
         }
     }

@@ -18,23 +18,7 @@ namespace Merchello.UkFest.Web
     /// </summary>
     public static class PublishedContentExtensions
     {
-        /// <summary>
-        /// The get image from cropper.
-        /// </summary>
-        /// <param name="content">
-        /// The content.
-        /// </param>
-        /// <param name="cropperAlias">
-        /// The cropper alias.
-        /// </param>
-        /// <returns>
-        /// The <see cref="IPublishedContent"/>.
-        /// </returns>
-        public static IPublishedContent GetImageFromCropper(this IPublishedContent content, string cropperAlias)
-        {
-            return content.WillWork(cropperAlias) ? content.GetPropertyValue<IPublishedContent>(cropperAlias) : null;
-        }
-
+        
         /// <summary>
         /// Determines if a property exists and if it has a value.
         /// </summary>
@@ -63,7 +47,7 @@ namespace Merchello.UkFest.Web
         /// </returns>
         public static IEnumerable<IPublishedContent> VisibleChildren(this IPublishedContent content)
         {
-            return content.Children.Where(x => x.IsVisible());
+            return content.Children != null ? content.Children.Where(x => x.IsVisible()) : Enumerable.Empty<IPublishedContent>();
         }
 
         /// <summary>
@@ -77,7 +61,7 @@ namespace Merchello.UkFest.Web
         /// </returns>
         public static IEnumerable<IPublishedContent> VisibleDescendants(this IPublishedContent content)
         {
-            return content.Descendants().Where(x => x.IsVisible());
+            return content.Descendants() != null ? content.Descendants().Where(x => x.IsVisible()) : Enumerable.Empty<IPublishedContent>();
         }
 
         /// <summary>

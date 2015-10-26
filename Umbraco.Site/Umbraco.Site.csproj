@@ -519,9 +519,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Shared\_ProductList.cshtml" />
-    <Content Include="Views\SubCategory.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

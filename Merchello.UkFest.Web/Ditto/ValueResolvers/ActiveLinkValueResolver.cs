@@ -17,11 +17,9 @@
         /// </returns>
         public override object ResolveValue()
         {
-            var umbracoContext = UmbracoContext.Current;
-
             if (Content == null) return false;
 
-            return Content.Id == umbracoContext.PublishedContentRequest.PublishedContent.Id;
+            return Content.Path.Contains(UmbracoContext.Current.PageId.ToString());
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Merchello.UkFest.Web.Models
+﻿using System.Web;
+
+namespace Merchello.UkFest.Web.Models
 {
     using Merchello.UkFest.Web.Ditto.ValueResolvers;
 
@@ -33,9 +35,13 @@
         [DittoValueResolver(typeof(ActiveLinkValueResolver))]
         public bool IsActive { get; set; }
 
-        public string ActiveCss()
+        /// <summary>
+        /// Helper method to return a string value when IsActive is true 
+        /// </summary>
+        /// <returns></returns>
+        public HtmlString ActiveCss()
         {
-            return this.IsActive ? "class=\"active\"" : string.Empty;
+            return this.IsActive ? new HtmlString("class=\"active\"") : new HtmlString(string.Empty);
         }
     } 
 }
