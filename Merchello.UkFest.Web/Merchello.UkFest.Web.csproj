@@ -270,6 +270,7 @@
     <Compile Include="Models\Merchello\InvoiceSummary.cs" />
     <Compile Include="Models\Merchello\Receipt.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductListing.cs" />
     <Compile Include="Models\TextPage.cs" />
     <Compile Include="StoreExtensions.cs" />
     <Compile Include="Constants.cs" />

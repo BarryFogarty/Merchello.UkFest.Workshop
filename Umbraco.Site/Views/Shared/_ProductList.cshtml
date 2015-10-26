@@ -1,11 +1,20 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.ProductListing>
 
 <div class="container">
 
     <div class="col-sm-12">
 
-        <!-- TODO: Iterate Product Listing -->
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=TODO:ProductListing&w=1110&h=800">
+        <div class="row products">
+            
+            @foreach (var product in Model.View.Products)
+            {                            
+                
+                    @Html.Partial("_ProductBox", product)
+                   
+            }
+
+        </div>
+        <!-- /.products -->
 
     </div>
     <!-- /.col-sm-12 -->
