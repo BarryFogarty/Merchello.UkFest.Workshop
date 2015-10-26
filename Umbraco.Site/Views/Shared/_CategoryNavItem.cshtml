@@ -7,12 +7,6 @@
     <li>
         <div class="yamm-content">
             <div class="row">
-                <div class="col-sm-3">
-                    @if (Model.WillWork("image"))
-                    {
-                        <img src="@Model.Image.GetCropUrl(height: 170)" class="img-responsive hidden-xs" alt="" />
-                    }                    
-                </div>
                 @foreach (var category in Model.VisibleChildren())
                 {
                     <div class="col-sm-3">

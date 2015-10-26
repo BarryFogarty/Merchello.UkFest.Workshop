@@ -23,10 +23,5 @@
         {
         }
 
-        /// <summary>
-        /// Gets or sets the image.
-        /// </summary>
-        public Image Image { get; set; }
-
     }
 }

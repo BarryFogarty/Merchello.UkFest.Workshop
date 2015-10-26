@@ -17,7 +17,7 @@ namespace Merchello.UkFest.Web.Ditto.TypeConverters
 
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
-            return value != null ? value.ToString().StripHtml().ReplaceNewLines(" ").TruncateAtWord(160) : string.Empty;
+            return value != null ? value.ToString().StripHtml() : string.Empty;
         }
     }
 }
