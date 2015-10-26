@@ -32,5 +32,10 @@
         /// </summary>
         [DittoValueResolver(typeof(ActiveLinkValueResolver))]
         public bool IsActive { get; set; }
+
+        public string ActiveCss()
+        {
+            return this.IsActive ? "class=\"active\"" : string.Empty;
+        }
     } 
 }

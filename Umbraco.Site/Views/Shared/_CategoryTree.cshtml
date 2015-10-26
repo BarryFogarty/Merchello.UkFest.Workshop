@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Category.CategoryTree>
 
 <div class="panel panel-default sidebar-menu">
 
@@ -7,9 +7,22 @@
     </div>
 
     <div class="panel-body">
-        
-        <!-- TODO: Iterate Product Listing -->
-        <img src="https://placeholdit.imgix.net/~text?txtsize=50&txt=TODO:Tree&w=225&h=600">
+        <ul class="nav nav-pills nav-stacked category-menu">
+            @foreach (var item in Model.View.Items)
+            {
+                <li @item.CategoryLink.ActiveCss()>
+                    <a href="@item.CategoryLink.Url">@item.CategoryLink.Title</a>
+                    <ul>
+                        @foreach (var sub in item.SubLinks)
+                        {
+                            <li @sub.ActiveCss()>
+                                <a href="@sub.Url">@sub.Title</a>
+                            </li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
 
     </div>
 </div>

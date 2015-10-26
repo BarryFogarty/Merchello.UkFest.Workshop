@@ -252,6 +252,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="Ditto\Contexts\CheckoutStageResolverContext.cs" />
     <Compile Include="Ditto\Contexts\ReceiptValueResolverContext.cs" />
+    <Compile Include="Ditto\ValueResolvers\CategoryTreeItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\CheckoutStageValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\CollectionTotalValueResolver.cs" />
@@ -262,6 +263,8 @@
     <Compile Include="Ditto\ValueResolvers\Merchello\OrderSummaryValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\ProductLineItemsValueResolver.cs" />
     <Compile Include="Models\Account\CustomerOrder.cs" />
+    <Compile Include="Models\Category\CategoryTree.cs" />
+    <Compile Include="Models\Category\CategoryTreeItem.cs" />
     <Compile Include="Models\Checkout\DeliveryMethods.cs" />
     <Compile Include="Models\Checkout\DeliveryQuote.cs" />
     <Compile Include="Models\Checkout\PaymentMethods.cs" />
@@ -328,9 +331,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Category\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
