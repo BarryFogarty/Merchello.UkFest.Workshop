@@ -18,6 +18,6 @@ namespace Merchello.UkFest.Web.Models
         /// Gets or sets the brief.
         /// </summary>
         [TypeConverter(typeof(MetaDescriptionConverter))]
-        public IHtmlString Description { get; set; }
+        public string Description { get; set; }
     }
 }
