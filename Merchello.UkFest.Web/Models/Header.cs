@@ -9,6 +9,7 @@ namespace Merchello.UkFest.Web.Models
         /// <summary>
         /// Gets or sets the title.
         /// </summary>
+        [UmbracoProperty("HeadTitle", "Name")]
         public string Title { get; set; }
 
         /// <summary>
