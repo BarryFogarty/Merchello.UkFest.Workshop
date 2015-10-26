@@ -3,8 +3,8 @@
 Umbraco & Merchello site for the UK Umbraco festival workshop, 29 October 2015
 Backoffice login details:  
 
-* u: admin
-* p: admin
+* u: admin@admin.com
+* p: 1234
 
 
 ### Contributors ###

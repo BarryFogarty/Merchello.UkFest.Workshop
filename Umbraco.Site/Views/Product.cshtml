@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
 @{
     Layout = "_Sidebar.cshtml";
 }
@@ -16,6 +16,7 @@
 
         <div id="add-basket">
             <!-- TODO: Add to Basket Partial -->
+            <p>@Model.View.Price.ToString("C")</p>
         </div>
 
         <div id="details">
