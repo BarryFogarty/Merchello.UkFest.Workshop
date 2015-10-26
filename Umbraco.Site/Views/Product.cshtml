@@ -48,8 +48,7 @@
     <div class="col-sm-6">
 
         <div id="add-basket">
-            <!-- TODO: Add to Basket Partial -->
-            <p>@Model.View.Price.ToString("C")</p>
+            @Html.Partial("Basket/AddToBasket", Model.View.AddToBasket)
         </div>
 
         <div id="details">

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using Merchello.UkFest.Web.Ditto.ValueResolvers;
+using Our.Umbraco.Ditto;
 
 namespace Merchello.UkFest.Web.Models
 {
@@ -49,6 +51,11 @@ namespace Merchello.UkFest.Web.Models
         /// </summary>
         public bool IsNew { get; set; }
 
+        /// <summary>
+        /// Gets or sets the add to basket.
+        /// </summary>
+        [DittoValueResolver(typeof(AddToBasketValueResolver))]
+        public AddToBasket AddToBasket { get; set; }
 
     }
 }
