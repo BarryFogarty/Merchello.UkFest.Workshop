@@ -252,6 +252,7 @@
     <Compile Include="AppSettings.cs" />
     <Compile Include="Ditto\Contexts\CheckoutStageResolverContext.cs" />
     <Compile Include="Ditto\Contexts\ReceiptValueResolverContext.cs" />
+    <Compile Include="Ditto\ValueResolvers\Merchello\BasketContentResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketItemValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\CheckoutStageValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\CollectionTotalValueResolver.cs" />
@@ -286,7 +287,6 @@
     <Compile Include="Models\Checkout\CheckoutStageBase.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketItemCountResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\Merchello\BasketLinkResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BreadcrumbValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductListItemsValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\UpdateBasketValueResolver.cs" />
