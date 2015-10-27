@@ -1,7 +1,6 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.ValueResolvers
 {
     using Merchello.UkFest.Web.Ditto.Contexts;
-    using Merchello.Web;
 
     using Our.Umbraco.Ditto;
 
@@ -18,7 +17,7 @@
         /// </returns>
         public override object ResolveValue()
         {
-            if (Content == null) return 0;
+            if (Context == null || Context.Basket == null) return 0;
             return Context.Basket.TotalQuantityCount;
         }
     }
