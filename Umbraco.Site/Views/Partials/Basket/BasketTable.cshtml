@@ -41,7 +41,7 @@
                                 @Html.HiddenFor(model => Model.Items[i].ProductKey)
                             </td>
                         </tr>
-                    }                   
+                    }
                 </tbody>
                 <tfoot>
                     <tr>
@@ -61,7 +61,7 @@
             @if (Model.Items.Any())
             {
                 <div class="pull-right">
-                    <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>                
+                    <button class="btn btn-default"><i class="fa fa-refresh"></i> Update cart</button>
                     <a href="@Url.Action("StartCheckout", "Checkout")" class="btn btn-primary">
                         Proceed to checkout <i class="fa fa-chevron-right"></i>
                     </a>
