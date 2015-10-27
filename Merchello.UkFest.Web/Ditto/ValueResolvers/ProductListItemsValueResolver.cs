@@ -30,6 +30,8 @@
 
             var products = Content.GetPropertyValue<IEnumerable<IProductContent>>("products");
 
+            if (products == null) return empty;
+
             return products.Select(x => x.AsProductListItem());
         }
     }
