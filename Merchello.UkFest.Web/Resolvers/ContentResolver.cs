@@ -2,6 +2,7 @@
 {
     using System.Linq;
 
+    using Umbraco.Core;
     using Umbraco.Core.Models;
     using Umbraco.Web;
 
@@ -53,8 +54,7 @@
                 "Home",
                 () =>
                 {
-                    var umbraco = new UmbracoHelper(UmbracoContext);
-                    return umbraco.TypedContentSingleAtXPath(RootXpath);
+                    return UmbracoContext.ContentCache.GetSingleByXPath(RootXpath);
                 });
         }
 
@@ -71,7 +71,7 @@
                 () =>
                 {
                     var root = this.GetRootContent();
-                    return root.Descendant("Basket");
+                    return root.FirstChild(x => x.DocumentTypeAlias.InvariantEquals("Basket"));
                 });
         }
 
@@ -86,10 +86,10 @@
             return TryGetUniquePageContent(
                 "Receipt",
                 () =>
-                    {
-                        var root = this.GetRootContent();
-                        return root.Descendant("Receipt");
-                    });
+                {
+                    var root = this.GetRootContent();
+                    return root.FirstChild(x => x.DocumentTypeAlias.InvariantEquals("Receipt"));
+                });
         }
 
         /// <summary>
@@ -103,10 +103,10 @@
             return TryGetUniquePageContent(
                 "Checkout",
                 () =>
-                    {
-                        var basket = this.GetBasketContent();
-                        return basket.FirstChild();
-                    });
+                {
+                    var basket = this.GetBasketContent();
+                    return basket.FirstChild();
+                });
         }
 
         /// <summary>
@@ -120,10 +120,10 @@
             return this.GetByAlias(
                 "Store",
                 () =>
-                    {
-                        var root = this.GetRootContent();
-                        return root.Descendants("Store").FirstOrDefault();
-                    });
+                {
+                    var root = this.GetRootContent();
+                    return root.FirstChild(x => x.DocumentTypeAlias.InvariantEquals("Store"));
+                });
         }
     }
 }
