@@ -294,7 +294,7 @@
     <Compile Include="Models\Checkout\CheckoutStageBase.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketItemCountResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\Merchello\BasketLinkResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\Merchello\BasketContentResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BreadcrumbValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductListItemsValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\UpdateBasketValueResolver.cs" />

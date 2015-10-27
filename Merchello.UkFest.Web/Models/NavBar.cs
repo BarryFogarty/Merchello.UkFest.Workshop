@@ -34,7 +34,7 @@
         /// <summary>
         /// Gets or sets the link to the basket.
         /// </summary>
-        [DittoValueResolver(typeof(BasketLinkResolver))]
+        [DittoValueResolver(typeof(BasketContentResolver))]
         public Link BasketLink { get; set; }
 
         /// <summary>
@@ -42,6 +42,5 @@
         /// </summary>
         [DittoValueResolver(typeof(BasketItemCountResolver))]
         public int BasketItemCount { get; set; }
- 
     }
 }
