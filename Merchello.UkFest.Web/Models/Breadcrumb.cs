@@ -15,6 +15,6 @@
         /// Gets or sets the links.
         /// </summary>
         [DittoValueResolver(typeof(BreadcrumbValueResolver))]
-        public virtual IEnumerable<Link> Links { get; set; } 
+        public virtual IEnumerable<Link> Links { get; set; }
     }
 }
