@@ -28,7 +28,7 @@
         /// <remarks>
         /// Cannot use recursive properties here due to IPublishedProduct (virtual content)
         /// </remarks>
-        [DittoValueResolver(typeof(BrandingValueResolver))]
+        [DittoValueResolver(typeof(RootContentResolver))]
         public Branding Branding { get; set; }
 
         /// <summary>
