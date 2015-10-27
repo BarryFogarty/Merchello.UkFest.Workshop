@@ -1,14 +1,13 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.ValueResolvers
 {
-    using Merchello.UkFest.Web.Models;
     using Merchello.UkFest.Web.Resolvers;
 
     using Our.Umbraco.Ditto;
 
     /// <summary>
-    /// A resolver for the basket Url.
+    /// A value resolver for the website's basket node.
     /// </summary>
-    public class BasketLinkResolver : DittoValueResolver
+    public class BasketContentResolver : DittoValueResolver
     {
         /// <summary>
         /// The resolve value.
@@ -18,13 +17,7 @@
         /// </returns>
         public override object ResolveValue()
         {
-            if (Content == null) return null;
-            var basket = ContentResolver.Instance.GetBasketContent();
-            return new Link
-                {
-                    Url = basket.Url,
-                    Title = basket.Name
-                };
+            return ContentResolver.Instance.GetBasketContent();
         }
     }
 }
