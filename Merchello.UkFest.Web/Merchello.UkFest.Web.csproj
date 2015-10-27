@@ -262,6 +262,7 @@
     <Compile Include="Ditto\ValueResolvers\NavBarValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\OrderSummaryValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\ProductLineItemsValueResolver.cs" />
+    <Compile Include="Ditto\ValueResolvers\RootContentResolver.cs" />
     <Compile Include="Models\Account\CustomerOrder.cs" />
     <Compile Include="Models\Category\CategoryTree.cs" />
     <Compile Include="Models\Category\CategoryTreeItem.cs" />
@@ -294,7 +295,6 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketItemCountResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\BasketLinkResolver.cs" />
-    <Compile Include="Ditto\ValueResolvers\BrandingValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\BreadcrumbValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\ProductListItemsValueResolver.cs" />
     <Compile Include="Ditto\ValueResolvers\Merchello\UpdateBasketValueResolver.cs" />
