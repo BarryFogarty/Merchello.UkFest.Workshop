@@ -53,7 +53,7 @@
         <!--/.nav-collapse -->
 
         <div class="navbar-collapse collapse right" id="basket-overview">
-            <a href="@Model.View.BasketLink.Url" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">@Model.View.BasketItemCount items <span class="hidden-md">in @Model.View.BasketLink.Title</span></span></a>
+            <a href="@Model.View.BasketLink.Url" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">@Model.View.BasketItemCount @Umbraco.If(Model.View.BasketItemCount == 1, "item", "items") <span class="hidden-md">in @Model.View.BasketLink.Title</span></span></a>
         </div>
         <!--/.nav-collapse -->
 
