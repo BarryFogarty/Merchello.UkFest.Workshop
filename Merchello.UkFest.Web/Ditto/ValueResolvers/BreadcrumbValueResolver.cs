@@ -1,11 +1,11 @@
 ﻿namespace Merchello.UkFest.Web.Ditto.ValueResolvers
 {
-    using System.Collections.Generic;
     using System.Linq;
 
-    using Merchello.UkFest.Web.Models;
-
     using Our.Umbraco.Ditto;
+
+    using Umbraco.Core.Models;
+    using Umbraco.Web;
 
     /// <summary>
     /// The breadcrumb value resolver.
@@ -20,20 +20,9 @@
         /// </returns>
         public override object ResolveValue()
         {
-            if (Content == null) return Enumerable.Empty<Link>();
+            if (Content == null) return Enumerable.Empty<IPublishedContent>();
 
-            var list = new List<Link>();
-            var current = Content;
-            while (current.Parent != null)
-            {
-                list.Add(current.As<Link>());
-                current = current.Parent;
-            }
-
-            list.Add(current.As<Link>());
-
-            list.Reverse();
-            return list;
+            return Content.AncestorsOrSelf().Reverse();
         }
     }
 }
