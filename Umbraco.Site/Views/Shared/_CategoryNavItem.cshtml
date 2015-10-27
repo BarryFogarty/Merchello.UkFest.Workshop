@@ -11,7 +11,7 @@
                     @if (Model.WillWork("image"))
                     {
                         <img src="@Model.Image.GetCropUrl(height: 170)" class="img-responsive hidden-xs" alt="" />
-                    }                    
+                    }
                 </div>
                 @foreach (var category in Model.VisibleChildren())
                 {
@@ -23,7 +23,7 @@
                                 <li>
                                     <a href="@subCategory.Url">@subCategory.Name</a>
                                 </li>
-                            }                           
+                            }
                         </ul>
                     </div>
                 }
