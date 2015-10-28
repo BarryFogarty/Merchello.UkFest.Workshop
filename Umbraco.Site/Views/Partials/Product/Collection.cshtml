@@ -1,0 +1,57 @@
+﻿@* WORKSHOP: Create this (unpaged) *@
+
+@inherits UmbracoViewPage<PagedCollection<ProductListItem>>
+@using Merchello.UkFest.Web.Models
+
+@* Display options *@
+<div class="box info-bar no-border">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 products-showing">
+            Showing <strong>@Model.Items.Count()</strong> of <strong>@Model.TotalItems</strong> products                            
+        </div>
+
+        <div class="col-sm-12 col-md-8  products-number-sort">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="products-number">
+                            <strong>Show</strong>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 6 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 6, "btn-primary")">6</a>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 12 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 12, "btn-primary")">12</a>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = 24 })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize == 24, "btn-primary")">24</a>  
+                            <a href="@Url.SurfaceAction("SetPageSize", "Category", new { itemCount = int.MaxValue })" class="btn btn-default btn-sm @Umbraco.If(Model.PageSize > 24, "btn-primary")">All</a>  
+                            <span class="hidden-md">products</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="products-sort-by">
+                            <strong>Sort by</strong>
+                            <select name="sort-by" class="form-control" id="sort-by">
+                                <option @Umbraco.If(Model.SortField == "Price", "selected")>Price</option>
+                                <option @Umbraco.If(Model.SortField == "Name", "selected")>Name</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Product Grid *@
+<div class="row products">
+    
+    @foreach (var product in Model.Items)
+    {
+
+        <div class="col-md-4 col-sm-6">
+            @Html.Partial("_ProductBoxComplex", product)
+        </div>
+    }
+    
+    @Html.Partial("_Modal")
+
+</div>
+<!-- /.products -->
+
+@Html.Partial("_Pager")

@@ -1,4 +1,6 @@
-﻿namespace Merchello.UkFest.Web
+﻿using Umbraco.Core;
+
+namespace Merchello.UkFest.Web
 {
     using System;
     using System.Collections.Generic;
@@ -46,6 +48,43 @@
                        };
         }
 
+<<<<<<< HEAD
         
+=======
+        /// <summary>
+        /// Maps <see cref="IProductContent"/> to <see cref="ModalProduct"/>.
+        /// </summary>
+        /// <param name="product">
+        /// The product.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ModalProduct"/>.
+        /// </returns>
+        public static ModalProduct AsModalProduct(this IProductContent product)
+        {
+            var choices = product.ProductOptions.Any() ?
+                    product.ProductOptions.First()
+                    .Choices.Select(x => new Tuple<string, string>(x.Key.ToString(), x.Name)) :
+                    Enumerable.Empty<Tuple<string, string>>();
+           
+            return new ModalProduct
+                       {
+                           Key = product.Key,
+                           Name = product.Name,
+                           Url = product.Url,
+                           Price = StoreHelper.FormatCurrency(product.Price),
+                           SalePrice = StoreHelper.FormatCurrency(product.SalePrice),
+                           OnSale = product.OnSale,
+                           IsNew = product.WillWork("isNew") && product.GetPropertyValue<bool>("isNew"),
+                           Images =
+                               product.WillWork("images")
+                                   ? product.GetPropertyValue<IEnumerable<IPublishedContent>>("images")
+                                         .Select(x => x.Url)
+                                   : Enumerable.Empty<string>(),
+                           PossibleChoices = choices,
+                           Description = product.GetPropertyValue<string>("text").StripHtml()
+                       };
+        }
+>>>>>>> Fixes modal product description Defaults paging to 6 Reinstalls semver to remove VS build warning
     }
 }

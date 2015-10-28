@@ -49,7 +49,7 @@ var Store = {
             var key = $(link).data('productmodal');
             $.get(Store.Modal.apiEndPoint + 'modal', { key: key }, function (data) {
                 $('#modal-name').text(data.name);
-                $('#modal-desc').text(data.description);
+                $('#modal-desc').text(data.description || '');
                 console.info(data);
                 if (data.onSale) {
                     $('#modal-onsale').show();
