@@ -80,7 +80,9 @@ namespace Merchello.UkFest.Web
                                          .Select(x => x.Url)
                                    : Enumerable.Empty<string>(),
                            PossibleChoices = choices,
-                           Description = product.GetPropertyValue<string>("text").StripHtml()
+                           Description = product.WillWork("text") 
+                                            ? product.GetPropertyValue<string>("text").StripHtml()
+                                            : string.Empty
                        };
         }
     }
