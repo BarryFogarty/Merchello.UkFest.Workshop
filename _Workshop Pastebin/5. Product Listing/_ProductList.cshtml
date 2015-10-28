@@ -1,0 +1,20 @@
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.ProductListing>
+
+<div class="container">
+
+    <div class="col-sm-12">
+
+        <div class="row products">
+            
+            @foreach (var product in Model.View.Products)
+            {
+                @Html.Partial("_ProductBox", product)
+            }
+
+        </div>
+        <!-- /.products -->
+
+    </div>
+    <!-- /.col-sm-12 -->
+
+</div>
