@@ -8,6 +8,7 @@ namespace Merchello.UkFest.Web
 
     using Merchello.Core.Models;
     using Merchello.UkFest.Web.Models;
+    using Merchello.UkFest.Web.Models.Api;
     using Merchello.Web.Models.VirtualContent;
 
     using Umbraco.Core.Models;
@@ -48,9 +49,6 @@ namespace Merchello.UkFest.Web
                        };
         }
 
-<<<<<<< HEAD
-        
-=======
         /// <summary>
         /// Maps <see cref="IProductContent"/> to <see cref="ModalProduct"/>.
         /// </summary>
@@ -85,6 +83,5 @@ namespace Merchello.UkFest.Web
                            Description = product.GetPropertyValue<string>("text").StripHtml()
                        };
         }
->>>>>>> Fixes modal product description Defaults paging to 6 Reinstalls semver to remove VS build warning
     }
 }

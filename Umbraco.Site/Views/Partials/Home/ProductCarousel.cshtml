@@ -1,0 +1,11 @@
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Carousel>
+<div id="slider" class="owl-carousel owl-theme">
+    @foreach (var item in Model.View.Items)
+    {
+        <div class="item">
+            <a href="@item.Url">
+                <img src="@item.ImageUrl" alt="" class="img-responsive">
+            </a>
+        </div>
+    }
+</div>

@@ -38,7 +38,18 @@
 
             var product = merchello.Query.Product.GetByKey(model.ProductKey);
 
-            Basket.AddItem(product, product.Name, 1);
+            if (model.OptionChoice != Guid.Empty)
+            {
+                var extendedData = new ExtendedDataCollection();
+                var variant = product.GetProductVariantDisplayWithAttributes(new[] { model.OptionChoice });
+                //// serialize the attributes here as they are need in the design
+                extendedData.SetValue(Constants.ExtendedDataKeys.BasketItemAttributes, JsonConvert.SerializeObject(variant.Attributes));
+                Basket.AddItem(variant, variant.Name, 1, extendedData);
+            }
+            else
+            {
+                Basket.AddItem(product, product.Name, 1);
+            }
 
             Basket.Save();
 

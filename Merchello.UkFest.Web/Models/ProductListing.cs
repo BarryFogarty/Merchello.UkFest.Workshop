@@ -15,8 +15,8 @@
         /// <summary>
         /// Gets or sets the collection name.
         /// </summary>
-        //[DittoValueResolver(typeof(ProductCollectionNameValueResolver))]
-        //public string CollectionName { get; set; }
+        [DittoValueResolver(typeof(ProductCollectionNameValueResolver))]
+        public string CollectionName { get; set; }
 
         /// <summary>
         /// Gets or sets the products.

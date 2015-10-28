@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Merchello.UkFest.Demo</RootNamespace>
     <AssemblyName>Merchello.UkFest.Demo</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -181,14 +181,9 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
-<<<<<<< HEAD
-    <Reference Include="Semver">
-      <HintPath>..\packages\semver.1.1.2\lib\net45\Semver.dll</HintPath>
-=======
     <Reference Include="Semver, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
       <Private>True</Private>
->>>>>>> Fixes modal product description Defaults paging to 6 Reinstalls semver to remove VS build warning
     </Reference>
     <Reference Include="SQLCE4Umbraco, Version=1.0.5750.18162, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -318,6 +313,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Plugins\Merchello\assets\css\merchello.css" />
     <Content Include="App_Plugins\Merchello\assets\css\merchello.min.css" />
     <Content Include="App_Plugins\Merchello\assets\images\github_thumb.jpg" />
@@ -518,16 +516,6 @@
     <Content Include="js\owl.carousel.min.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\Store.js" />
-    <Content Include="Views\Category.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Product.cshtml">
-      <SubType>Code</SubType>
-    </Content>
-    <Content Include="Views\Shared\_ProductList.cshtml" />
-    <Content Include="Views\SubCategory.cshtml">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -638,7 +626,20 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Partials\Home\ProductCarousel.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Account\LoginModal.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Partials\Home\Advantages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_PromoBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -651,16 +652,40 @@
     <Content Include="Views\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Category.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Shared\_Breadcrumbs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Partials\Product\Collection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Modal.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Shared\_CategoryTree.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_Sidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_SidebarLeft.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_RecentlyViewed.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Product\Featured.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\AddToBasket.cshtml" />
@@ -684,13 +709,28 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\SubCategory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\Shared\_CategoryNavItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\Basket\BasketTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\Shared\_ProductBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ProductBoxComplex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Views\TextPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Home\StoreFeatures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Checkout\AddressForm.cshtml" />
@@ -712,12 +752,6 @@
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Checkout\InvoiceSummary.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Partials\Home\StoreFeatures.cshtml" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -736,7 +770,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53039</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53040/</IISUrl>
+          <IISUrl>http://localhost:53039/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

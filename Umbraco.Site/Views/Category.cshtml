@@ -1,8 +1,9 @@
-﻿@{
+﻿@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Category.Category>
+@{
     Layout = "_Sidebar.cshtml";
 }
 
-@Html.Partial("_ProductList")
+@Html.Partial("Product/Collection", Model.View.Pager)
 
 @section Sidebar {
     @Html.Partial("_CategoryTree")

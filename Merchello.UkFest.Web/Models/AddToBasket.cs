@@ -19,7 +19,7 @@
         /// </summary>
         public AddToBasket()
         {
-             
+            this.PossibleChoices = Enumerable.Empty<SelectListItem>();    
         }
 
         /// <summary>
@@ -27,6 +27,26 @@
         /// </summary>
         [UmbracoProperty("Key")]
         public Guid ProductKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the option choices (if there are any), used to determine the variant 
+        /// in post back
+        /// </summary>
+        /// <remarks>
+        /// Sets the inital radio button
+        /// </remarks>
+        [DittoValueResolver(typeof(OptionChoiceValueResolver))]
+        public Guid OptionChoice { get; set; }
+
+        /// <summary>
+        /// Gets or sets the product options.
+        /// </summary>
+        /// <remarks>
+        /// This will be empty if the product does not have variants.
+        /// In this build we are assuming that a product has no more that a single option.
+        /// </remarks>
+        [DittoValueResolver(typeof(ProductOptionsListItemValueResolver))]
+        public IEnumerable<SelectListItem> PossibleChoices { get; set; }
 
         /// <summary>
         /// Gets or sets the formatted price.
