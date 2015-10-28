@@ -1,0 +1,61 @@
+@using Merchello.UkFest.Web
+@using Umbraco.Web.Models
+@inherits Merchello.UkFest.Web.Mvc.DitFloView<Merchello.UkFest.Web.Models.Product>
+@{
+    Layout = "_Sidebar.cshtml";
+}
+
+<div class="row" id="productMain">
+
+    <div class="col-sm-6">
+
+        <div id="mainImage">
+            @if (Model.View.Images.Any())
+            {
+                var mainImage = Model.View.Images.First();
+                <img src="@mainImage.GetCrop(width: 409)" alt="@mainImage.Name" class="img-responsive" />
+            }
+        </div>
+        
+        <div class="row" id="thumbs">
+            @foreach (var image in Model.View.Images)
+            {                       
+                <div class="col-xs-4 padding-md">
+                    <a href="@image.Url" class="thumb">
+                        <img src="@image.GetCrop(130, 130, ImageCropMode.Crop)" alt="@image.Name" class="img-responsive" />
+                    </a>
+                </div>                   
+            }
+        </div>
+
+    </div>
+
+    <div class="col-sm-6">
+
+        <div id="add-basket">
+            <!-- TODO: Add to Basket Partial -->
+            <p>@Model.View.Price.ToString("C")</p>
+        </div>
+
+        <div id="details">
+            <h4>Product details</h4>
+            @Model.View.Text
+        </div>
+        
+        <div class="box social" id="product-social">
+            <h4>Show it to your friends</h4>
+            <p>
+                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+@section Sidebar {
+    @Html.CachedPartial("_CategoryTree", null, 500)
+}
