@@ -16,7 +16,7 @@
     <AssemblyName>Merchello.UkFest.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -25,6 +25,7 @@
     <RestorePackages>true</RestorePackages>
     <NuGetPackageImportStamp>fcd90241</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -770,7 +771,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53039</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53039/</IISUrl>
+          <IISUrl>http://merchello.ukfest.local/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

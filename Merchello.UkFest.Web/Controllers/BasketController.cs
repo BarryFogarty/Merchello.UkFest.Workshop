@@ -30,7 +30,9 @@
         [HttpPost]
         public ActionResult AddToBasket(AddToBasket model)
         {
-            // Disable VAT in initial lookup so we don't double tax
+
+            // Disable VAT in initial lookup so we don't double tax 
+            // Tax calc is a DataModifier chain process and if its set to true here it will perform the calculation twice
             var merchello = new MerchelloHelper(false);
 
             // we want to include VAT
